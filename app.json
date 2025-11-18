@@ -1,0 +1,461 @@
+{
+  "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
+  "id": "com.duux.gen2",
+  "version": "1.0.0",
+  "compatibility": ">=12.4.0",
+  "sdk": 3,
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "Duux Gen2",
+    "nl": "Duux Gen2"
+  },
+  "description": {
+    "en": "The next generation of Duux",
+    "nl": "De volgende generatie van Duux"
+  },
+  "category": [
+    "climate"
+  ],
+  "source": "https://github.com/smarthomesven/homey-duux-gen2",
+  "bugs": {
+    "url": "https://github.com/smarthomesven/homey-duux-gen2/issues"
+  },
+  "permissions": [],
+  "brandColor": "#01B0B1",
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Sven Serlier",
+    "email": "sven@dypodex.com"
+  },
+  "flow": {
+    "triggers": [
+      {
+        "id": "laundry_mode_enabled",
+        "title": {
+          "en": "Laundry mode enabled",
+          "nl": "Wasdroogstand ingeschakeld"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=bora"
+          }
+        ]
+      },
+      {
+        "id": "laundry_mode_disabled",
+        "title": {
+          "en": "Laundry mode disabled",
+          "nl": "Wasdroogstand uitgeschakeld"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=bora"
+          }
+        ]
+      },
+      {
+        "id": "child_lock_enabled",
+        "title": {
+          "en": "Child lock enabled",
+          "nl": "Kinderslot ingeschakeld"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=bora"
+          }
+        ]
+      },
+      {
+        "id": "child_lock_disabled",
+        "title": {
+          "en": "Child lock disabled",
+          "nl": "Kinderslot uitgeschakeld"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=bora"
+          }
+        ]
+      },
+      {
+        "id": "mode_changed",
+        "title": {
+          "en": "Mode changed",
+          "nl": "Modus veranderd"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=bora"
+          }
+        ]
+      },
+      {
+        "id": "fanmode_changed",
+        "title": {
+          "en": "Fan speed changed",
+          "nl": "Ventilatorsnelheid veranderd"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=bora"
+          }
+        ]
+      }
+    ],
+    "conditions": [
+      {
+        "id": "laundry_mode_condition",
+        "title": {
+          "en": "Laundry mode is !{{enabled|disabled}}",
+          "nl": "Wasdroogstand is !{{ingeschakeld|uitgeschakeld}}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=bora"
+          }
+        ]
+      },
+      {
+        "id": "child_lock_condition",
+        "title": {
+          "en": "Child lock is !{{enabled|disabled}}",
+          "nl": "Kinderslot is !{{ingeschakeld|uitgeschakeld}}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=bora"
+          }
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "id": "enable_laundry_mode",
+        "title": {
+          "en": "Enable laundry mode",
+          "nl": "Wasdroogstand inschakelen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=bora"
+          }
+        ]
+      },
+      {
+        "id": "disable_laundry_mode",
+        "title": {
+          "en": "Disable laundry mode",
+          "nl": "Wasdroogstand uitschakelen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=bora"
+          }
+        ]
+      },
+      {
+        "id": "enable_child_lock",
+        "title": {
+          "en": "Enable child lock",
+          "nl": "Kinderslot inschakelen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=bora"
+          }
+        ]
+      },
+      {
+        "id": "disable_child_lock",
+        "title": {
+          "en": "Disable child lock",
+          "nl": "Kinderslot uitschakelen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=bora"
+          }
+        ]
+      },
+      {
+        "id": "enable_night_mode",
+        "title": {
+          "en": "Enable night mode",
+          "nl": "Nachtstand inschakelen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=bora"
+          }
+        ]
+      },
+      {
+        "id": "disable_night_mode",
+        "title": {
+          "en": "Disable night mode",
+          "nl": "Nachtstand uitschakelen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=bora"
+          }
+        ]
+      },
+      {
+        "id": "set_mode",
+        "title": {
+          "en": "Set mode",
+          "nl": "Modus instellen"
+        },
+        "titleFormatted": {
+          "en": "Set mode to [[mode]]",
+          "nl": "Modus instellen op [[mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=bora"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "label": {
+                  "en": "Auto",
+                  "nl": "Auto"
+                }
+              },
+              {
+                "id": "continuous",
+                "label": {
+                  "en": "Continuous",
+                  "nl": "Continu"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "set_fan_speed",
+        "title": {
+          "en": "Set fan speed",
+          "nl": "Ventilatorsnelheid instellen"
+        },
+        "titleFormatted": {
+          "en": "Set fan speed to [[speed]]",
+          "nl": "Ventilatorsnelheid instellen op [[speed]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=bora"
+          },
+          {
+            "name": "speed",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "one",
+                "label": {
+                  "en": "I",
+                  "nl": "I"
+                }
+              },
+              {
+                "id": "two",
+                "label": {
+                  "en": "II",
+                  "nl": "II"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "drivers": [
+    {
+      "name": {
+        "en": "Bora",
+        "nl": "Bora"
+      },
+      "class": "dehumidifier",
+      "capabilities": [
+        "measure_humidity",
+        "target_humidity",
+        "onoff",
+        "mode",
+        "fanmode",
+        "child_lock",
+        "laundry_mode"
+      ],
+      "capabilitiesOptions": {
+        "target_humidity": {
+          "min": 0,
+          "max": 1,
+          "step": 0.05
+        }
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "cloud"
+      ],
+      "images": {
+        "small": "/drivers/bora/assets/images/small.png",
+        "large": "/drivers/bora/assets/images/large.png",
+        "xlarge": "/drivers/bora/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "email"
+        },
+        {
+          "id": "code"
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          },
+          "options": {
+            "singular": false
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "repair": [
+        {
+          "id": "email"
+        },
+        {
+          "id": "code"
+        }
+      ],
+      "id": "bora"
+    }
+  ],
+  "capabilities": {
+    "child_lock": {
+      "type": "boolean",
+      "title": {
+        "en": "Child lock",
+        "nl": "Kinderslot"
+      },
+      "getable": true,
+      "setable": true,
+      "uiComponent": "button",
+      "uiQuickAction": false,
+      "icon": "/assets/child_lock.svg"
+    },
+    "fanmode": {
+      "type": "enum",
+      "title": {
+        "en": "Fan speed",
+        "nl": "Ventilatorsnelheid"
+      },
+      "uiComponent": "picker",
+      "getable": true,
+      "setable": true,
+      "values": [
+        {
+          "id": "one",
+          "title": {
+            "en": "I",
+            "nl": "I"
+          }
+        },
+        {
+          "id": "two",
+          "title": {
+            "en": "II",
+            "nl": "II"
+          }
+        }
+      ]
+    },
+    "laundry_mode": {
+      "type": "boolean",
+      "title": {
+        "en": "Laundry mode",
+        "nl": "Wasdroogstand"
+      },
+      "getable": true,
+      "setable": true,
+      "uiComponent": "button",
+      "uiQuickAction": false,
+      "icon": "/assets/laundry_mode.svg"
+    },
+    "mode": {
+      "type": "enum",
+      "title": {
+        "en": "Mode",
+        "nl": "Modus"
+      },
+      "uiComponent": "picker",
+      "getable": true,
+      "setable": true,
+      "values": [
+        {
+          "id": "auto",
+          "title": {
+            "en": "Auto",
+            "nl": "Auto"
+          }
+        },
+        {
+          "id": "continuous",
+          "title": {
+            "en": "Continous",
+            "nl": "Continu"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "com.duux.gen2",
+  "version": "1.0.0",
+  "compatibility": ">=12.4.0",
+  "sdk": 3,
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "Duux Gen2",
+    "nl": "Duux Gen2"
+  },
+  "description": {
+    "en": "The next generation of Duux",
+    "nl": "De volgende generatie van Duux"
+  },
+  "category": [
+    "climate"
+  ],
+  "source": "https://github.com/smarthomesven/homey-duux-gen2",
+  "bugs": {
+    "url": "https://github.com/smarthomesven/homey-duux-gen2/issues"
+  },
+  "permissions": [],
+  "brandColor": "#01B0B1",
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Sven Serlier",
+    "email": "sven@dypodex.com"
+  }
+}

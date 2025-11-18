@@ -1,0 +1,26 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "Mode",
+    "nl": "Modus"
+  },
+  "uiComponent": "picker",
+  "getable": true,
+  "setable": true,
+  "values": [
+    {
+      "id": "auto",
+      "title": { 
+        "en": "Auto",
+        "nl": "Auto"
+      }
+    },
+    {
+      "id": "continuous",
+      "title": { 
+        "en": "Continous",
+        "nl": "Continu"
+      }
+    }
+  ]
+}

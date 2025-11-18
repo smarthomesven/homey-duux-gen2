@@ -1,0 +1,173 @@
+{
+  "triggers": [
+    {
+      "id": "laundry_mode_enabled",
+      "title": {
+        "en": "Laundry mode enabled",
+        "nl": "Wasdroogstand ingeschakeld"
+      }
+    },
+    {
+      "id": "laundry_mode_disabled",
+      "title": {
+        "en": "Laundry mode disabled",
+        "nl": "Wasdroogstand uitgeschakeld"
+      }
+    },
+    {
+      "id": "child_lock_enabled",
+      "title": {
+        "en": "Child lock enabled",
+        "nl": "Kinderslot ingeschakeld"
+      }
+    },
+    {
+      "id": "child_lock_disabled",
+      "title": {
+        "en": "Child lock disabled",
+        "nl": "Kinderslot uitgeschakeld"
+      }
+    },
+    {
+        "id": "mode_changed",
+        "title": {
+            "en": "Mode changed",
+            "nl": "Modus veranderd"
+        }
+    },
+    {
+        "id": "fanmode_changed",
+        "title": {
+            "en": "Fan speed changed",
+            "nl": "Ventilatorsnelheid veranderd"
+        }
+    }
+  ],
+  "conditions":[
+    {
+        "id": "laundry_mode_condition",
+        "title": {
+            "en": "Laundry mode is !{{enabled|disabled}}",
+            "nl": "Wasdroogstand is !{{ingeschakeld|uitgeschakeld}}"
+        }
+    },
+    {
+        "id": "child_lock_condition",
+        "title": {
+            "en": "Child lock is !{{enabled|disabled}}",
+            "nl": "Kinderslot is !{{ingeschakeld|uitgeschakeld}}"
+        }
+    }
+  ],
+  "actions": [
+    {
+      "id": "enable_laundry_mode",
+      "title": {
+        "en": "Enable laundry mode",
+        "nl": "Wasdroogstand inschakelen"
+      } 
+    },
+    {
+      "id": "disable_laundry_mode",
+      "title": {
+        "en": "Disable laundry mode",
+        "nl": "Wasdroogstand uitschakelen"
+      } 
+    },
+    {
+      "id": "enable_child_lock",
+      "title": {
+        "en": "Enable child lock",
+        "nl": "Kinderslot inschakelen"
+      } 
+    },
+    {
+      "id": "disable_child_lock",
+      "title": {
+        "en": "Disable child lock",
+        "nl": "Kinderslot uitschakelen"
+      } 
+    },
+    {
+      "id": "enable_night_mode",
+      "title": {
+        "en": "Enable night mode",
+        "nl": "Nachtstand inschakelen"
+      } 
+    },
+    {
+      "id": "disable_night_mode",
+      "title": {
+        "en": "Disable night mode",
+        "nl": "Nachtstand uitschakelen"
+      } 
+    },
+    {
+      "id": "set_mode",
+      "title": {
+        "en": "Set mode",
+        "nl": "Modus instellen"
+      },
+      "titleFormatted": {
+        "en": "Set mode to [[mode]]",
+        "nl": "Modus instellen op [[mode]]"
+      },
+      "args": [
+        {
+            "name": "mode",
+            "type": "dropdown",
+            "values": [
+                {
+                    "id": "auto",
+                    "label": {
+                        "en": "Auto",
+                        "nl": "Auto"
+                    }
+                },
+                {
+                    "id": "continuous",
+                    "label": {
+                        "en": "Continuous",
+                        "nl": "Continu"
+                    }
+                }
+            ]
+        }
+      ]
+    },
+    {
+      "id": "set_fan_speed",
+      "title": {
+        "en": "Set fan speed",
+        "nl": "Ventilatorsnelheid instellen"
+      },
+      "titleFormatted": {
+        "en": "Set fan speed to [[speed]]",
+        "nl": "Ventilatorsnelheid instellen op [[speed]]"
+      },
+      "args": [
+        {
+            "name": "speed",
+            "type": "dropdown",
+            "values": [
+                {
+                    "id": "one",
+                    "label": {
+                        "en": "I",
+                        "nl": "I"
+                    }
+                },
+                {
+                    "id": "two",
+                    "label": {
+                        "en": "II",
+                        "nl": "II"
+                    }
+                }
+            ]
+        }
+      ]
+    }
+
+    ]
+}

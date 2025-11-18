@@ -1,0 +1,26 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "Fan speed",
+    "nl": "Ventilatorsnelheid"
+  },
+  "uiComponent": "picker",
+  "getable": true,
+  "setable": true,
+  "values": [
+    {
+      "id": "one",
+      "title": { 
+        "en": "I",
+        "nl": "I"
+      }
+    },
+    {
+      "id": "two",
+      "title": { 
+        "en": "II",
+        "nl": "II"
+      }
+    }
+  ]
+}

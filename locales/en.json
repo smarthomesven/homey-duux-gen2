@@ -1,0 +1,9 @@
+{
+    "pair": {
+        "email": "Email address",
+        "failed": "Invalid email",
+        "save": "Save",
+        "saving": "Saving",
+        "codetext": "A code has been sent to your email address. Enter this code below to log in."
+    }
+}

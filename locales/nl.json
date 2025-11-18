@@ -1,0 +1,9 @@
+{
+    "pair": {
+        "email": "Emailadres",
+        "failed": "Ongeldig emailadres",
+        "save": "Opslaan",
+        "saving": "Opslaan",
+        "codetext": "Er is een code verstuurd naar je emailadres. Voer deze code hieronder in om in te loggen."
+    }
+}
