@@ -193,7 +193,7 @@ module.exports = class BoraDevice extends Homey.Device {
     // Then poll every 10 seconds
     this.pollInterval = this.homey.setInterval(() => {
       this.pollDeviceStatus();
-    }, 10000);
+    }, 15000);
   }
 
   stopPolling() {
