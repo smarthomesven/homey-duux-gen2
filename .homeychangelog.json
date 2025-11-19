@@ -4,5 +4,8 @@
   },
   "1.0.1": {
     "en": "Added Homey Community Forum topic ID to the app manifest"
+  },
+  "1.0.2": {
+    "en": "Small fix and increase polling time"
   }
 }
