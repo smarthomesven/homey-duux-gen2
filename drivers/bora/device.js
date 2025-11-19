@@ -253,10 +253,7 @@ module.exports = class BoraDevice extends Homey.Device {
           this.error('Device reported error code:', status.err);
         }
 
-        // Set device as available
-        if (!this.getAvailable()) {
           await this.setAvailable();
-        }
 
         if (this.hasCapability('mode') && status.mode !== undefined) {
           let modeValue;
@@ -328,10 +325,6 @@ module.exports = class BoraDevice extends Homey.Device {
       
       if (error.response && error.response.status === 401) {
         await this.setUnavailable('Authentication required. Please re-login.').catch(err => {
-          this.error('Error setting unavailable:', err);
-        });
-      } else {
-        await this.setUnavailable('Device offline or unreachable').catch(err => {
           this.error('Error setting unavailable:', err);
         });
       }
