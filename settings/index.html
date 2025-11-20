@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" src="/homey.js" data-origin="settings"></script>
+    <style>
+      .device-card {
+        margin-bottom: 20px;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      
+      .device-header {
+        background: #f5f5f5;
+        padding: 12px 16px;
+        border-bottom: 1px solid #e0e0e0;
+      }
+      
+      .device-title {
+        margin: 0;
+        font-size: 16px;
+        font-weight: 600;
+        color: #333;
+      }
+      
+      .device-subtitle {
+        margin: 4px 0 0 0;
+        font-size: 13px;
+        color: #666;
+      }
+      
+      .device-body {
+        padding: 16px;
+      }
+      
+      .status-error {
+        color: #dc3545;
+        padding: 8px;
+        background: #f8d7da;
+        border-radius: 4px;
+        margin-bottom: 12px;
+        font-size: 13px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="homey-header">
+      <h1 class="homey-title" data-i18n="settings.title"></h1>
+      <p class="homey-subtitle" data-i18n="settings.subtitle"></p>
+    </header>
+
+    <div id="messageContainer"></div>
+
+    <button id="loadButton" class="homey-button-primary-full" data-i18n="settings.loadButton"></button>
+
+    <div id="linksContainer"></div>
+
+    <script type="text/javascript">
+      function onHomeyReady(Homey) {
+        Homey.ready();
+
+        const loadButton = document.getElementById('loadButton');
+        const messageContainer = document.getElementById('messageContainer');
+        const linksContainer = document.getElementById('linksContainer');
+
+        loadButton.addEventListener('click', function() {
+          messageContainer.innerHTML = '';
+          linksContainer.innerHTML = '';
+
+          loadButton.className = 'homey-button-primary-full is-loading';
+          loadButton.disabled = true;
+
+          Homey.api('GET', '/links-data', null, function(err, result) {
+            loadButton.className = 'homey-button-primary-full';
+            loadButton.disabled = false;
+
+            if (err) {
+              messageContainer.innerHTML = '<p style="color: #dc3545; padding: 12px; background: #f8d7da; border-radius: 5px; margin-bottom: 20px;">' + err.message + '</p>';
+              return;
+            }
+
+            if (result.error) {
+              messageContainer.innerHTML = '<p style="color: #856404; padding: 12px; background: #fff3cd; border-radius: 5px; margin-bottom: 20px;">' + result.error + '</p>';
+              return;
+            }
+
+            if (!result || result.length === 0) {
+              linksContainer.innerHTML = '<p style="text-align: center; padding: 40px; color: #666;">' + Homey.__('settings.noLinks') + '</p>';
+              return;
+            }
+
+            messageContainer.innerHTML = '<p style="color: #155724; padding: 12px; background: #d4edda; border-radius: 5px; margin-bottom: 20px;">' + 
+              Homey.__('settings.devices1') + ' ' + result.length + ' ' + Homey.__('settings.devices2') + '</p>';
+
+            result.forEach(function(device) {
+              const card = document.createElement('div');
+              card.className = 'device-card';
+
+              const header = document.createElement('div');
+              header.className = 'device-header';
+
+              const title = document.createElement('h3');
+              title.className = 'device-title';
+              title.textContent = device.deviceInfo.displayName || 'Unknown Device';
+
+              const subtitle = document.createElement('p');
+              subtitle.className = 'device-subtitle';
+              subtitle.textContent = 'Home: ' + device.tenantName + ' | Type: ' + device.deviceInfo.type + ' | MAC: ' + device.deviceInfo.deviceId;
+
+              header.appendChild(title);
+              header.appendChild(subtitle);
+
+              const body = document.createElement('div');
+              body.className = 'device-body';
+
+              if (device.statusError) {
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'status-error';
+                errorDiv.textContent = 'Error fetching status: ' + device.statusError;
+                body.appendChild(errorDiv);
+              }
+
+              const group = document.createElement('div');
+              group.className = 'homey-form-group';
+
+              const textarea = document.createElement('textarea');
+              textarea.className = 'homey-form-textarea';
+              textarea.readOnly = true;
+              textarea.rows = 15;
+              textarea.style.fontFamily = 'monospace';
+              textarea.style.fontSize = '12px';
+              textarea.value = JSON.stringify(device, null, 2);
+
+              const copyButton = document.createElement('button');
+              copyButton.className = 'homey-button-secondary-shadow';
+              copyButton.style.marginTop = '10px';
+              copyButton.textContent = Homey.__('settings.copyButton');
+              copyButton.type = 'button';
+              
+              copyButton.addEventListener('click', function() {
+                const tempTextarea = document.createElement('textarea');
+                tempTextarea.value = JSON.stringify(device, null, 2);
+                tempTextarea.style.position = 'fixed';
+                tempTextarea.style.left = '-9999px';
+                document.body.appendChild(tempTextarea);
+                tempTextarea.select();
+                
+                try {
+                  document.execCommand('copy');
+                  const originalText = copyButton.textContent;
+                  copyButton.textContent = Homey.__('settings.copied');
+                  copyButton.className = 'homey-button-primary-shadow';
+                  setTimeout(function() {
+                    copyButton.textContent = originalText;
+                    copyButton.className = 'homey-button-secondary-shadow';
+                  }, 2000);
+                } catch (err) {
+                  Homey.alert('Failed to copy to clipboard');
+                } finally {
+                  document.body.removeChild(tempTextarea);
+                }
+              });
+
+              group.appendChild(textarea);
+              group.appendChild(copyButton);
+              body.appendChild(group);
+
+              card.appendChild(header);
+              card.appendChild(body);
+              linksContainer.appendChild(card);
+            });
+          });
+        });
+      }
+    </script>
+  </body>
+</html>

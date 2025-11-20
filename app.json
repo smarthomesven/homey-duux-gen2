@@ -34,6 +34,12 @@
     "name": "Sven Serlier",
     "email": "sven@dypodex.com"
   },
+  "api": {
+    "getLinksData": {
+      "method": "GET",
+      "path": "/links-data"
+    }
+  },
   "flow": {
     "triggers": [
       {

@@ -5,5 +5,17 @@
         "save": "Save",
         "saving": "Saving",
         "codetext": "A code has been sent to your email address. Enter this code below to log in."
+    },
+    "settings": {
+        "title": "Debug",
+        "subtitle": "Device information",
+        "loadButton": "Retrieve information",
+        "copyButton": "Copy",
+        "copied": "Copied!",
+        "noLinks": "Something went wrong",
+        "unknownLink": "Unknown device",
+        "errorPrefix": "Error: ",
+        "devices1": "Successfully loaded data from",
+        "devices2": "device(s)"
     }
 }

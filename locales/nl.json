@@ -5,5 +5,17 @@
         "save": "Opslaan",
         "saving": "Opslaan",
         "codetext": "Er is een code verstuurd naar je emailadres. Voer deze code hieronder in om in te loggen."
+    },
+    "settings": {
+        "title": "Debug",
+        "subtitle": "Informatie van je apparaten",
+        "loadButton": "Informatie ophalen",
+        "copyButton": "Kopieren",
+        "copied": "Gekopieerd!",
+        "noLinks": "Er is een fout opgetreden",
+        "unknownLink": "Unknown device",
+        "errorPrefix": "Fout: ",
+        "devices1": "Infomratie geladen van",
+        "devices2": "device(s)"
     }
 }
