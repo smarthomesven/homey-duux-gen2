@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" src="/homey.js" data-origin="settings"></script>
+  </head>
+  <body>
+    <header class="homey-header">
+      <h1 class="homey-title" data-i18n="settings.title"></h1>
+      <p class="homey-subtitle" data-i18n="settings.subtitle"></p>
+    </header>
+
+    <div id="messageContainer"></div>
+
+    <button id="loadButton" class="homey-button-primary-full" data-i18n="settings.loadButton"></button>
+
+    <div id="linksContainer"></div>
+
+    <script type="text/javascript">
+      function onHomeyReady(Homey) {
+        Homey.ready();
+
+        const loadButton = document.getElementById('loadButton');
+        const messageContainer = document.getElementById('messageContainer');
+        const linksContainer = document.getElementById('linksContainer');
+
+        loadButton.addEventListener('click', function() {
+          messageContainer.innerHTML = '';
+          linksContainer.innerHTML = '';
+
+          loadButton.className = 'homey-button-primary-full is-loading';
+          loadButton.disabled = true;
+
+          Homey.api('GET', '/links-data', null, function(err, result) {
+            loadButton.className = 'homey-button-primary-full';
+            loadButton.disabled = false;
+
+            if (err) {
+              messageContainer.innerHTML = '<p style="color: #dc3545; padding: 12px; background: #f8d7da; border-radius: 5px; margin-bottom: 20px;">' + err.message + '</p>';
+              return;
+            }
+
+            if (result.error) {
+              messageContainer.innerHTML = '<p style="color: #856404; padding: 12px; background: #fff3cd; border-radius: 5px; margin-bottom: 20px;">' + result.error + '</p>';
+              return;
+            }
+
+            if (!result || result.length === 0) {
+              linksContainer.innerHTML = '<p style="text-align: center; padding: 40px; color: #666;">' + Homey.__('settings.noLinks') + '</p>';
+              return;
+            }
+
+            messageContainer.innerHTML = '<p style="color: #155724; padding: 12px; background: #d4edda; border-radius: 5px; margin-bottom: 20px;">' + 
+              Homey.__('settings.successMessage', { count: result.length }) + '</p>';
+
+            result.forEach(function(link) {
+              const section = document.createElement('fieldset');
+              section.className = 'homey-form-fieldset';
+              section.style.marginBottom = '20px';
+
+              const group = document.createElement('div');
+              group.className = 'homey-form-group';
+
+              const textarea = document.createElement('textarea');
+              textarea.className = 'homey-form-textarea';
+              textarea.readOnly = true;
+              textarea.rows = 15;
+              textarea.style.fontFamily = 'monospace';
+              textarea.style.fontSize = '12px';
+              textarea.value = link.error 
+                ? Homey.__('settings.errorPrefix') + link.error
+                : JSON.stringify(link, null, 2);
+
+              const copyButton = document.createElement('button');
+              copyButton.className = 'homey-button-secondary-shadow';
+              copyButton.style.marginTop = '10px';
+              copyButton.textContent = Homey.__('settings.copyButton');
+              copyButton.type = 'button';
+              
+              copyButton.addEventListener('click', function() {
+                const text = link.error ? textarea.value : JSON.stringify(link.data, null, 2);
+                
+                const tempTextarea = document.createElement('textarea');
+                tempTextarea.value = text;
+                tempTextarea.style.position = 'fixed';
+                tempTextarea.style.left = '-9999px';
+                document.body.appendChild(tempTextarea);
+                tempTextarea.select();
+                
+                try {
+                  document.execCommand('copy');
+                  const originalText = copyButton.textContent;
+                  copyButton.textContent = Homey.__('settings.copied');
+                  copyButton.className = 'homey-button-primary-shadow';
+                  setTimeout(function() {
+                    copyButton.textContent = originalText;
+                    copyButton.className = 'homey-button-secondary-shadow';
+                  }, 2000);
+                } catch (err) {
+                  Homey.alert('Failed to copy to clipboard');
+                } finally {
+                  document.body.removeChild(tempTextarea);
+                }
+              });
+
+              group.appendChild(textarea);
+              group.appendChild(copyButton);
+              section.appendChild(group);
+              linksContainer.appendChild(section);
+            });
+          });
+        });
+      }
+    </script>
+  </body>
+</html>
