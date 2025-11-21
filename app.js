@@ -56,10 +56,8 @@ module.exports = class DuuxV2App extends Homey.App {
       
             // Filter for type 56 (as STRING!)
             return allDevices;
-      
-      return availableDevices;
     } catch (error) {
-      this.error('Error in getAllLinksData:', error.message);
+      this.error('Error in getHomeData:', error.message);
       return { error: error.message };
     }
   }

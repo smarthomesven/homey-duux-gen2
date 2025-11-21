@@ -1,0 +1,54 @@
+{
+  "triggers": [
+    {
+        "id": "heatmode_changed",
+        "title": {
+            "en": "Fan speed changed",
+            "nl": "Ventilatorsnelheid veranderd"
+        }
+    }
+  ],
+  "actions": [
+    {
+      "id": "set_fan_speed_heater",
+      "title": {
+        "en": "Set fan speed",
+        "nl": "Ventilatorsnelheid instellen"
+      },
+      "titleFormatted": {
+        "en": "Set fan speed to [[speed]]",
+        "nl": "Ventilatorsnelheid instellen op [[speed]]"
+      },
+      "args": [
+        {
+            "name": "speed",
+            "type": "dropdown",
+            "values": [
+                {
+                    "id": "one",
+                    "label": {
+                        "en": "I",
+                        "nl": "I"
+                    }
+                },
+                {
+                    "id": "two",
+                    "label": {
+                        "en": "II",
+                        "nl": "II"
+                    }
+                },
+                {
+                    "id": "three",
+                    "label": {
+                        "en": "III",
+                        "nl": "III"
+                    }
+                }
+            ]
+        }
+      ]
+    }
+
+    ]
+}
