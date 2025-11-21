@@ -25,7 +25,7 @@ module.exports = class ThreesixtyDevice extends Homey.Device {
 
       this.registerCapabilityListener("target_temperature", async (value) => {
         let command;
-        command = `tune set sp ${Math.round(value * 100)}`;
+        command = `tune set sp ${value}`;
         await this.sendCommand(command);
       });
 
@@ -156,7 +156,7 @@ module.exports = class ThreesixtyDevice extends Homey.Device {
         }
 
         if (this.hasCapability('target_temperature') && status.sp !== undefined) {
-          const setpoint = status.sp / 100;
+          const setpoint = status.sp;
           await this.setCapabilityValue('target_temperature', setpoint).catch(err => {
             this.error('Error setting target temperature capability:', err);
           });
