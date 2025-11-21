@@ -29,7 +29,7 @@ module.exports = class ThreesixtyDevice extends Homey.Device {
         await this.sendCommand(command);
       });
 
-      this.registerCapabilityListener("fanmode", async (value) => {
+      this.registerCapabilityListener("heatmode", async (value) => {
         let command;
         if (value === "three") {
           command = "tune set fan 0";
