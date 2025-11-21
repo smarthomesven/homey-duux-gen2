@@ -50,11 +50,11 @@ module.exports = class ThreesixtyDevice extends Homey.Device {
 
       setFanSpeedAction.registerRunListener(async (args, state) => {
         if (args.speed === 'three') {
-          await this.sendCommand("tune set fan 0");
+          await this.sendCommand("tune set mode 0");
         } else if (args.speed === 'two') {
-          await this.sendCommand("tune set fan 1");
+          await this.sendCommand("tune set mode 1");
         } else if (args.speed === 'one') {
-          await this.sendCommand("tune set fan 2");
+          await this.sendCommand("tune set mode 2");
         } else return false;
         return true;
       });
