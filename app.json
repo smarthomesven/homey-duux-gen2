@@ -38,6 +38,10 @@
     "getLinksData": {
       "method": "GET",
       "path": "/links-data"
+    },
+    "send": {
+      "method": "POST",
+      "path": "/send"
     }
   },
   "flow": {

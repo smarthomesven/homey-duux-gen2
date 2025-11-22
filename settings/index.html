@@ -41,6 +41,73 @@
         margin-bottom: 12px;
         font-size: 13px;
       }
+
+      .support-form {
+        display: none;
+        margin-top: 15px;
+        padding: 15px;
+        background: #f8f9fa;
+        border-radius: 5px;
+        border: 1px solid #dee2e6;
+      }
+      
+      .support-form.active {
+        display: block;
+      }
+      
+      .form-label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 600;
+        font-size: 13px;
+        color: #333;
+      }
+      
+      .form-input {
+        width: 100%;
+        padding: 8px 12px;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+        font-size: 14px;
+        box-sizing: border-box;
+        margin-bottom: 12px;
+      }
+      
+      .support-result {
+        display: none;
+        margin-top: 15px;
+        padding: 12px;
+        background: #d4edda;
+        border: 1px solid #c3e6cb;
+        border-radius: 5px;
+      }
+      
+      .support-result.active {
+        display: block;
+      }
+      
+      .result-text {
+        margin: 0 0 10px 0;
+        color: #155724;
+        font-size: 14px;
+      }
+      
+      .uuid-display {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+      
+      .uuid-text {
+        flex: 1;
+        padding: 8px 12px;
+        background: white;
+        border: 1px solid #c3e6cb;
+        border-radius: 4px;
+        font-family: monospace;
+        font-size: 13px;
+        color: #333;
+      }
     </style>
   </head>
   <body>
@@ -131,9 +198,13 @@
               textarea.style.fontSize = '12px';
               textarea.value = JSON.stringify(device, null, 2);
 
+              const buttonContainer = document.createElement('div');
+              buttonContainer.style.marginTop = '10px';
+              buttonContainer.style.display = 'flex';
+              buttonContainer.style.gap = '10px';
+
               const copyButton = document.createElement('button');
               copyButton.className = 'homey-button-secondary-shadow';
-              copyButton.style.marginTop = '10px';
               copyButton.textContent = Homey.__('settings.copyButton');
               copyButton.type = 'button';
               
@@ -161,8 +232,168 @@
                 }
               });
 
+              const sendButton = document.createElement('button');
+              sendButton.className = 'homey-button-primary-shadow';
+              sendButton.textContent = Homey.__('settings.send');
+              sendButton.type = 'button';
+
+              // Create support form
+              const supportForm = document.createElement('div');
+              supportForm.className = 'support-form';
+
+              const usernameLabel = document.createElement('label');
+              usernameLabel.className = 'form-label';
+              usernameLabel.textContent = Homey.__('settings.community');
+              
+              const usernameInput = document.createElement('input');
+              usernameInput.type = 'text';
+              usernameInput.className = 'homey-form-input';
+              usernameInput.required = true;
+
+              const breakElementTwo = document.createElement('br');
+
+              const messageLabel = document.createElement('label');
+              messageLabel.className = 'form-label';
+              messageLabel.textContent = Homey.__('settings.messagelabel');
+              
+              const messageTextarea = document.createElement('textarea');
+              messageTextarea.className = 'homey-form-textarea';
+              messageTextarea.placeholder = Homey.__('settings.message');
+              messageTextarea.required = true;
+
+              const breakElement = document.createElement('br');
+
+              const submitButton = document.createElement('button');
+              submitButton.className = 'homey-button-primary-full';
+              submitButton.textContent = Homey.__('settings.send');
+              submitButton.type = 'button';
+
+              const cancelButton = document.createElement('button');
+              cancelButton.className = 'homey-button-danger-full';
+              cancelButton.style.marginTop = '8px';
+              cancelButton.textContent = Homey.__('settings.cancel');
+              cancelButton.type = 'button';
+
+              supportForm.appendChild(usernameLabel);
+              supportForm.appendChild(usernameInput);
+              supportForm.appendChild(breakElementTwo);
+              supportForm.appendChild(messageLabel);
+              supportForm.appendChild(messageTextarea);
+              supportForm.appendChild(breakElement);
+              supportForm.appendChild(submitButton);
+              supportForm.appendChild(cancelButton);
+
+              // Create result display
+              const resultDiv = document.createElement('div');
+              resultDiv.className = 'support-result';
+
+              const resultText = document.createElement('p');
+              resultText.className = 'result-text';
+              resultText.textContent = Homey.__('settings.sent');
+
+              const uuidContainer = document.createElement('div');
+              uuidContainer.className = 'uuid-display';
+
+              const uuidText = document.createElement('div');
+              uuidText.className = 'uuid-text';
+
+              const copyUuidButton = document.createElement('button');
+              copyUuidButton.className = 'homey-button-secondary-shadow';
+              copyUuidButton.textContent = Homey.__('settings.copyButton');
+              copyUuidButton.type = 'button';
+
+              uuidContainer.appendChild(uuidText);
+              uuidContainer.appendChild(copyUuidButton);
+              resultDiv.appendChild(resultText);
+              resultDiv.appendChild(uuidContainer);
+
+              // Event listeners
+              sendButton.addEventListener('click', function() {
+                supportForm.classList.add('active');
+                sendButton.style.display = 'none';
+                resultDiv.classList.remove('active');
+              });
+
+              cancelButton.addEventListener('click', function() {
+                supportForm.classList.remove('active');
+                sendButton.style.display = '';
+                usernameInput.value = '';
+                messageTextarea.value = '';
+              });
+
+              submitButton.addEventListener('click', function() {
+                const username = usernameInput.value.trim();
+                const message = messageTextarea.value.trim();
+
+                if (!username) {
+                  Homey.alert(Homey.__('errors.input'));
+                  return;
+                }
+
+                submitButton.className = 'homey-button-primary-full is-loading';
+                submitButton.textContent = Homey.__('settings.sending');
+                submitButton.disabled = true;
+
+                let fullMessage = 'Homey Community User: ' + username;
+                if (message) {
+                  fullMessage += ' Message: ' + message;
+                }
+
+                Homey.api('POST', '/send', {
+                  message: fullMessage,
+                  deviceId: device.deviceInfo.deviceId,
+                  deviceName: device.deviceInfo.displayName,
+                  data: device
+                }, function(err, result) {
+                  submitButton.className = 'homey-button-primary-full';
+                  submitButton.textContent = Homey.__('settings.send');
+                  submitButton.disabled = false;
+
+                  if (err) {
+                    Homey.alert('Failed to send: ' + err.message);
+                    return;
+                  }
+
+                  // Hide form, show result
+                  supportForm.classList.remove('active');
+                  resultDiv.classList.add('active');
+                  uuidText.textContent = result.id;
+                  usernameInput.value = '';
+                  messageTextarea.value = '';
+
+                  // Copy UUID button
+                  copyUuidButton.onclick = function() {
+                    const tempTextarea = document.createElement('textarea');
+                    tempTextarea.value = result.id;
+                    tempTextarea.style.position = 'fixed';
+                    tempTextarea.style.left = '-9999px';
+                    document.body.appendChild(tempTextarea);
+                    tempTextarea.select();
+                    
+                    try {
+                      document.execCommand('copy');
+                      const originalText = copyUuidButton.textContent;
+                      copyUuidButton.textContent = Homey.__('settings.copied');
+                      copyUuidButton.className = 'homey-button-primary-shadow';
+                      setTimeout(function() {
+                        copyUuidButton.textContent = originalText;
+                        copyUuidButton.className = 'homey-button-secondary-shadow';
+                      }, 2000);
+                    } catch (err) {
+                      Homey.alert(Homey.__('errors.copy'));
+                    } finally {
+                      document.body.removeChild(tempTextarea);
+                    }
+                  };
+                });
+              });
+
+              buttonContainer.appendChild(copyButton);
+              buttonContainer.appendChild(sendButton);
               group.appendChild(textarea);
-              group.appendChild(copyButton);
+              group.appendChild(buttonContainer);
+              group.appendChild(supportForm);
+              group.appendChild(resultDiv);
               body.appendChild(group);
 
               card.appendChild(header);

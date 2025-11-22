@@ -6,6 +6,10 @@
         "saving": "Opslaan",
         "codetext": "Er is een code verstuurd naar je emailadres. Voer deze code hieronder in om in te loggen."
     },
+    "errors": {
+        "input": "Voer je gebruikersnaam in",
+        "copy": "Kopieren naar klembord mislukt"
+    },
     "settings": {
         "title": "Debug",
         "subtitle": "Informatie van je apparaten",
@@ -16,6 +20,13 @@
         "unknownLink": "Unknown device",
         "errorPrefix": "Fout: ",
         "devices1": "Infomratie geladen van",
-        "devices2": "device(s)"
+        "devices2": "device(s)",
+        "send": "Verzenden",
+        "community": "Homey Community Forum-gebruikersnaam",
+        "messagelabel": "Bericht",
+        "message": "Als je extra informatie wilt achterlaten voor de ontwikkelaar, kan je dat hier invullen.",
+        "cancel": "Annuleren",
+        "sent": "Je configuratie is verzonden! Je kan de ID hieronder posten op het forum (in de app topic), omdat alleen de ontwikkelaar je configuratie kan bekijken met deze ID.",
+        "sending": "Verzenden"
     }
 }
