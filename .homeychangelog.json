@@ -31,5 +31,8 @@
   },
   "1.1.6": {
     "en": "Revert \"Change to thermostat\""
+  },
+  "1.1.7": {
+    "en": "Added an option to easily send the configurations privately"
   }
 }
