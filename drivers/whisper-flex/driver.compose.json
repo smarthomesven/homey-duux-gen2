@@ -1,0 +1,58 @@
+{
+  "name": {
+    "en": "Whisper Flex",
+    "nl": "Whisper Flex"
+  },
+  "class": "fan",
+  "capabilities": [
+    "fan_speed",
+    "onoff",
+    "whisper_mode",
+    "horizontal_oscillation"
+  ],
+  "capabilitiesOptions": {
+    "fan_speed": {
+      "min": 0.01,
+      "max": 0.26,
+      "step": 0.01,
+      "units": ""
+    }
+  },
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "images": {
+    "small": "{{driverAssetsPath}}/images/small.png",
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "xlarge": "{{driverAssetsPath}}/images/xlarge.png"
+  },
+  "pair": [
+    {
+      "id": "email"
+    },
+    {
+      "id": "code"
+    },
+    {
+      "id": "list_devices",
+      "template": "list_devices",
+      "navigation": { "next": "add_devices" },
+      "options": { "singular": false }
+    },
+    {
+      "id": "add_devices",
+      "template": "add_devices"
+    }
+  ],
+  "repair": [
+    {
+      "id": "email"
+    },
+    {
+      "id": "code"
+    }
+  ]
+}

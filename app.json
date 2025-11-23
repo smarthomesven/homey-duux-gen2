@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.duux.gen2",
-  "version": "1.1.7",
+  "version": "1.2.0",
   "compatibility": ">=12.4.0",
   "sdk": 3,
   "platforms": [
@@ -143,6 +143,48 @@
             "filter": "driver_id=threesixty"
           }
         ]
+      },
+      {
+        "id": "whisper_mode_changed",
+        "title": {
+          "en": "Mode changed",
+          "nl": "Modus veranderd"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=whisper-flex"
+          }
+        ]
+      },
+      {
+        "id": "horizontal_oscillation_enabled",
+        "title": {
+          "en": "Horizontal oscillation enabled",
+          "nl": "Horizontale oscillatie ingeschakeld"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=whisper-flex"
+          }
+        ]
+      },
+      {
+        "id": "horizontal_oscillation_disabled",
+        "title": {
+          "en": "Horizontal oscillation disabled",
+          "nl": "Horizontale oscillatie uitgeschakeld"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=whisper-flex"
+          }
+        ]
       }
     ],
     "conditions": [
@@ -171,6 +213,20 @@
             "type": "device",
             "name": "device",
             "filter": "driver_id=bora"
+          }
+        ]
+      },
+      {
+        "id": "horizontal_oscillation_condition",
+        "title": {
+          "en": "Horizontal oscillation is !{{enabled|disabled}}",
+          "nl": "Horizontale oscillatie is !{{ingeschakeld|uitgeschakeld}}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=whisper-flex"
           }
         ]
       }
@@ -380,6 +436,79 @@
             ]
           }
         ]
+      },
+      {
+        "id": "set_whisper_flex_mode",
+        "title": {
+          "en": "Set mode",
+          "nl": "Modus instellen"
+        },
+        "titleFormatted": {
+          "en": "Set mode to [[mode]]",
+          "nl": "Modus instellen op [[mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=whisper-flex"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "normal",
+                "label": {
+                  "en": "Normal",
+                  "nl": "Normaal"
+                }
+              },
+              {
+                "id": "nature",
+                "label": {
+                  "en": "Nature",
+                  "nl": "Naturel"
+                }
+              },
+              {
+                "id": "night",
+                "label": {
+                  "en": "Night",
+                  "nl": "Nacht"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "enable_horizontal_oscillation",
+        "title": {
+          "en": "Enable horizontal oscillation",
+          "nl": "Horizontale oscillatie inschakelen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=whisper-flex"
+          }
+        ]
+      },
+      {
+        "id": "disable_horizontal_oscillation",
+        "title": {
+          "en": "Disable horizontal oscillation",
+          "nl": "Horizontale oscillatie uitschakelen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=whisper-flex"
+          }
+        ]
       }
     ]
   },
@@ -510,6 +639,69 @@
         }
       ],
       "id": "threesixty"
+    },
+    {
+      "name": {
+        "en": "Whisper Flex",
+        "nl": "Whisper Flex"
+      },
+      "class": "fan",
+      "capabilities": [
+        "fan_speed",
+        "onoff",
+        "whisper_mode",
+        "horizontal_oscillation"
+      ],
+      "capabilitiesOptions": {
+        "fan_speed": {
+          "min": 0.01,
+          "max": 0.26,
+          "step": 0.01,
+          "units": ""
+        }
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "cloud"
+      ],
+      "images": {
+        "small": "/drivers/whisper-flex/assets/images/small.png",
+        "large": "/drivers/whisper-flex/assets/images/large.png",
+        "xlarge": "/drivers/whisper-flex/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "email"
+        },
+        {
+          "id": "code"
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          },
+          "options": {
+            "singular": false
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "repair": [
+        {
+          "id": "email"
+        },
+        {
+          "id": "code"
+        }
+      ],
+      "id": "whisper-flex"
     }
   ],
   "capabilities": {
@@ -584,6 +776,18 @@
         }
       ]
     },
+    "horizontal_oscillation": {
+      "type": "boolean",
+      "title": {
+        "en": "Horizontal oscillation",
+        "nl": "Horizontale oscillatie"
+      },
+      "getable": true,
+      "setable": true,
+      "uiComponent": "button",
+      "uiQuickAction": false,
+      "icon": "/assets/child_lock.svg"
+    },
     "laundry_mode": {
       "type": "boolean",
       "title": {
@@ -618,6 +822,39 @@
           "title": {
             "en": "Continous",
             "nl": "Continu"
+          }
+        }
+      ]
+    },
+    "whisper_mode": {
+      "type": "enum",
+      "title": {
+        "en": "Mode",
+        "nl": "Modus"
+      },
+      "uiComponent": "picker",
+      "getable": true,
+      "setable": true,
+      "values": [
+        {
+          "id": "normal",
+          "title": {
+            "en": "Normal",
+            "nl": "Normaal"
+          }
+        },
+        {
+          "id": "nature",
+          "title": {
+            "en": "Nature",
+            "nl": "Naturel"
+          }
+        },
+        {
+          "id": "night",
+          "title": {
+            "en": "Night",
+            "nl": "Nacht"
           }
         }
       ]
