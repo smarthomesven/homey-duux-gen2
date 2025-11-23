@@ -8,5 +8,5 @@
   "setable": true,
   "uiComponent": "button",
   "uiQuickAction": false,
-  "icon": "/assets/child_lock.svg"
+  "icon": "/assets/horizontal_oscillation.svg"
 }
