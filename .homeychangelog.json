@@ -37,5 +37,8 @@
   },
   "1.2.0": {
     "en": "Add support for the Whisper Flex"
+  },
+  "1.2.1": {
+    "en": "Added icon for horizontal oscillation"
   }
 }
