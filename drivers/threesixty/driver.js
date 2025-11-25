@@ -238,7 +238,7 @@ module.exports = class ThreesixtyDriver extends Homey.Driver {
       }
 
       const availableDevices = allDevices
-        .filter(device => device.type === "21")
+        .filter(device => device.type === "21" || device.type === "50")
         .map(device => ({
           name: device.displayName,
           data: {

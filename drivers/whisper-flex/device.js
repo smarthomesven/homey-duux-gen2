@@ -205,7 +205,7 @@ module.exports = class WhisperFlexDevice extends Homey.Device {
         const isHorizontalOscillation = status.swing === 1;
         this.setStoreValue('horizontal_oscillation', isHorizontalOscillation);
         if (this.hasCapability('horizontal_oscillation')) {
-          if (isLocked !== this.getCapabilityValue('horizontal_oscillation')) {
+          if (isHorizontalOscillation !== this.getCapabilityValue('horizontal_oscillation')) {
             if (isFirstRun !== true) {
               if (this.getCapabilityValue('horizontal_oscillation') === true) {
                 await this.driver.triggerFlow('horizontal_oscillation_disabled', this);
