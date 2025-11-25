@@ -46,5 +46,8 @@
   },
   "1.2.3": {
     "en": "Fix fan speed capability"
+  },
+  "1.2.4": {
+    "en": "Make sure no decimals are displayed in the fan speed slider"
   }
 }
