@@ -43,5 +43,8 @@
   },
   "1.2.2": {
     "en": "Bugfix: fix horizontal oscillation for the Whisper Flex and added new type ID to the Threesixty"
+  },
+  "1.2.3": {
+    "en": "Fix fan speed capability"
   }
 }
