@@ -40,5 +40,8 @@
   },
   "1.2.1": {
     "en": "Added icon for horizontal oscillation"
+  },
+  "1.2.2": {
+    "en": "Bugfix: fix horizontal oscillation for the Whisper Flex and added new type ID to the Threesixty"
   }
 }
