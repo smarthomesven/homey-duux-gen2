@@ -52,5 +52,8 @@
   },
   "1.2.5": {
     "en": "Fix whisper flex"
+  },
+  "1.2.6": {
+    "en": "Added set capability options for threesixty"
   }
 }
