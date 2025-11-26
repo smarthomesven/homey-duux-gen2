@@ -25,7 +25,7 @@ module.exports = class WhisperFlexDevice extends Homey.Device {
 
       this.registerCapabilityListener("fan_speed", async (value) => {
         let command;
-        command = `tune set speed ${Math.round(value * 100)}`;
+        command = `tune set speed ${value}`;
         await this.sendCommand(command);
       });
 
@@ -175,7 +175,7 @@ module.exports = class WhisperFlexDevice extends Homey.Device {
 
         // Update fan speed capability
         if (this.hasCapability('fan_speed') && status.sp !== undefined) {
-          const speed = status.speed / 100;
+          const speed = status.speed;
           await this.setCapabilityValue('fan_speed', speed).catch(err => {
             this.error('Error setting fan speed capability:', err);
           });
