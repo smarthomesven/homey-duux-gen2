@@ -68,6 +68,39 @@ module.exports = class ThreesixtyDevice extends Homey.Device {
    */
   async onAdded() {
     this.log('Threesixty device has been added');
+
+          const accessToken = this.homey.settings.get('accessToken');
+      const mac = this.getStoreValue('mac');
+      
+      if (!accessToken || !mac) {
+        this.error('Missing accessToken or MAC address');
+        return;
+      }
+
+      const response = await axios.get(
+        `https://v5.api.cloudgarden.nl/data/${mac}/status`,
+        {
+          headers: {
+            'Authorization': `Bearer ${accessToken}`
+          }
+        }
+      );
+
+      const status = response.data.data;
+
+      if (status.type === "21") {
+        this.setCapabilityOptions("target_temperature",{
+          min: 18,
+          max: 30,
+          step: 1
+        });
+      } else if (status.type === "50") {
+        this.setCapabilityOptions("target_temperature",{
+          min: 5,
+          max: 30,
+          step: 1
+        });
+      }
   }
 
   /**
