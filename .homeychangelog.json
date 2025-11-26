@@ -49,5 +49,8 @@
   },
   "1.2.4": {
     "en": "Make sure no decimals are displayed in the fan speed slider"
+  },
+  "1.2.5": {
+    "en": "Fix whisper flex"
   }
 }
