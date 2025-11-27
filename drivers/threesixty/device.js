@@ -86,15 +86,15 @@ module.exports = class ThreesixtyDevice extends Homey.Device {
         }
       );
 
-      const status = response.data.data;
+      const type = this.getStoreValue("deviceType");
 
-      if (status.type === "21") {
+      if (type === "21") {
         this.setCapabilityOptions("target_temperature",{
           min: 18,
           max: 30,
           step: 1
         });
-      } else if (status.type === "50") {
+      } else if (type === "50") {
         this.setCapabilityOptions("target_temperature",{
           min: 5,
           max: 30,

@@ -248,7 +248,8 @@ module.exports = class ThreesixtyDriver extends Homey.Driver {
             id: device.id,
             mac: device.deviceId,
             tenantId: device.tenantId,
-            spaceId: device.spaceId
+            spaceId: device.spaceId,
+            deviceType: device.type
           }
         }));
 
