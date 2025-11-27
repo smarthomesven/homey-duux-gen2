@@ -55,5 +55,8 @@
   },
   "1.2.6": {
     "en": "Added set capability options for threesixty"
+  },
+  "1.2.7": {
+    "en": "fixed type detection"
   }
 }
