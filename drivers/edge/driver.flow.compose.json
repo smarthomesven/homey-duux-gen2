@@ -1,0 +1,99 @@
+{
+  "triggers": [
+    {
+      "id": "eco_mode_enabled",
+      "title": {
+        "en": "Eco mode enabled",
+        "nl": "Eco-modus ingeschakeld"
+      }
+    },
+    {
+      "id": "eco_mode_disabled",
+      "title": {
+        "en": "Eco mode disabled",
+        "nl": "Eco-modus uitgeschakeld"
+      }
+    },
+    {
+      "id": "child_lock_enabled_edge",
+      "title": {
+        "en": "Child lock enabled",
+        "nl": "Kinderslot ingeschakeld"
+      }
+    },
+    {
+      "id": "child_lock_disabled_edge",
+      "title": {
+        "en": "Child lock disabled",
+        "nl": "Kinderslot uitgeschakeld"
+      }
+    }
+  ],
+  "conditions":[
+    {
+        "id": "eco_mode_condition",
+        "title": {
+            "en": "Eco mode is !{{enabled|disabled}}",
+            "nl": "Eco-modus is !{{ingeschakeld|uitgeschakeld}}"
+        }
+    },
+    {
+        "id": "child_lock_condition_edge",
+        "title": {
+            "en": "Child lock is !{{enabled|disabled}}",
+            "nl": "Kinderslot is !{{ingeschakeld|uitgeschakeld}}"
+        }
+    },
+    {
+        "id": "night_mode_condition",
+        "title": {
+            "en": "Night mode is !{{enabled|disabled}}",
+            "nl": "Nachtmodus is !{{ingeschakeld|uitgeschakeld}}"
+        }
+    }
+  ],
+  "actions": [
+    {
+      "id": "enable_eco_mode",
+      "title": {
+        "en": "Enable eco mode",
+        "nl": "Eco-modus inschakelen"
+      } 
+    },
+    {
+      "id": "disable_eco_mode",
+      "title": {
+        "en": "Disable eco mode",
+        "nl": "Eco-modus uitschakelen"
+      } 
+    },
+    {
+      "id": "enable_child_lock_edge",
+      "title": {
+        "en": "Enable child lock",
+        "nl": "Kinderslot inschakelen"
+      } 
+    },
+    {
+      "id": "disable_child_lock_edge",
+      "title": {
+        "en": "Disable child lock",
+        "nl": "Kinderslot uitschakelen"
+      } 
+    },
+    {
+      "id": "enable_night_mode_edge",
+      "title": {
+        "en": "Enable night mode",
+        "nl": "Nachtstand inschakelen"
+      } 
+    },
+    {
+      "id": "disable_night_mode_edge",
+      "title": {
+        "en": "Disable night mode",
+        "nl": "Nachtstand uitschakelen"
+      } 
+    }
+  ]
+}

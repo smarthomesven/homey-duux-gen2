@@ -131,6 +131,62 @@
         ]
       },
       {
+        "id": "eco_mode_enabled",
+        "title": {
+          "en": "Eco mode enabled",
+          "nl": "Eco-modus ingeschakeld"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=edge"
+          }
+        ]
+      },
+      {
+        "id": "eco_mode_disabled",
+        "title": {
+          "en": "Eco mode disabled",
+          "nl": "Eco-modus uitgeschakeld"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=edge"
+          }
+        ]
+      },
+      {
+        "id": "child_lock_enabled_edge",
+        "title": {
+          "en": "Child lock enabled",
+          "nl": "Kinderslot ingeschakeld"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=edge"
+          }
+        ]
+      },
+      {
+        "id": "child_lock_disabled_edge",
+        "title": {
+          "en": "Child lock disabled",
+          "nl": "Kinderslot uitgeschakeld"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=edge"
+          }
+        ]
+      },
+      {
         "id": "heatmode_changed",
         "title": {
           "en": "Fan speed changed",
@@ -213,6 +269,48 @@
             "type": "device",
             "name": "device",
             "filter": "driver_id=bora"
+          }
+        ]
+      },
+      {
+        "id": "eco_mode_condition",
+        "title": {
+          "en": "Eco mode is !{{enabled|disabled}}",
+          "nl": "Eco-modus is !{{ingeschakeld|uitgeschakeld}}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=edge"
+          }
+        ]
+      },
+      {
+        "id": "child_lock_condition_edge",
+        "title": {
+          "en": "Child lock is !{{enabled|disabled}}",
+          "nl": "Kinderslot is !{{ingeschakeld|uitgeschakeld}}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=edge"
+          }
+        ]
+      },
+      {
+        "id": "night_mode_condition",
+        "title": {
+          "en": "Night mode is !{{enabled|disabled}}",
+          "nl": "Nachtmodus is !{{ingeschakeld|uitgeschakeld}}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=edge"
           }
         ]
       },
@@ -389,6 +487,90 @@
                 }
               }
             ]
+          }
+        ]
+      },
+      {
+        "id": "enable_eco_mode",
+        "title": {
+          "en": "Enable eco mode",
+          "nl": "Eco-modus inschakelen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=edge"
+          }
+        ]
+      },
+      {
+        "id": "disable_eco_mode",
+        "title": {
+          "en": "Disable eco mode",
+          "nl": "Eco-modus uitschakelen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=edge"
+          }
+        ]
+      },
+      {
+        "id": "enable_child_lock_edge",
+        "title": {
+          "en": "Enable child lock",
+          "nl": "Kinderslot inschakelen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=edge"
+          }
+        ]
+      },
+      {
+        "id": "disable_child_lock_edge",
+        "title": {
+          "en": "Disable child lock",
+          "nl": "Kinderslot uitschakelen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=edge"
+          }
+        ]
+      },
+      {
+        "id": "enable_night_mode_edge",
+        "title": {
+          "en": "Enable night mode",
+          "nl": "Nachtstand inschakelen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=edge"
+          }
+        ]
+      },
+      {
+        "id": "disable_night_mode_edge",
+        "title": {
+          "en": "Disable night mode",
+          "nl": "Nachtstand uitschakelen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=edge"
           }
         ]
       },
@@ -580,6 +762,70 @@
     },
     {
       "name": {
+        "en": "Edge",
+        "nl": "Edge"
+      },
+      "class": "heater",
+      "capabilities": [
+        "onoff",
+        "target_temperature",
+        "measure_temperature",
+        "child_lock",
+        "night_mode",
+        "eco_mode"
+      ],
+      "capabilitiesOptions": {
+        "target_temperature": {
+          "min": 5,
+          "max": 36,
+          "step": 1
+        }
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "cloud"
+      ],
+      "images": {
+        "small": "/drivers/edge/assets/images/small.png",
+        "large": "/drivers/edge/assets/images/large.png",
+        "xlarge": "/drivers/edge/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "email"
+        },
+        {
+          "id": "code"
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          },
+          "options": {
+            "singular": false
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "repair": [
+        {
+          "id": "email"
+        },
+        {
+          "id": "code"
+        }
+      ],
+      "id": "edge"
+    },
+    {
+      "name": {
         "en": "Threesixty",
         "nl": "Threesixty"
       },
@@ -718,6 +964,18 @@
       "uiQuickAction": false,
       "icon": "/assets/child_lock.svg"
     },
+    "eco_mode": {
+      "type": "boolean",
+      "title": {
+        "en": "Eco mode",
+        "nl": "Eco-modus"
+      },
+      "getable": true,
+      "setable": true,
+      "uiComponent": "button",
+      "uiQuickAction": false,
+      "icon": "/assets/eco_mode.svg"
+    },
     "fanmode": {
       "type": "enum",
       "title": {
@@ -826,6 +1084,18 @@
           }
         }
       ]
+    },
+    "night_mode": {
+      "type": "boolean",
+      "title": {
+        "en": "Night mode",
+        "nl": "Nachtmodus"
+      },
+      "getable": true,
+      "setable": true,
+      "uiComponent": "button",
+      "uiQuickAction": false,
+      "icon": "/assets/night_mode.svg"
     },
     "whisper_mode": {
       "type": "enum",
