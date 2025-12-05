@@ -255,7 +255,7 @@ module.exports = class EdgeDevice extends Homey.Device {
               }
             }
           }
-          await this.setCapabilityValue('eco_mode', isLaundry).catch(err => {
+          await this.setCapabilityValue('eco_mode', isEco).catch(err => {
             this.error('Error setting eco_mode capability:', err);
           });
         }
