@@ -3,8 +3,8 @@
 ## Device support
 The app currently supports the following devices:
 - Bora:
-  - Target humidity
   - On/off
+  - Target humidity
   - Current humidity
   - Laundry mode
   - Night mode
@@ -13,15 +13,25 @@ The app currently supports the following devices:
   - Child lock
  
 - Threesixty:
-  - Target temperature
   - On/off
+  - Target temperature
   - Current temperature
   - Fan speed
  
 - Whisper Flex:
-  - Fan speed
   - On/off
+  - Fan speed
   - Mode
   - Horiontal oscillation
 
+- Edge*
+  - On/off
+  - Current temperature
+  - Target temperature
+  - Night mode
+  - Eco mode
+  - Child lock
+
 If your device isn't on this list, you can request support for it [here](https://community.homey.app/t/app-pro-duux-gen2/145511?u=smarthomesven).
+
+**NOTE:** The Edge heater has multiple variations. If your device doesn't show up in the list when choosing the Edge during pairing, please report it on the forum topic.
