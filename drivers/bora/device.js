@@ -11,6 +11,10 @@ module.exports = class BoraDevice extends Homey.Device {
   async onInit() {
     try {
       this.log('Bora device has been initialized');
+
+      if (!this.hasCapability('alarm_tank_full')) {
+        await this.addCapability('alarm_tank_full');
+      }
       
       // Register capability listeners
       this.registerCapabilityListener("onoff", async (value) => {
@@ -84,6 +88,8 @@ module.exports = class BoraDevice extends Homey.Device {
       const setFanSpeedAction = this.homey.flow.getActionCard('set_fan_speed');
       const childLockCondition = this.homey.flow.getConditionCard('child_lock_condition');
       const laundryModeCondition = this.homey.flow.getConditionCard('laundry_mode_condition');
+      const tankFullCondition = this.homey.flow.getConditionCard('tank_full_condition');
+
 
       childLockCondition.registerRunListener(async (args, state) => {
         const isLocked = this.getCapabilityValue('child_lock');
@@ -93,6 +99,11 @@ module.exports = class BoraDevice extends Homey.Device {
       laundryModeCondition.registerRunListener(async (args, state) => {
         const isLaundry = this.getCapabilityValue('laundry_mode');
         return isLaundry;
+      });
+
+      tankFullCondition.registerRunListener(async (args, state) => {
+        const isTankFull = this.getCapabilityValue('alarm_tank_full');
+        return isTankFull;
       });
 
       setModeAction.registerRunListener(async (args, state) => {
@@ -311,6 +322,20 @@ module.exports = class BoraDevice extends Homey.Device {
           }
           await this.setCapabilityValue('laundry_mode', isLaundry).catch(err => {
             this.error('Error setting laundry_mode capability:', err);
+          });
+        }
+
+        if (this.hasCapability('alarm_tank_full') && status.err !== undefined) {
+          const isTankFull = status.err === 8;
+          if (isTankFull !== this.getCapabilityValue('alarm_tank_full')) {
+            if (isFirstRun !== true) {
+              if (isTankFull === true) {
+                await this.driver.triggerFlow('tank_full', this);
+              }
+            }
+          }
+          await this.setCapabilityValue('alarm_tank_full', isTankFull).catch(err => {
+            this.error('Error setting alarm_tank_full capability:', err);
           });
         }
 

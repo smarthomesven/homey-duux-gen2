@@ -41,6 +41,13 @@
             "en": "Fan speed changed",
             "nl": "Ventilatorsnelheid veranderd"
         }
+    },
+    {
+        "id": "tank_full",
+        "title": {
+            "en": "The water tank is full",
+            "nl": "De watertank is vol"
+        }
     }
   ],
   "conditions":[
@@ -56,6 +63,13 @@
         "title": {
             "en": "Child lock is !{{enabled|disabled}}",
             "nl": "Kinderslot is !{{ingeschakeld|uitgeschakeld}}"
+        }
+    },
+    {
+        "id": "tank_full_condition",
+        "title": {
+            "en": "The water tank !{{is|isn't}} full",
+            "nl": "De watertank !{{is|is niet}} vol"
         }
     }
   ],

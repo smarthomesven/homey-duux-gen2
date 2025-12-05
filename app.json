@@ -131,6 +131,20 @@
         ]
       },
       {
+        "id": "tank_full",
+        "title": {
+          "en": "The water tank is full",
+          "nl": "De watertank is vol"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=bora"
+          }
+        ]
+      },
+      {
         "id": "eco_mode_enabled",
         "title": {
           "en": "Eco mode enabled",
@@ -263,6 +277,20 @@
         "title": {
           "en": "Child lock is !{{enabled|disabled}}",
           "nl": "Kinderslot is !{{ingeschakeld|uitgeschakeld}}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=bora"
+          }
+        ]
+      },
+      {
+        "id": "tank_full_condition",
+        "title": {
+          "en": "The water tank !{{is|isn't}} full",
+          "nl": "De watertank !{{is|is niet}} vol"
         },
         "args": [
           {
@@ -952,6 +980,18 @@
     }
   ],
   "capabilities": {
+    "alarm_tank_full": {
+      "type": "boolean",
+      "title": {
+        "en": "Tank full",
+        "nl": "Tank vol"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "uiQuickAction": false,
+      "icon": "/assets/tank_full.svg"
+    },
     "child_lock": {
       "type": "boolean",
       "title": {
