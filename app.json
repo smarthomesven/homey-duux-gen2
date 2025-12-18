@@ -201,6 +201,34 @@
         ]
       },
       {
+        "id": "night_mode_enabled_edge",
+        "title": {
+          "en": "Night mode enabled",
+          "nl": "Nachtmodus ingeschakeld"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=edge"
+          }
+        ]
+      },
+      {
+        "id": "night_mode_disabled_edge",
+        "title": {
+          "en": "Night mode disabled",
+          "nl": "Nachtmodus uitgeschakeld"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=edge"
+          }
+        ]
+      },
+      {
         "id": "heatmode_changed",
         "title": {
           "en": "Fan speed changed",

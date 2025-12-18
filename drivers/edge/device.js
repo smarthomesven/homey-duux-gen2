@@ -265,9 +265,9 @@ module.exports = class EdgeDevice extends Homey.Device {
           if (isNight !== this.getCapabilityValue('night_mode')) {
             if (isFirstRun !== true) {
               if (this.getCapabilityValue('night_mode') === true) {
-                await this.driver.triggerFlow('night_mode_disabled', this);
+                await this.driver.triggerFlow('night_mode_disabled_edge', this);
               } else if (this.getCapabilityValue('night_mode') === false) {
-                await this.driver.triggerFlow('night_mode_enabled', this);
+                await this.driver.triggerFlow('night_mode_enabled_edge', this);
               }
             }
           }

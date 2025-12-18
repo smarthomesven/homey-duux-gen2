@@ -27,6 +27,20 @@
         "en": "Child lock disabled",
         "nl": "Kinderslot uitgeschakeld"
       }
+    },
+    {
+      "id": "night_mode_enabled_edge",
+      "title": {
+        "en": "Night mode enabled",
+        "nl": "Nachtmodus ingeschakeld"
+      }
+    },
+    {
+      "id": "night_mode_disabled_edge",
+      "title": {
+        "en": "Night mode disabled",
+        "nl": "Nachtmodus uitgeschakeld"
+      }
     }
   ],
   "conditions":[
