@@ -1,0 +1,12 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Swing",
+    "nl": "Zwenken"
+  },
+  "getable": true,
+  "setable": true,
+  "uiComponent": "button",
+  "uiQuickAction": false,
+  "icon": "/assets/swing.svg"
+}

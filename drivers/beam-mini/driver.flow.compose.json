@@ -1,16 +1,7 @@
 {
-  "triggers": [
-    {
-      "id": "heatmode_changed",
-      "title": {
-        "en": "Fan speed changed",
-        "nl": "Ventilatorsnelheid veranderd"
-      }
-    }
-  ],
   "actions": [
     {
-      "id": "set_fan_speed_heater",
+      "id": "set_fan_speed_beam_mini",
       "title": {
         "en": "Set fan speed",
         "nl": "Ventilatorsnelheid instellen"
@@ -25,24 +16,31 @@
           "type": "dropdown",
           "values": [
             {
-              "id": "one",
+              "id": "low",
               "label": {
-                "en": "I",
-                "nl": "I"
+                "en": "Low",
+                "nl": "Laag"
               }
             },
             {
-              "id": "two",
+              "id": "medium",
               "label": {
-                "en": "II",
-                "nl": "II"
+                "en": "Medium",
+                "nl": "Medium"
               }
             },
             {
-              "id": "three",
+              "id": "high",
               "label": {
-                "en": "III",
-                "nl": "III"
+                "en": "High",
+                "nl": "Hoog"
+              }
+            },
+            {
+              "id": "auto",
+              "label": {
+                "en": "Auto",
+                "nl": "Auto"
               }
             }
           ]

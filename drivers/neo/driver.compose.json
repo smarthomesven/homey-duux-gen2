@@ -1,0 +1,59 @@
+{
+  "name": {
+    "en": "Neo",
+    "nl": "Neo"
+  },
+  "class": "humidifier",
+  "capabilities": [
+    "measure_humidity",
+    "target_humidity",
+    "onoff",
+    "fan_speed_neo",
+    "alarm_tank_empty",
+    "alarm_tank_missing"
+  ],
+  "capabilitiesOptions": {
+    "target_humidity": {
+      "min": 0.3,
+      "max": 0.9,
+      "step": 0.05
+    }
+  },
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "images": {
+    "small": "{{driverAssetsPath}}/images/small.png",
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "xlarge": "{{driverAssetsPath}}/images/xlarge.png"
+  },
+  "pair": [
+    {
+      "id": "email"
+    },
+    {
+      "id": "code"
+    },
+    {
+      "id": "list_devices",
+      "template": "list_devices",
+      "navigation": { "next": "add_devices" },
+      "options": { "singular": false }
+    },
+    {
+      "id": "add_devices",
+      "template": "add_devices"
+    }
+  ],
+  "repair": [
+    {
+      "id": "email"
+    },
+    {
+      "id": "code"
+    }
+  ]
+}

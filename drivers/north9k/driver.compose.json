@@ -1,0 +1,60 @@
+{
+  "name": {
+    "en": "North 9k",
+    "nl": "North 9k"
+  },
+  "class": "airconditioning",
+  "capabilities": [
+    "onoff",
+    "measure_temperature",
+    "target_temperature",
+    "heatmode",
+    "north9k_mode",
+    "night_mode",
+    "louver"
+  ],
+  "capabilitiesOptions": {
+    "target_temperature": {
+      "min": 16,
+      "max": 31,
+      "step": 1
+    }
+  },
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "images": {
+    "small": "{{driverAssetsPath}}/images/small.png",
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "xlarge": "{{driverAssetsPath}}/images/xlarge.png"
+  },
+  "pair": [
+    {
+      "id": "email"
+    },
+    {
+      "id": "code"
+    },
+    {
+      "id": "list_devices",
+      "template": "list_devices",
+      "navigation": { "next": "add_devices" },
+      "options": { "singular": false }
+    },
+    {
+      "id": "add_devices",
+      "template": "add_devices"
+    }
+  ],
+  "repair": [
+    {
+      "id": "email"
+    },
+    {
+      "id": "code"
+    }
+  ]
+}

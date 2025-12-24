@@ -12,6 +12,7 @@ module.exports = class BoraDevice extends Homey.Device {
     try {
       this.log('Bora device has been initialized');
 
+      // migrations
       if (!this.hasCapability('alarm_tank_full')) {
         await this.addCapability('alarm_tank_full');
       }
@@ -337,6 +338,22 @@ module.exports = class BoraDevice extends Homey.Device {
           await this.setCapabilityValue('alarm_tank_full', isTankFull).catch(err => {
             this.error('Error setting alarm_tank_full capability:', err);
           });
+        }
+
+        if (status.err === 8) {
+          await this.setWarning(Homey.__('errors.water-full'));
+        } else if (status.err === 1) {
+          await this.setWarning(Homey.__('errors.temp'));
+        } else if (status.err === 2) {
+          await this.setWarning(Homey.__('errors.coil-temp'));
+        } else if (status.err === 4) {
+          await this.setWarning(Homey.__('errors.frosting'));
+        } else if (status.err === 16) {
+          await this.setWarning(Homey.__('errors.temp-low'));
+        } else if (status.err === 32) {
+          await this.setWarning(Homey.__('errors.temp-high'));
+        } else {
+          await this.unsetWarning();
         }
 
         if (isFirstRun === true) {

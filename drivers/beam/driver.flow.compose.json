@@ -1,0 +1,125 @@
+{
+  "triggers": [
+    {
+      "id": "led_turned_on",
+      "title": {
+        "en": "Light turned on",
+        "nl": "Licht ingeschakeld"
+      }
+    },
+    {
+      "id": "led_turned_off",
+      "title": {
+        "en": "Light turned off",
+        "nl": "Licht uitgeschakeld"
+      }
+    },
+    {
+      "id": "night_mode_enabled_beam",
+      "title": {
+        "en": "Night mode enabled",
+        "nl": "Nachtmodus ingeschakeld"
+      }
+    },
+    {
+      "id": "night_mode_disabled_beam",
+      "title": {
+        "en": "Night mode disabled",
+        "nl": "Nachtmodus uitgeschakeld"
+      }
+    }
+  ],
+  "conditions": [
+    {
+      "id": "led_condition",
+      "title": {
+        "en": "The light is !{{on|off}}",
+        "nl": "Het licht is !{{ingeschakeld|uitgeschakeld}}"
+      }
+    },
+    {
+      "id": "night_mode_condition_beam",
+      "title": {
+        "en": "Night mode is !{{enabled|disabled}}",
+        "nl": "Nachtmodus is !{{ingeschakeld|uitgeschakeld}}"
+      }
+    }
+  ],
+  "actions": [
+    {
+      "id": "turn_on_led",
+      "title": {
+        "en": "Turn on light",
+        "nl": "Licht inschakelen"
+      }
+    },
+    {
+      "id": "turn_off_led",
+      "title": {
+        "en": "Turn off light",
+        "nl": "Licht uitschakelen"
+      }
+    },
+    {
+      "id": "enable_night_mode_beam",
+      "title": {
+        "en": "Enable night mode",
+        "nl": "Nachtstand inschakelen"
+      } 
+    },
+    {
+      "id": "disable_night_mode_beam",
+      "title": {
+        "en": "Disable night mode",
+        "nl": "Nachtstand uitschakelen"
+      } 
+    },
+    {
+      "id": "set_fan_speed_beam",
+      "title": {
+        "en": "Set fan speed",
+        "nl": "Ventilatorsnelheid instellen"
+      },
+      "titleFormatted": {
+        "en": "Set fan speed to [[speed]]",
+        "nl": "Ventilatorsnelheid instellen op [[speed]]"
+      },
+      "args": [
+        {
+          "name": "speed",
+          "type": "dropdown",
+          "values": [
+            {
+              "id": "low",
+              "label": {
+                "en": "Low",
+                "nl": "Laag"
+              }
+            },
+            {
+              "id": "medium",
+              "label": {
+                "en": "Medium",
+                "nl": "Medium"
+              }
+            },
+            {
+              "id": "high",
+              "label": {
+                "en": "High",
+                "nl": "Hoog"
+              }
+            },
+            {
+              "id": "auto",
+              "label": {
+                "en": "Auto",
+                "nl": "Auto"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -85,6 +85,20 @@
         "en": "Disable horizontal oscillation",
         "nl": "Horizontale oscillatie uitschakelen"
       }
+    },
+    {
+      "id": "enable_vertical_oscillation",
+      "title": {
+        "en": "Enable vertical oscillation",
+        "nl": "Verticale oscillatie inschakelen"
+      }
+    },
+    {
+      "id": "disable_vertical_oscillation",
+      "title": {
+        "en": "Disable vertical oscillation",
+        "nl": "Verticale oscillatie uitschakelen"
+      }
     }
   ]
 }

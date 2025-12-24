@@ -8,7 +8,16 @@
     },
     "errors": {
         "input": "Voer je gebruikersnaam in",
-        "copy": "Kopieren naar klembord mislukt"
+        "copy": "Kopieren naar klembord mislukt",
+        "water-full": "De watertank is vol",
+        "coil-temp": "Storing: Spoelsensor defect",
+        "frosting": "Storing: IJsophoping gedetecteerd",
+        "temp": "Storing: Temperatuursensor defect",
+        "temp-low": "Storing: De omgevingstemperatuur is te laag",
+        "temp-high": "Storing: De omgevingstemperatuur is te hoog",
+        "water-empty": "De watertank is leeg",
+        "missing-tank": "De watertank ontbreekt",
+        "missing-tank-and-element": "De watertank en het element ontbreken"
     },
     "settings": {
         "title": "Debug",

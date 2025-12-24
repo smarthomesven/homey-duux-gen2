@@ -1,0 +1,12 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Light",
+    "nl": "Licht"
+  },
+  "getable": true,
+  "setable": true,
+  "uiComponent": "button",
+  "uiQuickAction": false,
+  "icon": "/assets/led.svg"
+}

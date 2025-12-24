@@ -1,0 +1,15 @@
+{
+  "title": {
+    "en": "Fan speed changed",
+    "nl": "Ventilatorsnelheid veranderd"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": {
+        "driver_id": "north9k|north|neo"
+      }
+    }
+  ]
+}

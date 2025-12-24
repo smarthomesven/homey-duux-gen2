@@ -56,14 +56,16 @@ module.exports = class WhisperFlexDevice extends Homey.Device {
       // Start polling
       this.startPolling();
 
-      const enableHorizontalOscillationAction = this.homey.flow.getActionCard('enable_laundry_mode');
-      const disableHorizontalOscillationAction = this.homey.flow.getActionCard('disable_laundry_mode');
+      const enableHorizontalOscillationAction = this.homey.flow.getActionCard('enable_horizontal_oscillation');
+      const disableHorizontalOscillationAction = this.homey.flow.getActionCard('disable_horizontal_oscillation');
+      const enableVerticalOscillationAction = this.homey.flow.getActionCard('enable_vertical_oscillation');
+      const disableVerticalOscillationAction = this.homey.flow.getActionCard('disable_vertical_oscillation');
       const setModeAction = this.homey.flow.getActionCard('set_whisper_flex_mode');
-      const horizontalOscillationCondition = this.homey.flow.getConditionCard('laundry_mode_condition');
+      const horizontalOscillationCondition = this.homey.flow.getConditionCard('vertical_oscillation_condition');
 
       horizontalOscillationCondition.registerRunListener(async (args, state) => {
-        const isLaundry = this.getCapabilityValue('horizontal_oscillation');
-        return isLaundry;
+        const isSwing = this.getCapabilityValue('horizontal_oscillation');
+        return isSwing;
       });
 
       setModeAction.registerRunListener(async (args, state) => {
@@ -84,6 +86,16 @@ module.exports = class WhisperFlexDevice extends Homey.Device {
 
       disableHorizontalOscillationAction.registerRunListener(async (args, state) => {
         await this.sendCommand("tune set swing 0");
+        return true;
+      });
+
+      enableVerticalOscillationAction.registerRunListener(async (args, state) => {
+        await this.sendCommand("tune set tilt 1");
+        return true;
+      });
+
+      disableVerticalOscillationAction.registerRunListener(async (args, state) => {
+        await this.sendCommand("tune set tilt 0");
         return true;
       });
     } catch (error) {

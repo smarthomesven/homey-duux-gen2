@@ -45,25 +45,25 @@
   ],
   "conditions":[
     {
-        "id": "eco_mode_condition",
-        "title": {
-            "en": "Eco mode is !{{enabled|disabled}}",
-            "nl": "Eco-modus is !{{ingeschakeld|uitgeschakeld}}"
-        }
+      "id": "eco_mode_condition",
+      "title": {
+        "en": "Eco mode is !{{enabled|disabled}}",
+        "nl": "Eco-modus is !{{ingeschakeld|uitgeschakeld}}"
+      }
     },
     {
-        "id": "child_lock_condition_edge",
-        "title": {
-            "en": "Child lock is !{{enabled|disabled}}",
-            "nl": "Kinderslot is !{{ingeschakeld|uitgeschakeld}}"
-        }
+      "id": "child_lock_condition_edge",
+      "title": {
+        "en": "Child lock is !{{enabled|disabled}}",
+        "nl": "Kinderslot is !{{ingeschakeld|uitgeschakeld}}"
+      }
     },
     {
-        "id": "night_mode_condition",
-        "title": {
-            "en": "Night mode is !{{enabled|disabled}}",
-            "nl": "Nachtmodus is !{{ingeschakeld|uitgeschakeld}}"
-        }
+      "id": "night_mode_condition",
+      "title": {
+        "en": "Night mode is !{{enabled|disabled}}",
+        "nl": "Nachtmodus is !{{ingeschakeld|uitgeschakeld}}"
+      }
     }
   ],
   "actions": [

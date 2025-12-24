@@ -47,6 +47,78 @@
   "flow": {
     "triggers": [
       {
+        "title": {
+          "en": "Fan speed changed",
+          "nl": "Ventilatorsnelheid veranderd"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": {
+              "driver_id": "north9k|north|neo"
+            }
+          }
+        ],
+        "id": "fan_speed_neo_changed"
+      },
+      {
+        "id": "led_turned_on",
+        "title": {
+          "en": "Light turned on",
+          "nl": "Licht ingeschakeld"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=beam"
+          }
+        ]
+      },
+      {
+        "id": "led_turned_off",
+        "title": {
+          "en": "Light turned off",
+          "nl": "Licht uitgeschakeld"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=beam"
+          }
+        ]
+      },
+      {
+        "id": "night_mode_enabled_beam",
+        "title": {
+          "en": "Night mode enabled",
+          "nl": "Nachtmodus ingeschakeld"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=beam"
+          }
+        ]
+      },
+      {
+        "id": "night_mode_disabled_beam",
+        "title": {
+          "en": "Night mode disabled",
+          "nl": "Nachtmodus uitgeschakeld"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=beam"
+          }
+        ]
+      },
+      {
         "id": "laundry_mode_enabled",
         "title": {
           "en": "Laundry mode enabled",
@@ -229,6 +301,202 @@
         ]
       },
       {
+        "id": "night_mode_enabled_neo",
+        "title": {
+          "en": "Night mode enabled",
+          "nl": "Nachtmodus ingeschakeld"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=neo"
+          }
+        ]
+      },
+      {
+        "id": "night_mode_disabled_neo",
+        "title": {
+          "en": "Night mode disabled",
+          "nl": "Nachtmodus uitgeschakeld"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=neo"
+          }
+        ]
+      },
+      {
+        "id": "night_mode_enabled_north",
+        "title": {
+          "en": "Night mode enabled",
+          "nl": "Nachtmodus ingeschakeld"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=north12k18k"
+          }
+        ]
+      },
+      {
+        "id": "night_mode_disabled_north",
+        "title": {
+          "en": "Night mode disabled",
+          "nl": "Nachtmodus uitgeschakeld"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=north12k18k"
+          }
+        ]
+      },
+      {
+        "id": "louver_enabled_north",
+        "title": {
+          "en": "Swing enabled",
+          "nl": "Zwenken ingeschakeld"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=north12k18k"
+          }
+        ]
+      },
+      {
+        "id": "louver_disabled_north",
+        "title": {
+          "en": "Swing disabled",
+          "nl": "Zwenken uitgeschakeld"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=north12k18k"
+          }
+        ]
+      },
+      {
+        "id": "north_mode_changed",
+        "title": {
+          "en": "Mode changed",
+          "nl": "Modus veranderd"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=north12k18k"
+          }
+        ]
+      },
+      {
+        "id": "speed_changed_north",
+        "title": {
+          "en": "Fan speed changed",
+          "nl": "Ventilatorsnelheid veranderd"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=north12k18k"
+          }
+        ]
+      },
+      {
+        "id": "night_mode_enabled_north9k",
+        "title": {
+          "en": "Night mode enabled",
+          "nl": "Nachtmodus ingeschakeld"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=north9k"
+          }
+        ]
+      },
+      {
+        "id": "night_mode_disabled_north9k",
+        "title": {
+          "en": "Night mode disabled",
+          "nl": "Nachtmodus uitgeschakeld"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=north9k"
+          }
+        ]
+      },
+      {
+        "id": "louver_enabled_north9k",
+        "title": {
+          "en": "Swing enabled",
+          "nl": "Zwenken ingeschakeld"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=north9k"
+          }
+        ]
+      },
+      {
+        "id": "louver_disabled_north9k",
+        "title": {
+          "en": "Swing disabled",
+          "nl": "Zwenken uitgeschakeld"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=north9k"
+          }
+        ]
+      },
+      {
+        "id": "north9k_mode_changed",
+        "title": {
+          "en": "Mode changed",
+          "nl": "Modus veranderd"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=north9k"
+          }
+        ]
+      },
+      {
+        "id": "speed_changed_north9k",
+        "title": {
+          "en": "Fan speed changed",
+          "nl": "Ventilatorsnelheid veranderd"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=north9k"
+          }
+        ]
+      },
+      {
         "id": "heatmode_changed",
         "title": {
           "en": "Fan speed changed",
@@ -286,6 +554,34 @@
       }
     ],
     "conditions": [
+      {
+        "id": "led_condition",
+        "title": {
+          "en": "The light is !{{on|off}}",
+          "nl": "Het licht is !{{ingeschakeld|uitgeschakeld}}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=beam"
+          }
+        ]
+      },
+      {
+        "id": "night_mode_condition_beam",
+        "title": {
+          "en": "Night mode is !{{enabled|disabled}}",
+          "nl": "Nachtmodus is !{{ingeschakeld|uitgeschakeld}}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=beam"
+          }
+        ]
+      },
       {
         "id": "laundry_mode_condition",
         "title": {
@@ -371,6 +667,76 @@
         ]
       },
       {
+        "id": "night_mode_condition_neo",
+        "title": {
+          "en": "Night mode is !{{enabled|disabled}}",
+          "nl": "Nachtmodus is !{{ingeschakeld|uitgeschakeld}}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=neo"
+          }
+        ]
+      },
+      {
+        "id": "night_mode_condition_north",
+        "title": {
+          "en": "Night mode is !{{enabled|disabled}}",
+          "nl": "Nachtmodus is !{{ingeschakeld|uitgeschakeld}}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=north12k18k"
+          }
+        ]
+      },
+      {
+        "id": "louver_condition_north",
+        "title": {
+          "en": "Swing is !{{enabled|disabled}}",
+          "nl": "Zwenken is !{{ingeschakeld|uitgeschakeld}}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=north12k18k"
+          }
+        ]
+      },
+      {
+        "id": "night_mode_condition_north9k",
+        "title": {
+          "en": "Night mode is !{{enabled|disabled}}",
+          "nl": "Nachtmodus is !{{ingeschakeld|uitgeschakeld}}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=north9k"
+          }
+        ]
+      },
+      {
+        "id": "louver_condition_north9k",
+        "title": {
+          "en": "Swing is !{{enabled|disabled}}",
+          "nl": "Zwenken is !{{ingeschakeld|uitgeschakeld}}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=north9k"
+          }
+        ]
+      },
+      {
         "id": "horizontal_oscillation_condition",
         "title": {
           "en": "Horizontal oscillation is !{{enabled|disabled}}",
@@ -386,6 +752,166 @@
       }
     ],
     "actions": [
+      {
+        "id": "turn_on_led",
+        "title": {
+          "en": "Turn on light",
+          "nl": "Licht inschakelen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=beam"
+          }
+        ]
+      },
+      {
+        "id": "turn_off_led",
+        "title": {
+          "en": "Turn off light",
+          "nl": "Licht uitschakelen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=beam"
+          }
+        ]
+      },
+      {
+        "id": "enable_night_mode_beam",
+        "title": {
+          "en": "Enable night mode",
+          "nl": "Nachtstand inschakelen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=beam"
+          }
+        ]
+      },
+      {
+        "id": "disable_night_mode_beam",
+        "title": {
+          "en": "Disable night mode",
+          "nl": "Nachtstand uitschakelen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=beam"
+          }
+        ]
+      },
+      {
+        "id": "set_fan_speed_beam",
+        "title": {
+          "en": "Set fan speed",
+          "nl": "Ventilatorsnelheid instellen"
+        },
+        "titleFormatted": {
+          "en": "Set fan speed to [[speed]]",
+          "nl": "Ventilatorsnelheid instellen op [[speed]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=beam"
+          },
+          {
+            "name": "speed",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "low",
+                "label": {
+                  "en": "Low",
+                  "nl": "Laag"
+                }
+              },
+              {
+                "id": "medium",
+                "label": {
+                  "en": "Medium",
+                  "nl": "Medium"
+                }
+              },
+              {
+                "id": "high",
+                "label": {
+                  "en": "High",
+                  "nl": "Hoog"
+                }
+              },
+              {
+                "id": "auto",
+                "label": {
+                  "en": "Auto",
+                  "nl": "Auto"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "set_fan_speed_beam_mini",
+        "title": {
+          "en": "Set fan speed",
+          "nl": "Ventilatorsnelheid instellen"
+        },
+        "titleFormatted": {
+          "en": "Set fan speed to [[speed]]",
+          "nl": "Ventilatorsnelheid instellen op [[speed]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=beam-mini"
+          },
+          {
+            "name": "speed",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "low",
+                "label": {
+                  "en": "Low",
+                  "nl": "Laag"
+                }
+              },
+              {
+                "id": "medium",
+                "label": {
+                  "en": "Medium",
+                  "nl": "Medium"
+                }
+              },
+              {
+                "id": "high",
+                "label": {
+                  "en": "High",
+                  "nl": "Hoog"
+                }
+              },
+              {
+                "id": "auto",
+                "label": {
+                  "en": "Auto",
+                  "nl": "Auto"
+                }
+              }
+            ]
+          }
+        ]
+      },
       {
         "id": "enable_laundry_mode",
         "title": {
@@ -631,6 +1157,385 @@
         ]
       },
       {
+        "id": "enable_night_mode_neo",
+        "title": {
+          "en": "Enable night mode",
+          "nl": "Nachtmodus inschakelen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=neo"
+          }
+        ]
+      },
+      {
+        "id": "disable_night_mode_neo",
+        "title": {
+          "en": "Disable night mode",
+          "nl": "Nachtmodus uitschakelen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=neo"
+          }
+        ]
+      },
+      {
+        "id": "set_fan_speed_neo",
+        "title": {
+          "en": "Set fan speed",
+          "nl": "Ventilatorsnelheid instellen"
+        },
+        "titleFormatted": {
+          "en": "Set fan speed to [[speed]]",
+          "nl": "Ventilatorsnelheid instellen op [[speed]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=neo"
+          },
+          {
+            "name": "speed",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "low",
+                "label": {
+                  "en": "Low",
+                  "nl": "Laag"
+                }
+              },
+              {
+                "id": "medium",
+                "label": {
+                  "en": "Medium",
+                  "nl": "Medium"
+                }
+              },
+              {
+                "id": "high",
+                "label": {
+                  "en": "High",
+                  "nl": "Hoog"
+                }
+              },
+              {
+                "id": "auto",
+                "label": {
+                  "en": "Auto",
+                  "nl": "Auto"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "enable_night_mode_north",
+        "title": {
+          "en": "Enable night mode",
+          "nl": "Nachtmodus inschakelen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=north12k18k"
+          }
+        ]
+      },
+      {
+        "id": "disable_night_mode_north",
+        "title": {
+          "en": "Disable night mode",
+          "nl": "Nachtmodus uitschakelen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=north12k18k"
+          }
+        ]
+      },
+      {
+        "id": "enable_louver_north",
+        "title": {
+          "en": "Enable swing",
+          "nl": "Zwenken inschakelen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=north12k18k"
+          }
+        ]
+      },
+      {
+        "id": "disable_louver_north",
+        "title": {
+          "en": "Disable swing",
+          "nl": "Zwenken uitschakelen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=north12k18k"
+          }
+        ]
+      },
+      {
+        "id": "set_fan_speed_north",
+        "title": {
+          "en": "Set fan speed",
+          "nl": "Ventilatorsnelheid instellen"
+        },
+        "titleFormatted": {
+          "en": "Set fan speed to [[speed]]",
+          "nl": "Ventilatorsnelheid instellen op [[speed]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=north12k18k"
+          },
+          {
+            "name": "speed",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "low",
+                "label": {
+                  "en": "I",
+                  "nl": "I"
+                }
+              },
+              {
+                "id": "medium",
+                "label": {
+                  "en": "II",
+                  "nl": "II"
+                }
+              },
+              {
+                "id": "high",
+                "label": {
+                  "en": "III",
+                  "nl": "III"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "set_mode_north",
+        "title": {
+          "en": "Set mode",
+          "nl": "Modus instellen"
+        },
+        "titleFormatted": {
+          "en": "Set mode to [[mode]]",
+          "nl": "Modus instellen op [[mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=north12k18k"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "cool",
+                "label": {
+                  "en": "Cool",
+                  "nl": "Koelen"
+                }
+              },
+              {
+                "id": "dehumidify",
+                "label": {
+                  "en": "Dehumidify",
+                  "nl": "Ontvochtigen"
+                }
+              },
+              {
+                "id": "ventilate",
+                "label": {
+                  "en": "Ventilate",
+                  "nl": "Ventileren"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "enable_night_mode_north9k",
+        "title": {
+          "en": "Enable night mode",
+          "nl": "Nachtmodus inschakelen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=north9k"
+          }
+        ]
+      },
+      {
+        "id": "disable_night_mode_north9k",
+        "title": {
+          "en": "Disable night mode",
+          "nl": "Nachtmodus uitschakelen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=north9k"
+          }
+        ]
+      },
+      {
+        "id": "enable_louver_north9k",
+        "title": {
+          "en": "Enable swing",
+          "nl": "Zwenken inschakelen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=north9k"
+          }
+        ]
+      },
+      {
+        "id": "disable_louver_north9k",
+        "title": {
+          "en": "Disable swing",
+          "nl": "Zwenken uitschakelen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=north9k"
+          }
+        ]
+      },
+      {
+        "id": "set_fan_speed_north9k",
+        "title": {
+          "en": "Set fan speed",
+          "nl": "Ventilatorsnelheid instellen"
+        },
+        "titleFormatted": {
+          "en": "Set fan speed to [[speed]]",
+          "nl": "Ventilatorsnelheid instellen op [[speed]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=north9k"
+          },
+          {
+            "name": "speed",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "low",
+                "label": {
+                  "en": "I",
+                  "nl": "I"
+                }
+              },
+              {
+                "id": "medium",
+                "label": {
+                  "en": "II",
+                  "nl": "II"
+                }
+              },
+              {
+                "id": "high",
+                "label": {
+                  "en": "III",
+                  "nl": "III"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "set_mode_north9k",
+        "title": {
+          "en": "Set mode",
+          "nl": "Modus instellen"
+        },
+        "titleFormatted": {
+          "en": "Set mode to [[mode]]",
+          "nl": "Modus instellen op [[mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=north9k"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "cool",
+                "label": {
+                  "en": "Cool",
+                  "nl": "Koelen"
+                }
+              },
+              {
+                "id": "dehumidify",
+                "label": {
+                  "en": "Dehumidify",
+                  "nl": "Ontvochtigen"
+                }
+              },
+              {
+                "id": "ventilate",
+                "label": {
+                  "en": "Ventilate",
+                  "nl": "Ventileren"
+                }
+              },
+              {
+                "id": "heat",
+                "label": {
+                  "en": "Heat",
+                  "nl": "Verwarmen"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
         "id": "set_fan_speed_heater",
         "title": {
           "en": "Set fan speed",
@@ -747,10 +1652,166 @@
             "filter": "driver_id=whisper-flex"
           }
         ]
+      },
+      {
+        "id": "enable_vertical_oscillation",
+        "title": {
+          "en": "Enable vertical oscillation",
+          "nl": "Verticale oscillatie inschakelen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=whisper-flex"
+          }
+        ]
+      },
+      {
+        "id": "disable_vertical_oscillation",
+        "title": {
+          "en": "Disable vertical oscillation",
+          "nl": "Verticale oscillatie uitschakelen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=whisper-flex"
+          }
+        ]
       }
     ]
   },
   "drivers": [
+    {
+      "name": {
+        "en": "Beam",
+        "nl": "Beam"
+      },
+      "class": "humidifier",
+      "capabilities": [
+        "onoff",
+        "fan_speed_neo",
+        "measure_temperature",
+        "measure_humidity",
+        "target_humidity",
+        "led",
+        "night_mode"
+      ],
+      "capabilitiesOptions": {
+        "target_humidity": {
+          "min": 0.2,
+          "max": 0.8,
+          "step": 0.05
+        }
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "cloud"
+      ],
+      "images": {
+        "small": "/drivers/beam/assets/images/small.png",
+        "large": "/drivers/beam/assets/images/large.png",
+        "xlarge": "/drivers/beam/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "email"
+        },
+        {
+          "id": "code"
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          },
+          "options": {
+            "singular": false
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "repair": [
+        {
+          "id": "email"
+        },
+        {
+          "id": "code"
+        }
+      ],
+      "id": "beam"
+    },
+    {
+      "name": {
+        "en": "Beam Mini",
+        "nl": "Beam Mini"
+      },
+      "class": "humidifier",
+      "capabilities": [
+        "onoff",
+        "fan_speed_neo",
+        "measure_temperature",
+        "measure_humidity",
+        "target_humidity"
+      ],
+      "capabilitiesOptions": {
+        "target_humidity": {
+          "min": 0.2,
+          "max": 0.8,
+          "step": 0.05
+        }
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "cloud"
+      ],
+      "images": {
+        "small": "/drivers/beam-mini/assets/images/small.png",
+        "large": "/drivers/beam-mini/assets/images/large.png",
+        "xlarge": "/drivers/beam-mini/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "email"
+        },
+        {
+          "id": "code"
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          },
+          "options": {
+            "singular": false
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "repair": [
+        {
+          "id": "email"
+        },
+        {
+          "id": "code"
+        }
+      ],
+      "id": "beam-mini"
+    },
     {
       "name": {
         "en": "Bora",
@@ -879,6 +1940,200 @@
         }
       ],
       "id": "edge"
+    },
+    {
+      "name": {
+        "en": "Neo",
+        "nl": "Neo"
+      },
+      "class": "humidifier",
+      "capabilities": [
+        "measure_humidity",
+        "target_humidity",
+        "onoff",
+        "fan_speed_neo",
+        "alarm_tank_empty",
+        "alarm_tank_missing"
+      ],
+      "capabilitiesOptions": {
+        "target_humidity": {
+          "min": 0.3,
+          "max": 0.9,
+          "step": 0.05
+        }
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "cloud"
+      ],
+      "images": {
+        "small": "/drivers/neo/assets/images/small.png",
+        "large": "/drivers/neo/assets/images/large.png",
+        "xlarge": "/drivers/neo/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "email"
+        },
+        {
+          "id": "code"
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          },
+          "options": {
+            "singular": false
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "repair": [
+        {
+          "id": "email"
+        },
+        {
+          "id": "code"
+        }
+      ],
+      "id": "neo"
+    },
+    {
+      "name": {
+        "en": "North 12k-18k",
+        "nl": "North 12k-18k"
+      },
+      "class": "airconditioning",
+      "capabilities": [
+        "onoff",
+        "measure_temperature",
+        "target_temperature",
+        "heatmode",
+        "north_mode",
+        "night_mode",
+        "louver"
+      ],
+      "capabilitiesOptions": {
+        "target_temperature": {
+          "min": 16,
+          "max": 31,
+          "step": 1
+        }
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "cloud"
+      ],
+      "images": {
+        "small": "/drivers/north12k18k/assets/images/small.png",
+        "large": "/drivers/north12k18k/assets/images/large.png",
+        "xlarge": "/drivers/north12k18k/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "email"
+        },
+        {
+          "id": "code"
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          },
+          "options": {
+            "singular": false
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "repair": [
+        {
+          "id": "email"
+        },
+        {
+          "id": "code"
+        }
+      ],
+      "id": "north12k18k"
+    },
+    {
+      "name": {
+        "en": "North 9k",
+        "nl": "North 9k"
+      },
+      "class": "airconditioning",
+      "capabilities": [
+        "onoff",
+        "measure_temperature",
+        "target_temperature",
+        "heatmode",
+        "north9k_mode",
+        "night_mode",
+        "louver"
+      ],
+      "capabilitiesOptions": {
+        "target_temperature": {
+          "min": 16,
+          "max": 31,
+          "step": 1
+        }
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "cloud"
+      ],
+      "images": {
+        "small": "/drivers/north9k/assets/images/small.png",
+        "large": "/drivers/north9k/assets/images/large.png",
+        "xlarge": "/drivers/north9k/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "email"
+        },
+        {
+          "id": "code"
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          },
+          "options": {
+            "singular": false
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "repair": [
+        {
+          "id": "email"
+        },
+        {
+          "id": "code"
+        }
+      ],
+      "id": "north9k"
     },
     {
       "name": {
@@ -1044,6 +2299,46 @@
       "uiQuickAction": false,
       "icon": "/assets/eco_mode.svg"
     },
+    "fan_speed_neo": {
+      "type": "enum",
+      "title": {
+        "en": "Fan speed",
+        "nl": "Ventilatorsnelheid"
+      },
+      "uiComponent": "picker",
+      "getable": true,
+      "setable": true,
+      "values": [
+        {
+          "id": "low",
+          "title": {
+            "en": "Low",
+            "nl": "Laag"
+          }
+        },
+        {
+          "id": "medium",
+          "title": {
+            "en": "Medium",
+            "nl": "Medium"
+          }
+        },
+        {
+          "id": "high",
+          "title": {
+            "en": "High",
+            "nl": "Hoog"
+          }
+        },
+        {
+          "id": "auto",
+          "title": {
+            "en": "Auto",
+            "nl": "Auto"
+          }
+        }
+      ]
+    },
     "fanmode": {
       "type": "enum",
       "title": {
@@ -1066,6 +2361,39 @@
           "title": {
             "en": "II",
             "nl": "II"
+          }
+        }
+      ]
+    },
+    "fanspeed": {
+      "type": "enum",
+      "title": {
+        "en": "Fan speed",
+        "nl": "Ventilatorsnelheid"
+      },
+      "uiComponent": "picker",
+      "getable": true,
+      "setable": true,
+      "values": [
+        {
+          "id": "one",
+          "title": {
+            "en": "I",
+            "nl": "I"
+          }
+        },
+        {
+          "id": "two",
+          "title": {
+            "en": "II",
+            "nl": "II"
+          }
+        },
+        {
+          "id": "three",
+          "title": {
+            "en": "III",
+            "nl": "III"
           }
         }
       ]
@@ -1127,6 +2455,30 @@
       "uiQuickAction": false,
       "icon": "/assets/laundry_mode.svg"
     },
+    "led": {
+      "type": "boolean",
+      "title": {
+        "en": "Light",
+        "nl": "Licht"
+      },
+      "getable": true,
+      "setable": true,
+      "uiComponent": "button",
+      "uiQuickAction": false,
+      "icon": "/assets/led.svg"
+    },
+    "louver": {
+      "type": "boolean",
+      "title": {
+        "en": "Swing",
+        "nl": "Zwenken"
+      },
+      "getable": true,
+      "setable": true,
+      "uiComponent": "button",
+      "uiQuickAction": false,
+      "icon": "/assets/swing.svg"
+    },
     "mode": {
       "type": "enum",
       "title": {
@@ -1164,6 +2516,79 @@
       "uiComponent": "button",
       "uiQuickAction": false,
       "icon": "/assets/night_mode.svg"
+    },
+    "north_mode": {
+      "type": "enum",
+      "title": {
+        "en": "Mode",
+        "nl": "Modus"
+      },
+      "uiComponent": "picker",
+      "getable": true,
+      "setable": true,
+      "values": [
+        {
+          "id": "cool",
+          "title": {
+            "en": "Cool",
+            "nl": "Koelen"
+          }
+        },
+        {
+          "id": "dehumidify",
+          "title": {
+            "en": "Dehumidify",
+            "nl": "Ontvochtigen"
+          }
+        },
+        {
+          "id": "ventilate",
+          "title": {
+            "en": "Ventilate",
+            "nl": "Ventileren"
+          }
+        }
+      ]
+    },
+    "north9k_mode": {
+      "type": "enum",
+      "title": {
+        "en": "Mode",
+        "nl": "Modus"
+      },
+      "uiComponent": "picker",
+      "getable": true,
+      "setable": true,
+      "values": [
+        {
+          "id": "cool",
+          "title": {
+            "en": "Cool",
+            "nl": "Koelen"
+          }
+        },
+        {
+          "id": "heat",
+          "title": {
+            "en": "Heat",
+            "nl": "Verwarmen"
+          }
+        },
+        {
+          "id": "dehumidify",
+          "title": {
+            "en": "Dehumidify",
+            "nl": "Ontvochtigen"
+          }
+        },
+        {
+          "id": "ventilate",
+          "title": {
+            "en": "Ventilate",
+            "nl": "Ventileren"
+          }
+        }
+      ]
     },
     "whisper_mode": {
       "type": "enum",

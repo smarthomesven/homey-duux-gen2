@@ -8,7 +8,16 @@
     },
     "errors": {
         "input": "Enter your username",
-        "copy": "Failed to copy to clipboard"
+        "copy": "Failed to copy to clipboard",
+        "water-full": "The water tank is full",
+        "coil-temp": "Fault: Coil sensor malfunctioning",
+        "frosting": "Fault: Ice build-up detected",
+        "temp": "Fault: Temperature sensor malfunctioning",
+        "temp-low": "Fault: Ambient temperature is too low",
+        "temp-high": "Fault: Ambient temperature is too high",
+        "water-empty": "The water tank is empty",
+        "missing-tank": "The water tank is missing",
+        "missing-tank-and-element": "The water tank and the element are missing"
     },
     "settings": {
         "title": "Debug",

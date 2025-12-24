@@ -29,48 +29,48 @@
       }
     },
     {
-        "id": "mode_changed",
-        "title": {
-            "en": "Mode changed",
-            "nl": "Modus veranderd"
-        }
+      "id": "mode_changed",
+      "title": {
+        "en": "Mode changed",
+        "nl": "Modus veranderd"
+      }
     },
     {
-        "id": "fanmode_changed",
-        "title": {
-            "en": "Fan speed changed",
-            "nl": "Ventilatorsnelheid veranderd"
-        }
+      "id": "fanmode_changed",
+      "title": {
+        "en": "Fan speed changed",
+        "nl": "Ventilatorsnelheid veranderd"
+      }
     },
     {
-        "id": "tank_full",
-        "title": {
-            "en": "The water tank is full",
-            "nl": "De watertank is vol"
-        }
+      "id": "tank_full",
+      "title": {
+        "en": "The water tank is full",
+        "nl": "De watertank is vol"
+      }
     }
   ],
   "conditions":[
     {
-        "id": "laundry_mode_condition",
-        "title": {
-            "en": "Laundry mode is !{{enabled|disabled}}",
-            "nl": "Wasdroogstand is !{{ingeschakeld|uitgeschakeld}}"
-        }
+      "id": "laundry_mode_condition",
+      "title": {
+        "en": "Laundry mode is !{{enabled|disabled}}",
+        "nl": "Wasdroogstand is !{{ingeschakeld|uitgeschakeld}}"
+      }
     },
     {
-        "id": "child_lock_condition",
-        "title": {
-            "en": "Child lock is !{{enabled|disabled}}",
-            "nl": "Kinderslot is !{{ingeschakeld|uitgeschakeld}}"
-        }
+      "id": "child_lock_condition",
+      "title": {
+        "en": "Child lock is !{{enabled|disabled}}",
+        "nl": "Kinderslot is !{{ingeschakeld|uitgeschakeld}}"
+      }
     },
     {
-        "id": "tank_full_condition",
-        "title": {
-            "en": "The water tank !{{is|isn't}} full",
-            "nl": "De watertank !{{is|is niet}} vol"
-        }
+      "id": "tank_full_condition",
+      "title": {
+        "en": "The water tank !{{is|isn't}} full",
+        "nl": "De watertank !{{is|is niet}} vol"
+      }
     }
   ],
   "actions": [
@@ -128,24 +128,24 @@
       },
       "args": [
         {
-            "name": "mode",
-            "type": "dropdown",
-            "values": [
-                {
-                    "id": "auto",
-                    "label": {
-                        "en": "Auto",
-                        "nl": "Auto"
-                    }
-                },
-                {
-                    "id": "continuous",
-                    "label": {
-                        "en": "Continuous",
-                        "nl": "Continu"
-                    }
-                }
-            ]
+          "name": "mode",
+          "type": "dropdown",
+          "values": [
+            {
+              "id": "auto",
+              "label": {
+                "en": "Auto",
+                "nl": "Auto"
+              }
+            },
+            {
+              "id": "continuous",
+              "label": {
+                "en": "Continuous",
+                "nl": "Continu"
+              }
+            }
+          ]
         }
       ]
     },
@@ -161,27 +161,26 @@
       },
       "args": [
         {
-            "name": "speed",
-            "type": "dropdown",
-            "values": [
-                {
-                    "id": "one",
-                    "label": {
-                        "en": "I",
-                        "nl": "I"
-                    }
-                },
-                {
-                    "id": "two",
-                    "label": {
-                        "en": "II",
-                        "nl": "II"
-                    }
-                }
-            ]
+          "name": "speed",
+          "type": "dropdown",
+          "values": [
+            {
+              "id": "one",
+              "label": {
+                "en": "I",
+                "nl": "I"
+              }
+            },
+            {
+              "id": "two",
+              "label": {
+                "en": "II",
+                "nl": "II"
+              }
+            }
+          ]
         }
       ]
     }
-
-    ]
+  ]
 }

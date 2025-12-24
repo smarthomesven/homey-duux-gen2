@@ -1,0 +1,179 @@
+{
+  "triggers": [
+    {
+      "id": "night_mode_enabled_north9k",
+      "title": {
+        "en": "Night mode enabled",
+        "nl": "Nachtmodus ingeschakeld"
+      }
+    },
+    {
+      "id": "night_mode_disabled_north9k",
+      "title": {
+        "en": "Night mode disabled",
+        "nl": "Nachtmodus uitgeschakeld"
+      }
+    },
+    {
+      "id": "louver_enabled_north9k",
+      "title": {
+        "en": "Swing enabled",
+        "nl": "Zwenken ingeschakeld"
+      }
+    },
+    {
+      "id": "louver_disabled_north9k",
+      "title": {
+        "en": "Swing disabled",
+        "nl": "Zwenken uitgeschakeld"
+      }
+    },
+    {
+      "id": "north9k_mode_changed",
+      "title": {
+        "en": "Mode changed",
+        "nl": "Modus veranderd"
+      }
+    },
+    {
+      "id": "speed_changed_north9k",
+      "title": {
+        "en": "Fan speed changed",
+        "nl": "Ventilatorsnelheid veranderd"
+      }
+    }
+  ],
+  "conditions":[
+    {
+      "id": "night_mode_condition_north9k",
+      "title": {
+        "en": "Night mode is !{{enabled|disabled}}",
+        "nl": "Nachtmodus is !{{ingeschakeld|uitgeschakeld}}"
+      }
+    },
+    {
+      "id": "louver_condition_north9k",
+      "title": {
+        "en": "Swing is !{{enabled|disabled}}",
+        "nl": "Zwenken is !{{ingeschakeld|uitgeschakeld}}"
+      }
+    }
+  ],
+  "actions": [
+    {
+      "id": "enable_night_mode_north9k",
+      "title": {
+        "en": "Enable night mode",
+        "nl": "Nachtmodus inschakelen"
+      } 
+    },
+    {
+      "id": "disable_night_mode_north9k",
+      "title": {
+        "en": "Disable night mode",
+        "nl": "Nachtmodus uitschakelen"
+      } 
+    },
+    {
+      "id": "enable_louver_north9k",
+      "title": {
+        "en": "Enable swing",
+        "nl": "Zwenken inschakelen"
+      }
+    },
+    {
+      "id": "disable_louver_north9k",
+      "title": {
+        "en": "Disable swing",
+        "nl": "Zwenken uitschakelen"
+      }
+    },
+    {
+      "id": "set_fan_speed_north9k",
+      "title": {
+        "en": "Set fan speed",
+        "nl": "Ventilatorsnelheid instellen"
+      },
+      "titleFormatted": {
+        "en": "Set fan speed to [[speed]]",
+        "nl": "Ventilatorsnelheid instellen op [[speed]]"
+      },
+      "args": [
+        {
+          "name": "speed",
+          "type": "dropdown",
+          "values": [
+            {
+              "id": "low",
+              "label": {
+                "en": "I",
+                "nl": "I"
+              }
+            },
+            {
+              "id": "medium",
+              "label": {
+                "en": "II",
+                "nl": "II"
+              }
+            },
+            {
+              "id": "high",
+              "label": {
+                "en": "III",
+                "nl": "III"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "set_mode_north9k",
+      "title": {
+        "en": "Set mode",
+        "nl": "Modus instellen"
+      },
+      "titleFormatted": {
+        "en": "Set mode to [[mode]]",
+        "nl": "Modus instellen op [[mode]]"
+      },
+      "args": [
+        {
+          "name": "mode",
+          "type": "dropdown",
+          "values": [
+            {
+              "id": "cool",
+              "label": {
+                "en": "Cool",
+                "nl": "Koelen"
+              }
+            },
+            {
+              "id": "dehumidify",
+              "label": {
+                "en": "Dehumidify",
+                "nl": "Ontvochtigen"
+              }
+            },
+            {
+              "id": "ventilate",
+              "label": {
+                "en": "Ventilate",
+                "nl": "Ventileren"
+              }
+            },
+            {
+              "id": "heat",
+              "label": {
+                "en": "Heat",
+                "nl": "Verwarmen"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
