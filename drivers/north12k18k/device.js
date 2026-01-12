@@ -288,8 +288,6 @@ module.exports = class NorthDevice extends Homey.Device {
         if (isFirstRun === true) {
           this.homey.settings.set('firstRun', false);
         }
-
-        this.log('Status updated successfully');
       }
     } catch (error) {
       this.error('Error polling device status:', error.message);

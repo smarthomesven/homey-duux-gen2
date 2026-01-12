@@ -551,6 +551,48 @@
             "filter": "driver_id=whisper-flex"
           }
         ]
+      },
+      {
+        "id": "whisper_ultimate_mode_changed",
+        "title": {
+          "en": "Mode changed",
+          "nl": "Modus veranderd"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=whisper-flex-ultimate"
+          }
+        ]
+      },
+      {
+        "id": "horizontal_oscillation_enabled_ultimate",
+        "title": {
+          "en": "Horizontal oscillation enabled",
+          "nl": "Horizontale oscillatie ingeschakeld"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=whisper-flex-ultimate"
+          }
+        ]
+      },
+      {
+        "id": "horizontal_oscillation_disabled_ultimate",
+        "title": {
+          "en": "Horizontal oscillation disabled",
+          "nl": "Horizontale oscillatie uitgeschakeld"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=whisper-flex-ultimate"
+          }
+        ]
       }
     ],
     "conditions": [
@@ -747,6 +789,20 @@
             "type": "device",
             "name": "device",
             "filter": "driver_id=whisper-flex"
+          }
+        ]
+      },
+      {
+        "id": "horizontal_oscillation_condition_ultimate",
+        "title": {
+          "en": "Horizontal oscillation is !{{enabled|disabled}}",
+          "nl": "Horizontale oscillatie is !{{ingeschakeld|uitgeschakeld}}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=whisper-flex-ultimate"
           }
         ]
       }
@@ -1680,6 +1736,107 @@
             "filter": "driver_id=whisper-flex"
           }
         ]
+      },
+      {
+        "id": "set_whisper_flex_mode_ultimate",
+        "title": {
+          "en": "Set mode",
+          "nl": "Modus instellen"
+        },
+        "titleFormatted": {
+          "en": "Set mode to [[mode]]",
+          "nl": "Modus instellen op [[mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=whisper-flex-ultimate"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "normal",
+                "label": {
+                  "en": "Normal",
+                  "nl": "Normaal"
+                }
+              },
+              {
+                "id": "nature",
+                "label": {
+                  "en": "Nature",
+                  "nl": "Naturel"
+                }
+              },
+              {
+                "id": "night",
+                "label": {
+                  "en": "Night",
+                  "nl": "Nacht"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "enable_horizontal_oscillation_ultimate",
+        "title": {
+          "en": "Enable horizontal oscillation",
+          "nl": "Horizontale oscillatie inschakelen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=whisper-flex-ultimate"
+          }
+        ]
+      },
+      {
+        "id": "disable_horizontal_oscillation_ultimate",
+        "title": {
+          "en": "Disable horizontal oscillation",
+          "nl": "Horizontale oscillatie uitschakelen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=whisper-flex-ultimate"
+          }
+        ]
+      },
+      {
+        "id": "enable_vertical_oscillation_ultimate",
+        "title": {
+          "en": "Enable vertical oscillation",
+          "nl": "Verticale oscillatie inschakelen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=whisper-flex-ultimate"
+          }
+        ]
+      },
+      {
+        "id": "disable_vertical_oscillation_ultimate",
+        "title": {
+          "en": "Disable vertical oscillation",
+          "nl": "Verticale oscillatie uitschakelen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=whisper-flex-ultimate"
+          }
+        ]
       }
     ]
   },
@@ -2260,6 +2417,69 @@
         }
       ],
       "id": "whisper-flex"
+    },
+    {
+      "name": {
+        "en": "Whisper Flex Ultimate"
+      },
+      "class": "fan",
+      "capabilities": [
+        "onoff",
+        "whisper_ultimate_mode",
+        "horizontal_oscillation",
+        "fan_speed"
+      ],
+      "capabilitiesOptions": {
+        "fan_speed": {
+          "min": 1,
+          "max": 30,
+          "step": 1,
+          "units": "",
+          "decimals": 0
+        }
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "cloud"
+      ],
+      "images": {
+        "small": "/drivers/whisper-flex-ultimate/assets/images/small.png",
+        "large": "/drivers/whisper-flex-ultimate/assets/images/large.png",
+        "xlarge": "/drivers/whisper-flex-ultimate/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "email"
+        },
+        {
+          "id": "code"
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          },
+          "options": {
+            "singular": false
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "repair": [
+        {
+          "id": "email"
+        },
+        {
+          "id": "code"
+        }
+      ],
+      "id": "whisper-flex-ultimate"
     }
   ],
   "capabilities": {
@@ -2591,6 +2811,39 @@
       ]
     },
     "whisper_mode": {
+      "type": "enum",
+      "title": {
+        "en": "Mode",
+        "nl": "Modus"
+      },
+      "uiComponent": "picker",
+      "getable": true,
+      "setable": true,
+      "values": [
+        {
+          "id": "normal",
+          "title": {
+            "en": "Normal",
+            "nl": "Normaal"
+          }
+        },
+        {
+          "id": "nature",
+          "title": {
+            "en": "Nature",
+            "nl": "Naturel"
+          }
+        },
+        {
+          "id": "night",
+          "title": {
+            "en": "Night",
+            "nl": "Nacht"
+          }
+        }
+      ]
+    },
+    "whisper_ultimate_mode": {
       "type": "enum",
       "title": {
         "en": "Mode",

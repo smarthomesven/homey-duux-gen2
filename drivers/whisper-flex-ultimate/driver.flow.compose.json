@@ -1,0 +1,104 @@
+{
+  "triggers": [
+    {
+      "id": "whisper_ultimate_mode_changed",
+      "title": {
+        "en": "Mode changed",
+        "nl": "Modus veranderd"
+      }
+    },
+    {
+      "id": "horizontal_oscillation_enabled_ultimate",
+      "title": {
+        "en": "Horizontal oscillation enabled",
+        "nl": "Horizontale oscillatie ingeschakeld"
+      }
+    },
+    {
+      "id": "horizontal_oscillation_disabled_ultimate",
+      "title": {
+        "en": "Horizontal oscillation disabled",
+        "nl": "Horizontale oscillatie uitgeschakeld"
+      }
+    }
+  ],
+  "conditions": [
+    {
+      "id": "horizontal_oscillation_condition_ultimate",
+      "title": {
+        "en": "Horizontal oscillation is !{{enabled|disabled}}",
+        "nl": "Horizontale oscillatie is !{{ingeschakeld|uitgeschakeld}}"
+      }
+    }
+  ],
+  "actions": [
+    {
+      "id": "set_whisper_flex_mode_ultimate",
+      "title": {
+        "en": "Set mode",
+        "nl": "Modus instellen"
+      },
+      "titleFormatted": {
+        "en": "Set mode to [[mode]]",
+        "nl": "Modus instellen op [[mode]]"
+      },
+      "args": [
+        {
+          "name": "mode",
+          "type": "dropdown",
+          "values": [
+            {
+              "id": "normal",
+              "label": {
+                "en": "Normal",
+                "nl": "Normaal"
+              }
+            },
+            {
+              "id": "nature",
+              "label": {
+                "en": "Nature",
+                "nl": "Naturel"
+              }
+            },
+            {
+              "id": "night",
+              "label": {
+                "en": "Night",
+                "nl": "Nacht"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "enable_horizontal_oscillation_ultimate",
+      "title": {
+        "en": "Enable horizontal oscillation",
+        "nl": "Horizontale oscillatie inschakelen"
+      }
+    },
+    {
+      "id": "disable_horizontal_oscillation_ultimate",
+      "title": {
+        "en": "Disable horizontal oscillation",
+        "nl": "Horizontale oscillatie uitschakelen"
+      }
+    },
+    {
+      "id": "enable_vertical_oscillation_ultimate",
+      "title": {
+        "en": "Enable vertical oscillation",
+        "nl": "Verticale oscillatie inschakelen"
+      }
+    },
+    {
+      "id": "disable_vertical_oscillation_ultimate",
+      "title": {
+        "en": "Disable vertical oscillation",
+        "nl": "Verticale oscillatie uitschakelen"
+      }
+    }
+  ]
+}

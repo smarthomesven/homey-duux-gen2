@@ -208,8 +208,6 @@ module.exports = class ThreesixtyDevice extends Homey.Device {
             this.error('Error setting heatmode capability:', err);
           });
         }
-
-        this.log('Status updated successfully');
       }
     } catch (error) {
       this.error('Error polling device status:', error.message);

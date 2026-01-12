@@ -196,13 +196,8 @@ module.exports = class BoraDevice extends Homey.Device {
   }
 
   startPolling() {
-    // Clear any existing interval
     this.stopPolling();
-    
-    // Poll immediately
     this.pollDeviceStatus();
-    
-    // Then poll every 10 seconds
     this.pollInterval = this.homey.setInterval(() => {
       this.pollDeviceStatus();
     }, 15000);
@@ -237,7 +232,6 @@ module.exports = class BoraDevice extends Homey.Device {
       const status = response.data.data;
       
       if (status) {
-        // Update onoff capability (0=off, 1=on)
         const isOn = status.power === 1;
         if (this.hasCapability('onoff')) {
           await this.setCapabilityValue('onoff', isOn).catch(err => {
@@ -245,14 +239,12 @@ module.exports = class BoraDevice extends Homey.Device {
           });
         }
 
-        // Update humidity (if you have this capability)
         if (this.hasCapability('measure_humidity') && status.hum !== undefined) {
           await this.setCapabilityValue('measure_humidity', status.hum).catch(err => {
             this.error('Error setting humidity capability:', err);
           });
         }
 
-        // Update target humidity setpoint (if you have this capability)
         if (this.hasCapability('target_humidity') && status.sp !== undefined) {
           const setpoint = status.sp / 100;
           await this.setCapabilityValue('target_humidity', setpoint).catch(err => {
@@ -359,8 +351,6 @@ module.exports = class BoraDevice extends Homey.Device {
         if (isFirstRun === true) {
           this.homey.settings.set('firstRun', false);
         }
-
-        this.log('Status updated successfully');
       }
     } catch (error) {
       this.error('Error polling device status:', error.message);

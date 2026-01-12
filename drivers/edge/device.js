@@ -12,7 +12,6 @@ module.exports = class EdgeDevice extends Homey.Device {
     try {
       this.log('Edge device has been initialized');
       
-      // Register capability listeners
       this.registerCapabilityListener("onoff", async (value) => {
         let command;
         if (value === true) {
@@ -158,13 +157,8 @@ module.exports = class EdgeDevice extends Homey.Device {
   }
 
   startPolling() {
-    // Clear any existing interval
     this.stopPolling();
-    
-    // Poll immediately
     this.pollDeviceStatus();
-    
-    // Then poll every 10 seconds
     this.pollInterval = this.homey.setInterval(() => {
       this.pollDeviceStatus();
     }, 15000);
@@ -213,7 +207,6 @@ module.exports = class EdgeDevice extends Homey.Device {
           });
         }
 
-        // Update target temperature setpoint (if you have this capability)
         if (this.hasCapability('target_temperature') && status.sp !== undefined) {
           const setpoint = status.sp;
           await this.setCapabilityValue('target_temperature', setpoint).catch(err => {
@@ -221,7 +214,6 @@ module.exports = class EdgeDevice extends Homey.Device {
           });
         }
 
-        // Log if device is in error state
         if (status.err && status.err !== 0) {
           this.error('Device reported error code:', status.err);
         }
@@ -279,8 +271,6 @@ module.exports = class EdgeDevice extends Homey.Device {
         if (isFirstRun === true) {
           this.homey.settings.set('firstRun', false);
         }
-
-        this.log('Status updated successfully');
       }
     } catch (error) {
       this.error('Error polling device status:', error.message);

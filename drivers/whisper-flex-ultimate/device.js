@@ -3,16 +3,14 @@
 const Homey = require('homey');
 const axios = require('axios');
 
-module.exports = class WhisperFlexDevice extends Homey.Device {
+module.exports = class WhisperFlexUltimateDevice extends Homey.Device {
 
   /**
    * onInit is called when the device is initialized.
    */
   async onInit() {
     try {
-      this.log('Whisper Flex device has been initialized');
-      
-      // Register capability listeners
+      this.log('Whisper Flex Ultimate device has been initialized');
       this.registerCapabilityListener("onoff", async (value) => {
         let command;
         if (value === true) {
@@ -29,7 +27,7 @@ module.exports = class WhisperFlexDevice extends Homey.Device {
         await this.sendCommand(command);
       });
 
-      this.registerCapabilityListener("whisper_mode", async (value) => {
+      this.registerCapabilityListener("whisper_ultimate_mode", async (value) => {
         let command;
         if (value === "normal") {
           command = "tune set mode 0";
@@ -56,12 +54,12 @@ module.exports = class WhisperFlexDevice extends Homey.Device {
       // Start polling
       this.startPolling();
 
-      const enableHorizontalOscillationAction = this.homey.flow.getActionCard('enable_horizontal_oscillation');
-      const disableHorizontalOscillationAction = this.homey.flow.getActionCard('disable_horizontal_oscillation');
-      const enableVerticalOscillationAction = this.homey.flow.getActionCard('enable_vertical_oscillation');
-      const disableVerticalOscillationAction = this.homey.flow.getActionCard('disable_vertical_oscillation');
-      const setModeAction = this.homey.flow.getActionCard('set_whisper_flex_mode');
-      const horizontalOscillationCondition = this.homey.flow.getConditionCard('vertical_oscillation_condition');
+      const enableHorizontalOscillationAction = this.homey.flow.getActionCard('enable_horizontal_oscillation_ultimate');
+      const disableHorizontalOscillationAction = this.homey.flow.getActionCard('disable_horizontal_oscillation_ultimate');
+      const enableVerticalOscillationAction = this.homey.flow.getActionCard('enable_vertical_oscillation_ultimate');
+      const disableVerticalOscillationAction = this.homey.flow.getActionCard('disable_vertical_oscillation_ultimate');
+      const setModeAction = this.homey.flow.getActionCard('set_whisper_flex_mode_ultimate');
+      const horizontalOscillationCondition = this.homey.flow.getConditionCard('vertical_oscillation_condition_ultimate');
 
       horizontalOscillationCondition.registerRunListener(async (args, state) => {
         const isSwing = this.getCapabilityValue('horizontal_oscillation');
@@ -198,7 +196,7 @@ module.exports = class WhisperFlexDevice extends Homey.Device {
           this.error('Device reported error code:', status.err);
         }
 
-        if (this.hasCapability('whisper_mode') && status.mode !== undefined) {
+        if (this.hasCapability('whisper_ultimate_mode') && status.mode !== undefined) {
           let modeValue;
           if (status.mode === 0) {
             modeValue = "normal";
@@ -207,7 +205,7 @@ module.exports = class WhisperFlexDevice extends Homey.Device {
           } else if (status.mode === 2) {
             modeValue = "night";
           } else return;
-          await this.setCapabilityValue('whisper_mode', modeValue).catch(err => {
+          await this.setCapabilityValue('whisper_ultimate_mode', modeValue).catch(err => {
             this.error('Error setting mode capability:', err);
           });
         }
@@ -220,9 +218,9 @@ module.exports = class WhisperFlexDevice extends Homey.Device {
           if (isHorizontalOscillation !== this.getCapabilityValue('horizontal_oscillation')) {
             if (isFirstRun !== true) {
               if (this.getCapabilityValue('horizontal_oscillation') === true) {
-                await this.driver.triggerFlow('horizontal_oscillation_disabled', this);
+                await this.driver.triggerFlow('horizontal_oscillation_disabled_ultimate', this);
               } else if (this.getCapabilityValue('horizontal_oscillation') === false) {
-                await this.driver.triggerFlow('horizontal_oscillation_disabled', this);
+                await this.driver.triggerFlow('horizontal_oscillation_disabled_ultimate', this);
               }
             }
           }
