@@ -2368,9 +2368,9 @@
       ],
       "capabilitiesOptions": {
         "fan_speed": {
-          "min": 1,
-          "max": 26,
-          "step": 1,
+          "min": 0.01,
+          "max": 0.26,
+          "step": 0.01,
           "units": "",
           "decimals": 0
         }
@@ -2431,9 +2431,9 @@
       ],
       "capabilitiesOptions": {
         "fan_speed": {
-          "min": 1,
-          "max": 30,
-          "step": 1,
+          "min": 0.01,
+          "max": 0.3,
+          "step": 0.01,
           "units": "",
           "decimals": 0
         }
