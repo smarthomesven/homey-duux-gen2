@@ -79,5 +79,8 @@
   },
   "2.1.0": {
     "en": "Added Whisper Flex Ultimate"
+  },
+  "2.1.1": {
+    "en": "Fix fan speed"
   }
 }
