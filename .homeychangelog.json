@@ -76,5 +76,8 @@
   },
   "2.0.0": {
     "en": "Big update: Added Beam, Added Beam Mini, Added Neo, Added North 9k, Added North 12k, Added North 14k, Added North 18k, Added fault detection for the Bora, Fixed Flow cards for the Whisper Flex"
+  },
+  "2.1.0": {
+    "en": "Added Whisper Flex Ultimate"
   }
 }
