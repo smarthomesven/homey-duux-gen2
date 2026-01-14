@@ -242,7 +242,7 @@ module.exports = class NorthDriver extends Homey.Driver {
       }
 
       const availableDevices = allDevices
-        .filter(device => device.type !== '56' && device.type !== '32' && device.type !== '23' && device.type !== '21' && device.type !== '50' && device.type !== '26')
+        .filter(device => device.type !== '56' && device.type !== '32' && device.type !== '23' && device.type !== '21' && device.type !== '50' && device.type !== '26' && device.type !== '53')
         .map(device => ({
           name: device.displayName,
           data: {
