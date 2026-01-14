@@ -128,7 +128,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=bora"
+            "filter": "driver_id=bora&capabilities=laundry_mode"
           }
         ]
       },
@@ -142,7 +142,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=bora"
+            "filter": "driver_id=bora&capabilities=laundry_mode"
           }
         ]
       },
@@ -156,7 +156,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=bora"
+            "filter": "driver_id=bora&capabilities=child_lock"
           }
         ]
       },
@@ -170,7 +170,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=bora"
+            "filter": "driver_id=bora&capabilities=child_lock"
           }
         ]
       },
@@ -212,7 +212,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=bora"
+            "filter": "driver_id=bora&capabilities=alarm_tank_full"
           }
         ]
       },
@@ -634,7 +634,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=bora"
+            "filter": "driver_id=bora&capabilities=laundry_mode"
           }
         ]
       },
@@ -648,7 +648,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=bora"
+            "filter": "driver_id=bora&capabilities=child_lock"
           }
         ]
       },
@@ -662,7 +662,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=bora"
+            "filter": "driver_id=bora&capabilities=alarm_tank_full"
           }
         ]
       },
@@ -978,7 +978,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=bora"
+            "filter": "driver_id=bora&capabilities=laundry_mode"
           }
         ]
       },
@@ -992,7 +992,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=bora"
+            "filter": "driver_id=bora&capabilities=laundry_mode"
           }
         ]
       },
@@ -1006,7 +1006,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=bora"
+            "filter": "driver_id=bora&capabilities=child_lock"
           }
         ]
       },
@@ -1020,7 +1020,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=bora"
+            "filter": "driver_id=bora&capabilities=child_lock"
           }
         ]
       },

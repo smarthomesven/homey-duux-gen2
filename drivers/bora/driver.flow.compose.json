@@ -5,28 +5,32 @@
       "title": {
         "en": "Laundry mode enabled",
         "nl": "Wasdroogstand ingeschakeld"
-      }
+      },
+      "$filter": "capabilities=laundry_mode"
     },
     {
       "id": "laundry_mode_disabled",
       "title": {
         "en": "Laundry mode disabled",
         "nl": "Wasdroogstand uitgeschakeld"
-      }
+      },
+      "$filter": "capabilities=laundry_mode"
     },
     {
       "id": "child_lock_enabled",
       "title": {
         "en": "Child lock enabled",
         "nl": "Kinderslot ingeschakeld"
-      }
+      },
+      "$filter": "capabilities=child_lock"
     },
     {
       "id": "child_lock_disabled",
       "title": {
         "en": "Child lock disabled",
         "nl": "Kinderslot uitgeschakeld"
-      }
+      },
+      "$filter": "capabilities=child_lock"
     },
     {
       "id": "mode_changed",
@@ -47,7 +51,8 @@
       "title": {
         "en": "The water tank is full",
         "nl": "De watertank is vol"
-      }
+      },
+      "$filter": "capabilities=alarm_tank_full"
     }
   ],
   "conditions":[
@@ -56,21 +61,24 @@
       "title": {
         "en": "Laundry mode is !{{enabled|disabled}}",
         "nl": "Wasdroogstand is !{{ingeschakeld|uitgeschakeld}}"
-      }
+      },
+      "$filter": "capabilities=laundry_mode"
     },
     {
       "id": "child_lock_condition",
       "title": {
         "en": "Child lock is !{{enabled|disabled}}",
         "nl": "Kinderslot is !{{ingeschakeld|uitgeschakeld}}"
-      }
+      },
+      "$filter": "capabilities=child_lock"
     },
     {
       "id": "tank_full_condition",
       "title": {
         "en": "The water tank !{{is|isn't}} full",
         "nl": "De watertank !{{is|is niet}} vol"
-      }
+      },
+      "$filter": "capabilities=alarm_tank_full"
     }
   ],
   "actions": [
@@ -79,42 +87,46 @@
       "title": {
         "en": "Enable laundry mode",
         "nl": "Wasdroogstand inschakelen"
-      } 
+      },
+      "$filter": "capabilities=laundry_mode"
     },
     {
       "id": "disable_laundry_mode",
       "title": {
         "en": "Disable laundry mode",
         "nl": "Wasdroogstand uitschakelen"
-      } 
+      },
+      "$filter": "capabilities=laundry_mode"
     },
     {
       "id": "enable_child_lock",
       "title": {
         "en": "Enable child lock",
         "nl": "Kinderslot inschakelen"
-      } 
+      },
+      "$filter": "capabilities=child_lock"
     },
     {
       "id": "disable_child_lock",
       "title": {
         "en": "Disable child lock",
         "nl": "Kinderslot uitschakelen"
-      } 
+      },
+      "$filter": "capabilities=child_lock"
     },
     {
       "id": "enable_night_mode",
       "title": {
         "en": "Enable night mode",
         "nl": "Nachtstand inschakelen"
-      } 
+      }
     },
     {
       "id": "disable_night_mode",
       "title": {
         "en": "Disable night mode",
         "nl": "Nachtstand uitschakelen"
-      } 
+      }
     },
     {
       "id": "set_mode",

@@ -16,8 +16,12 @@ module.exports = class BoraDevice extends Homey.Device {
       if (!this.hasCapability('alarm_tank_full')) {
         await this.addCapability('alarm_tank_full');
       }
+
+      if (this.getStoreValue('type') && this.getStoreValue('type') === '53') {
+        await this.removeCapability('child_lock');
+        await this.removeCapability('laundry_mode');
+      }
       
-      // Register capability listeners
       this.registerCapabilityListener("onoff", async (value) => {
         let command;
         if (value === true) {
@@ -54,53 +58,40 @@ module.exports = class BoraDevice extends Homey.Device {
         await this.sendCommand(command);
       });
 
-      this.registerCapabilityListener("child_lock", async (value) => {
-        let command;
-        if (value === true) {
-          command = "tune set lock 1";
-        } else if (value === false) {
-          command = "tune set lock 0";
-        } else return;
-        await this.sendCommand(command);
-      });
+      if (this.hasCapability('child_lock')) {
+        this.registerCapabilityListener("child_lock", async (value) => {
+          let command;
+          if (value === true) {
+            command = "tune set lock 1";
+          } else if (value === false) {
+            command = "tune set lock 0";
+          } else return;
+          await this.sendCommand(command);
+        });
+      }
 
-      this.registerCapabilityListener("laundry_mode", async (value) => {
-        let command;
-        if (value === true) {
-          command = "tune set laundr 1";
-        } else if (value === false) {
-          command = "tune set laundr 0";
-        } else return;
-        await this.sendCommand(command);
-      });
+      if (this.hasCapability('laundry_mode')) {
+        this.registerCapabilityListener("laundry_mode", async (value) => {
+          let command;
+          if (value === true) {
+            command = "tune set laundr 1";
+          } else if (value === false) {
+            command = "tune set laundr 0";
+          } else return;
+          await this.sendCommand(command);
+        });
+      }
 
       this.homey.settings.set('firstRun', true);
 
       // Start polling
       this.startPolling();
 
-      const enableLaundryModeAction = this.homey.flow.getActionCard('enable_laundry_mode');
-      const disableLaundryModeAction = this.homey.flow.getActionCard('disable_laundry_mode');
-      const enableChildLockAction = this.homey.flow.getActionCard('enable_child_lock');
-      const disableChildLockAction = this.homey.flow.getActionCard('disable_child_lock');
       const enableNightModeAction = this.homey.flow.getActionCard('enable_night_mode');
       const disableNightModeAction = this.homey.flow.getActionCard('disable_night_mode');
       const setModeAction = this.homey.flow.getActionCard('set_mode');
       const setFanSpeedAction = this.homey.flow.getActionCard('set_fan_speed');
-      const childLockCondition = this.homey.flow.getConditionCard('child_lock_condition');
-      const laundryModeCondition = this.homey.flow.getConditionCard('laundry_mode_condition');
       const tankFullCondition = this.homey.flow.getConditionCard('tank_full_condition');
-
-
-      childLockCondition.registerRunListener(async (args, state) => {
-        const isLocked = this.getCapabilityValue('child_lock');
-        return isLocked;
-      });
-
-      laundryModeCondition.registerRunListener(async (args, state) => {
-        const isLaundry = this.getCapabilityValue('laundry_mode');
-        return isLaundry;
-      });
 
       tankFullCondition.registerRunListener(async (args, state) => {
         const isTankFull = this.getCapabilityValue('alarm_tank_full');
@@ -125,35 +116,59 @@ module.exports = class BoraDevice extends Homey.Device {
         return true;
       });
 
-      enableLaundryModeAction.registerRunListener(async (args, state) => {
-        await this.sendCommand("tune set laundr 1");
-        return true;
-      });
+      if (this.hasCapability('laundry_mode')) {
+        const enableLaundryModeAction = this.homey.flow.getActionCard('enable_laundry_mode');
+        const disableLaundryModeAction = this.homey.flow.getActionCard('disable_laundry_mode');
+        const laundryModeCondition = this.homey.flow.getConditionCard('laundry_mode_condition');
 
-      disableLaundryModeAction.registerRunListener(async (args, state) => {
-        await this.sendCommand("tune set laundr 0");
-        return true;
-      });
+        enableLaundryModeAction.registerRunListener(async (args, state) => {
+          await this.sendCommand("tune set laundr 1");
+          return true;
+        });
 
-      enableChildLockAction.registerRunListener(async (args, state) => {
-        await this.sendCommand("tune set lock 1");
-        return true;
-      });
+        disableLaundryModeAction.registerRunListener(async (args, state) => {
+          await this.sendCommand("tune set laundr 0");
+          return true;
+        });
 
-      disableChildLockAction.registerRunListener(async (args, state) => {
-        await this.sendCommand("tune set lock 0");
-        return true;
-      });
+        laundryModeCondition.registerRunListener(async (args, state) => {
+          const isLaundry = this.getCapabilityValue('laundry_mode');
+          return isLaundry;
+        });
+      }
 
-      enableNightModeAction.registerRunListener(async (args, state) => {
-        await this.sendCommand("tune set sleep 1");
-        return true;
-      });
+      if (this.hasCapability('child_lock')) {
+        const enableChildLockAction = this.homey.flow.getActionCard('enable_child_lock');
+        const disableChildLockAction = this.homey.flow.getActionCard('disable_child_lock');
+        const childLockCondition = this.homey.flow.getConditionCard('child_lock_condition');
 
-      disableNightModeAction.registerRunListener(async (args, state) => {
-        await this.sendCommand("tune set sleep 0");
-        return true;
-      });
+        childLockCondition.registerRunListener(async (args, state) => {
+          const isLocked = this.getCapabilityValue('child_lock');
+          return isLocked;
+        });
+
+        enableChildLockAction.registerRunListener(async (args, state) => {
+          await this.sendCommand("tune set lock 1");
+          return true;
+        });
+
+        disableChildLockAction.registerRunListener(async (args, state) => {
+          await this.sendCommand("tune set lock 0");
+          return true;
+        });
+      }
+
+      if (!this.getStoreValue("type") || (this.getStoreValue("type") && this.getStoreValue("type") === "56")) {
+        enableNightModeAction.registerRunListener(async (args, state) => {
+          await this.sendCommand("tune set sleep 1");
+          return true;
+        });
+
+        disableNightModeAction.registerRunListener(async (args, state) => {
+          await this.sendCommand("tune set sleep 0");
+          return true;
+        });
+      }
     } catch (error) {
       this.error('Error during Bora device initialization:', error);
     }
