@@ -82,5 +82,8 @@
   },
   "2.1.1": {
     "en": "Fix fan speed"
+  },
+  "2.1.2": {
+    "en": "Added support for the older Bora (DXDH02)"
   }
 }
