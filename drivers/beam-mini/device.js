@@ -75,19 +75,6 @@ module.exports = class BeamMiniDevice extends Homey.Device {
    */
   async onAdded() {
     this.log('Beam Mini device has been added');
-    try {
-      const type = this.getStoreValue('type');
-      await axios.post('https://device-support-requests.vercel.app/api/send-report', {
-        message: 'Anonymous user: Beam Mini device type ID',
-        app: 'Duux Gen2',
-        report: {
-          type: type,
-          device: "Beam Mini"
-        }
-      });
-    } catch (error) {
-      this.error('Error sending device added report:', error);
-    }
   }
 
   /**
