@@ -241,9 +241,8 @@ module.exports = class EdgeDriver extends Homey.Driver {
         }
       }
 
-      // Filter for type 56 (as STRING!)
       const availableDevices = allDevices
-        .filter(device => device.type === "23")
+        .filter(device => device.type === "23" || device.type === "52")
         .map(device => ({
           name: device.displayName,
           data: {
@@ -253,7 +252,8 @@ module.exports = class EdgeDriver extends Homey.Driver {
             id: device.id,
             mac: device.deviceId,
             tenantId: device.tenantId,
-            spaceId: device.spaceId
+            spaceId: device.spaceId,
+            type: device.type
           }
         }));
 
