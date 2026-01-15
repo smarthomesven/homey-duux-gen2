@@ -88,5 +88,8 @@
   },
   "2.1.3": {
     "en": "Fix type IDs"
+  },
+  "2.1.4": {
+    "en": "Added another type ID for the Edge heater and fixed a typo in the app  Settings page (Dutch language)"
   }
 }
