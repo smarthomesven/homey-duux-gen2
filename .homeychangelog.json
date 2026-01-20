@@ -94,5 +94,8 @@
   },
   "2.1.5": {
     "en": "Fixed type ID check"
+  },
+  "2.1.6": {
+    "en": "Added icons for all devices"
   }
 }
