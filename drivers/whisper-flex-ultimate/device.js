@@ -23,7 +23,7 @@ module.exports = class WhisperFlexUltimateDevice extends Homey.Device {
 
       this.registerCapabilityListener("fan_speed", async (value) => {
         let command;
-        command = `tune set speed ${value}`;
+        command = `tune set speed ${value*100}`;
         await this.sendCommand(command);
       });
 
