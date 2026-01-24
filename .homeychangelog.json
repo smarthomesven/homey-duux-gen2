@@ -100,5 +100,8 @@
   },
   "2.1.7": {
     "en": "Fix Whisper Flex Ultimate"
+  },
+  "2.1.8": {
+    "en": "Fix Whisper Flex Ultimate fan speed capability"
   }
 }
