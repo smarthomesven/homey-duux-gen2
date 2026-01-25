@@ -1,0 +1,33 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "Mode",
+    "nl": "Modus"
+  },
+  "uiComponent": "picker",
+  "getable": true,
+  "setable": true,
+  "values": [
+    {
+      "id": "low",
+      "title": { 
+        "en": "Low",
+        "nl": "Laag"
+      }
+    },
+    {
+      "id": "high",
+      "title": {
+        "en": "High",
+        "nl": "Hoog"
+      }
+    },
+    {
+      "id": "boost",
+      "title": {
+        "en": "Boost",
+        "nl": "Boost"
+      }
+    }
+  ]
+}

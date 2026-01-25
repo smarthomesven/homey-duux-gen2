@@ -301,6 +301,76 @@
         ]
       },
       {
+        "id": "child_lock_enabled_edge_oil",
+        "title": {
+          "en": "Child lock enabled",
+          "nl": "Kinderslot ingeschakeld"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=edge-oil"
+          }
+        ]
+      },
+      {
+        "id": "child_lock_disabled_edge_oil",
+        "title": {
+          "en": "Child lock disabled",
+          "nl": "Kinderslot uitgeschakeld"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=edge-oil"
+          }
+        ]
+      },
+      {
+        "id": "night_mode_enabled_edge_oil",
+        "title": {
+          "en": "Night mode enabled",
+          "nl": "Nachtmodus ingeschakeld"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=edge-oil"
+          }
+        ]
+      },
+      {
+        "id": "night_mode_disabled_edge_oil",
+        "title": {
+          "en": "Night mode disabled",
+          "nl": "Nachtmodus uitgeschakeld"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=edge-oil"
+          }
+        ]
+      },
+      {
+        "id": "edge_oil_mode_changed",
+        "title": {
+          "en": "Mode changed",
+          "nl": "Modus veranderd"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=edge-oil"
+          }
+        ]
+      },
+      {
         "id": "night_mode_enabled_neo",
         "title": {
           "en": "Night mode enabled",
@@ -705,6 +775,34 @@
             "type": "device",
             "name": "device",
             "filter": "driver_id=edge"
+          }
+        ]
+      },
+      {
+        "id": "child_lock_condition_edge_oil",
+        "title": {
+          "en": "Child lock is !{{enabled|disabled}}",
+          "nl": "Kinderslot is !{{ingeschakeld|uitgeschakeld}}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=edge-oil"
+          }
+        ]
+      },
+      {
+        "id": "night_mode_condition_edge_oil",
+        "title": {
+          "en": "Night mode is !{{enabled|disabled}}",
+          "nl": "Nachtmodus is !{{ingeschakeld|uitgeschakeld}}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=edge-oil"
           }
         ]
       },
@@ -1209,6 +1307,107 @@
             "type": "device",
             "name": "device",
             "filter": "driver_id=edge"
+          }
+        ]
+      },
+      {
+        "id": "enable_child_lock_edge_oil",
+        "title": {
+          "en": "Enable child lock",
+          "nl": "Kinderslot inschakelen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=edge-oil"
+          }
+        ]
+      },
+      {
+        "id": "disable_child_lock_edge_oil",
+        "title": {
+          "en": "Disable child lock",
+          "nl": "Kinderslot uitschakelen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=edge-oil"
+          }
+        ]
+      },
+      {
+        "id": "enable_night_mode_edge_oil",
+        "title": {
+          "en": "Enable night mode",
+          "nl": "Nachtstand inschakelen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=edge-oil"
+          }
+        ]
+      },
+      {
+        "id": "disable_night_mode_edge_oil",
+        "title": {
+          "en": "Disable night mode",
+          "nl": "Nachtstand uitschakelen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=edge-oil"
+          }
+        ]
+      },
+      {
+        "id": "set_mode_edge_oil",
+        "title": {
+          "en": "Set mode",
+          "nl": "Modus instellen"
+        },
+        "titleFormatted": {
+          "en": "Set mode to [[mode]]",
+          "nl": "Modus instellen op [[mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=edge-oil"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "low",
+                "label": {
+                  "en": "Low",
+                  "nl": "Laag"
+                }
+              },
+              {
+                "id": "high",
+                "label": {
+                  "en": "High",
+                  "nl": "Hoog"
+                }
+              },
+              {
+                "id": "boost",
+                "label": {
+                  "en": "Boost",
+                  "nl": "Boost"
+                }
+              }
+            ]
           }
         ]
       },
@@ -2100,6 +2299,70 @@
     },
     {
       "name": {
+        "en": "Edge Oil",
+        "nl": "Edge Oil"
+      },
+      "class": "heater",
+      "capabilities": [
+        "onoff",
+        "target_temperature",
+        "measure_temperature",
+        "child_lock",
+        "night_mode",
+        "edge_oil_mode"
+      ],
+      "capabilitiesOptions": {
+        "target_temperature": {
+          "min": 5,
+          "max": 36,
+          "step": 1
+        }
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "cloud"
+      ],
+      "images": {
+        "small": "/drivers/edge-oil/assets/images/small.png",
+        "large": "/drivers/edge-oil/assets/images/large.png",
+        "xlarge": "/drivers/edge-oil/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "email"
+        },
+        {
+          "id": "code"
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          },
+          "options": {
+            "singular": false
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "repair": [
+        {
+          "id": "email"
+        },
+        {
+          "id": "code"
+        }
+      ],
+      "id": "edge-oil"
+    },
+    {
+      "name": {
         "en": "Neo",
         "nl": "Neo"
       },
@@ -2520,6 +2783,39 @@
       "uiComponent": "button",
       "uiQuickAction": false,
       "icon": "/assets/eco_mode.svg"
+    },
+    "edge_oil_mode": {
+      "type": "enum",
+      "title": {
+        "en": "Mode",
+        "nl": "Modus"
+      },
+      "uiComponent": "picker",
+      "getable": true,
+      "setable": true,
+      "values": [
+        {
+          "id": "low",
+          "title": {
+            "en": "Low",
+            "nl": "Laag"
+          }
+        },
+        {
+          "id": "high",
+          "title": {
+            "en": "High",
+            "nl": "Hoog"
+          }
+        },
+        {
+          "id": "boost",
+          "title": {
+            "en": "Boost",
+            "nl": "Boost"
+          }
+        }
+      ]
     },
     "fan_speed_neo": {
       "type": "enum",

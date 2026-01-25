@@ -1,0 +1,125 @@
+{
+  "triggers": [
+    {
+      "id": "child_lock_enabled_edge_oil",
+      "title": {
+        "en": "Child lock enabled",
+        "nl": "Kinderslot ingeschakeld"
+      }
+    },
+    {
+      "id": "child_lock_disabled_edge_oil",
+      "title": {
+        "en": "Child lock disabled",
+        "nl": "Kinderslot uitgeschakeld"
+      }
+    },
+    {
+      "id": "night_mode_enabled_edge_oil",
+      "title": {
+        "en": "Night mode enabled",
+        "nl": "Nachtmodus ingeschakeld"
+      }
+    },
+    {
+      "id": "night_mode_disabled_edge_oil",
+      "title": {
+        "en": "Night mode disabled",
+        "nl": "Nachtmodus uitgeschakeld"
+      }
+    },
+    {
+      "id": "edge_oil_mode_changed",
+      "title": {
+        "en": "Mode changed",
+        "nl": "Modus veranderd"
+      }
+    }
+  ],
+  "conditions":[
+    {
+      "id": "child_lock_condition_edge_oil",
+      "title": {
+        "en": "Child lock is !{{enabled|disabled}}",
+        "nl": "Kinderslot is !{{ingeschakeld|uitgeschakeld}}"
+      }
+    },
+    {
+      "id": "night_mode_condition_edge_oil",
+      "title": {
+        "en": "Night mode is !{{enabled|disabled}}",
+        "nl": "Nachtmodus is !{{ingeschakeld|uitgeschakeld}}"
+      }
+    }
+  ],
+  "actions": [
+    {
+      "id": "enable_child_lock_edge_oil",
+      "title": {
+        "en": "Enable child lock",
+        "nl": "Kinderslot inschakelen"
+      } 
+    },
+    {
+      "id": "disable_child_lock_edge_oil",
+      "title": {
+        "en": "Disable child lock",
+        "nl": "Kinderslot uitschakelen"
+      } 
+    },
+    {
+      "id": "enable_night_mode_edge_oil",
+      "title": {
+        "en": "Enable night mode",
+        "nl": "Nachtstand inschakelen"
+      } 
+    },
+    {
+      "id": "disable_night_mode_edge_oil",
+      "title": {
+        "en": "Disable night mode",
+        "nl": "Nachtstand uitschakelen"
+      } 
+    },
+    {
+      "id": "set_mode_edge_oil",
+      "title": {
+        "en": "Set mode",
+        "nl": "Modus instellen"
+      },
+      "titleFormatted": {
+        "en": "Set mode to [[mode]]",
+        "nl": "Modus instellen op [[mode]]"
+      },
+      "args": [
+        {
+          "name": "mode",
+          "type": "dropdown",
+          "values": [
+            {
+              "id": "low",
+              "label": {
+                "en": "Low",
+                "nl": "Laag"
+              }
+            },
+            {
+              "id": "high",
+              "label": {
+                "en": "High",
+                "nl": "Hoog"
+              }
+            },
+            {
+              "id": "boost",
+              "label": {
+                "en": "Boost",
+                "nl": "Boost"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
