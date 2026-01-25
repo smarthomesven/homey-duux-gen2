@@ -103,5 +103,8 @@
   },
   "2.1.8": {
     "en": "Fix Whisper Flex Ultimate fan speed capability"
+  },
+  "2.2.0": {
+    "en": "Added support for the Edge Oil"
   }
 }
