@@ -106,5 +106,8 @@
   },
   "2.2.0": {
     "en": "Added support for the Edge Oil"
+  },
+  "2.2.1": {
+    "en": "Fix Edge Oil mode"
   }
 }
