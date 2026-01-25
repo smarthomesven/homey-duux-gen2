@@ -57,7 +57,7 @@ module.exports = class EdgeDevice extends Homey.Device {
         } else if (value === "boost") {
           mode = 3;
         } else return;
-        await this.sendCommand(`tune set heatin ${mode}`);
+        await this.sendCommand(`tune set mode ${mode}`);
       });
 
       this.setStoreValue('firstRun', true);
@@ -110,7 +110,7 @@ module.exports = class EdgeDevice extends Homey.Device {
         } else if (args.mode === "boost") {
           mode = 3;
         } else return;
-        await this.sendCommand(`tune set speed ${mode}`);
+        await this.sendCommand(`tune set mode ${mode}`);
         return true;
       });
 
