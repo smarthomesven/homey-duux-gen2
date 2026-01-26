@@ -242,7 +242,7 @@ module.exports = class NeoDriver extends Homey.Driver {
       }
 
       const availableDevices = allDevices
-        .filter(device => device.type === "32")
+        .filter(device => device.type === "22")
         .map(device => ({
           name: device.displayName,
           data: {
