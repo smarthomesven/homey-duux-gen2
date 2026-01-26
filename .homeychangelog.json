@@ -121,5 +121,8 @@
   },
   "2.2.5": {
     "en": "Fix Edge Oil mode (again)"
+  },
+  "2.2.6": {
+    "en": "Fix Edge Oil mode"
   }
 }
