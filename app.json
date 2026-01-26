@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.duux.gen2",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "compatibility": ">=12.4.0",
   "sdk": 3,
   "platforms": [
@@ -2817,6 +2817,53 @@
         }
       ]
     },
+    "fan_speed_bright": {
+      "type": "enum",
+      "title": {
+        "en": "Fan speed",
+        "nl": "Ventilatorsnelheid"
+      },
+      "uiComponent": "picker",
+      "getable": true,
+      "setable": true,
+      "values": [
+        {
+          "id": "low",
+          "title": {
+            "en": "I",
+            "nl": "I"
+          }
+        },
+        {
+          "id": "medium",
+          "title": {
+            "en": "II",
+            "nl": "II"
+          }
+        },
+        {
+          "id": "high",
+          "title": {
+            "en": "III",
+            "nl": "III"
+          }
+        },
+        {
+          "id": "auto",
+          "title": {
+            "en": "Auto",
+            "nl": "Auto"
+          }
+        },
+        {
+          "id": "night",
+          "title": {
+            "en": "Nacht",
+            "nl": "Nacht"
+          }
+        }
+      ]
+    },
     "fan_speed_neo": {
       "type": "enum",
       "title": {
@@ -2960,6 +3007,18 @@
       "uiComponent": "button",
       "uiQuickAction": false,
       "icon": "/assets/horizontal_oscillation.svg"
+    },
+    "ionizer": {
+      "type": "boolean",
+      "title": {
+        "en": "Ionizer",
+        "nl": "Ionisator"
+      },
+      "getable": true,
+      "setable": true,
+      "uiComponent": "button",
+      "uiQuickAction": false,
+      "icon": "/assets/ionizer.svg"
     },
     "laundry_mode": {
       "type": "boolean",
