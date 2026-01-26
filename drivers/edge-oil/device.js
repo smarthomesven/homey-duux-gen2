@@ -104,13 +104,13 @@ module.exports = class EdgeDevice extends Homey.Device {
       setModeAction.registerRunListener(async (args, state) => {
         let mode;
         if (args.mode === "low") {
-          mode = 1;
+          mode = 0;
         } else if (args.mode === "high") {
-          mode = 2;
+          mode = 1;
         } else if (args.mode === "boost") {
-          mode = 3;
+          mode = 2;
         } else return;
-        await this.sendCommand(`tune set mode ${mode}`);
+        await this.sendCommand(`tune set heatin ${mode}`);
         return true;
       });
 
