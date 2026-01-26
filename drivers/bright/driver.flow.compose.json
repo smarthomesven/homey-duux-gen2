@@ -1,0 +1,104 @@
+{
+  "triggers": [
+    {
+      "id": "ionizer_enabled",
+      "title": {
+        "en": "Ionizer enabled",
+        "nl": "Ionisator ingeschakeld"
+      }
+    },
+    {
+      "id": "ionizer_disabled",
+      "title": {
+        "en": "Ionizer disabled",
+        "nl": "Ionisator uitgeschakeld"
+      }
+    },
+    {
+      "id": "fan_speed_bright_changed",
+      "title": {
+        "en": "Fan speed changed",
+        "nl": "Ventilatorsnelheid veranderd"
+      }
+    }
+  ],
+  "conditions":[
+    {
+      "id": "ionizer_condition",
+      "title": {
+        "en": "Ionizer is !{{enabled|disabled}}",
+        "nl": "Ionisator is !{{ingeschakeld|uitgeschakeld}}"
+      }
+    }
+  ],
+  "actions": [
+    {
+      "id": "enable_ionizer",
+      "title": {
+        "en": "Enable ionizer",
+        "nl": "Ionisator inschakelen"
+      } 
+    },
+    {
+      "id": "disable_ionizer",
+      "title": {
+        "en": "Disable ionizer",
+        "nl": "Ionisator uitschakelen"
+      } 
+    },
+    {
+      "id": "set_fan_speed_bright",
+      "title": {
+        "en": "Set fan speed",
+        "nl": "Ventilatorsnelheid instellen"
+      },
+      "titleFormatted": {
+        "en": "Set fan speed to [[speed]]",
+        "nl": "Ventilatorsnelheid instellen op [[speed]]"
+      },
+      "args": [
+        {
+          "name": "speed",
+          "type": "dropdown",
+          "values": [
+            {
+              "id": "low",
+              "label": {
+                "en": "Low",
+                "nl": "Laag"
+              }
+            },
+            {
+              "id": "medium",
+              "label": {
+                "en": "Medium",
+                "nl": "Medium"
+              }
+            },
+            {
+              "id": "high",
+              "label": {
+                "en": "High",
+                "nl": "Hoog"
+              }
+            },
+            {
+              "id": "auto",
+              "label": {
+                "en": "Auto",
+                "nl": "Auto"
+              }
+            },
+            {
+              "id": "night",
+              "label": {
+                "en": "Night",
+                "nl": "Nacht"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

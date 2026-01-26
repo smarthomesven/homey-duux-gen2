@@ -217,6 +217,48 @@
         ]
       },
       {
+        "id": "ionizer_enabled",
+        "title": {
+          "en": "Ionizer enabled",
+          "nl": "Ionisator ingeschakeld"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=bright"
+          }
+        ]
+      },
+      {
+        "id": "ionizer_disabled",
+        "title": {
+          "en": "Ionizer disabled",
+          "nl": "Ionisator uitgeschakeld"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=bright"
+          }
+        ]
+      },
+      {
+        "id": "fan_speed_bright_changed",
+        "title": {
+          "en": "Fan speed changed",
+          "nl": "Ventilatorsnelheid veranderd"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=bright"
+          }
+        ]
+      },
+      {
         "id": "eco_mode_enabled",
         "title": {
           "en": "Eco mode enabled",
@@ -737,6 +779,20 @@
         ]
       },
       {
+        "id": "ionizer_condition",
+        "title": {
+          "en": "Ionizer is !{{enabled|disabled}}",
+          "nl": "Ionisator is !{{ingeschakeld|uitgeschakeld}}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=bright"
+          }
+        ]
+      },
+      {
         "id": "eco_mode_condition",
         "title": {
           "en": "Eco mode is !{{enabled|disabled}}",
@@ -1220,6 +1276,93 @@
                 "label": {
                   "en": "II",
                   "nl": "II"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "enable_ionizer",
+        "title": {
+          "en": "Enable ionizer",
+          "nl": "Ionisator inschakelen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=bright"
+          }
+        ]
+      },
+      {
+        "id": "disable_ionizer",
+        "title": {
+          "en": "Disable ionizer",
+          "nl": "Ionisator uitschakelen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=bright"
+          }
+        ]
+      },
+      {
+        "id": "set_fan_speed_bright",
+        "title": {
+          "en": "Set fan speed",
+          "nl": "Ventilatorsnelheid instellen"
+        },
+        "titleFormatted": {
+          "en": "Set fan speed to [[speed]]",
+          "nl": "Ventilatorsnelheid instellen op [[speed]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=bright"
+          },
+          {
+            "name": "speed",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "low",
+                "label": {
+                  "en": "Low",
+                  "nl": "Laag"
+                }
+              },
+              {
+                "id": "medium",
+                "label": {
+                  "en": "Medium",
+                  "nl": "Medium"
+                }
+              },
+              {
+                "id": "high",
+                "label": {
+                  "en": "High",
+                  "nl": "Hoog"
+                }
+              },
+              {
+                "id": "auto",
+                "label": {
+                  "en": "Auto",
+                  "nl": "Auto"
+                }
+              },
+              {
+                "id": "night",
+                "label": {
+                  "en": "Night",
+                  "nl": "Nacht"
                 }
               }
             ]
@@ -2232,6 +2375,61 @@
         }
       ],
       "id": "bora"
+    },
+    {
+      "name": {
+        "en": "Bright",
+        "nl": "Bright"
+      },
+      "class": "airpurifier",
+      "capabilities": [
+        "onoff",
+        "fan_speed_bright",
+        "measure_pm25",
+        "ionizer"
+      ],
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "cloud"
+      ],
+      "images": {
+        "small": "/drivers/bright/assets/images/small.png",
+        "large": "/drivers/bright/assets/images/large.png",
+        "xlarge": "/drivers/bright/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "email"
+        },
+        {
+          "id": "code"
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          },
+          "options": {
+            "singular": false
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "repair": [
+        {
+          "id": "email"
+        },
+        {
+          "id": "code"
+        }
+      ],
+      "id": "bright"
     },
     {
       "name": {
