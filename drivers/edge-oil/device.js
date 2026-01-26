@@ -49,15 +49,15 @@ module.exports = class EdgeDevice extends Homey.Device {
       });
 
       this.registerCapabilityListener("edge_oil_mode", async (value) => {
-        let mode;
+        let command;
         if (value === "low") {
-          mode = 1;
+          command = "tune set heatin 1";
         } else if (value === "high") {
-          mode = 2;
+          command = "tune set heatin 2";
         } else if (value === "boost") {
-          mode = 3;
+          command = "tune set heatin 3";
         } else return;
-        await this.sendCommand(`tune set heatin ${mode}`);
+        await this.sendCommand(command);
       });
 
       this.setStoreValue('firstRun', true);
@@ -213,13 +213,13 @@ module.exports = class EdgeDevice extends Homey.Device {
           });
         }
 
-        if (this.hasCapability('edge_oil_mode') && status.mode !== undefined) {
+        if (this.hasCapability('edge_oil_mode') && status.heatin !== undefined) {
           let modeValue;
-          if (status.mode === 1) {
+          if (status.heatin === 1) {
             modeValue = 'low';
-          } else if (status.mode === 2) {
+          } else if (status.heatin === 2) {
             modeValue = 'high';
-          } else if (status.mode === 3) {
+          } else if (status.heatin === 3) {
             modeValue = 'boost';
           }
           await this.setCapabilityValue('edge_oil_mode', modeValue).catch(err => {
