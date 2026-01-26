@@ -136,5 +136,8 @@
   },
   "2.2.10": {
     "en": "Fix Edge Oil mode"
+  },
+  "2.3.0": {
+    "en": "Added support for the Bright"
   }
 }
