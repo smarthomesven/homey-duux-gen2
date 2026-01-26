@@ -50,12 +50,13 @@ module.exports = class EdgeDevice extends Homey.Device {
 
       this.registerCapabilityListener("edge_oil_mode", async (value) => {
         let command;
+        this.log("Value is", value);
         if (value === "low") {
-          command = "tune set heatin 1";
+          command = "tune set heating 1";
         } else if (value === "high") {
-          command = "tune set heatin 2";
+          command = "tune set heating 2";
         } else if (value === "boost") {
-          command = "tune set heatin 3";
+          command = "tune set heating 3";
         } else return;
         await this.sendCommand(command);
       });
@@ -110,7 +111,7 @@ module.exports = class EdgeDevice extends Homey.Device {
         } else if (args.mode === "boost") {
           mode = 3;
         } else return;
-        await this.sendCommand(`tune set heatin ${mode}`);
+        await this.sendCommand(`tune set heating ${mode}`);
         return true;
       });
 
@@ -214,6 +215,7 @@ module.exports = class EdgeDevice extends Homey.Device {
         }
 
         if (this.hasCapability('edge_oil_mode') && status.heatin !== undefined) {
+          this.log('heatin status is', status.heatin);
           let modeValue;
           if (status.heatin === 1) {
             modeValue = 'low';
@@ -222,6 +224,7 @@ module.exports = class EdgeDevice extends Homey.Device {
           } else if (status.heatin === 3) {
             modeValue = 'boost';
           }
+          this.log('Setting edge_oil_mode to', modeValue);
           await this.setCapabilityValue('edge_oil_mode', modeValue).catch(err => {
             this.error('Error setting edge_oil_mode capability:', err);
           });
