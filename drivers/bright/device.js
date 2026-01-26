@@ -24,15 +24,15 @@ module.exports = class BrightDevice extends Homey.Device {
 
       this.registerCapabilityListener("fan_speed_bright", async (value) => {
         if (value === "auto") {
-          await this.sendCommand("tune set mode 0");
+          await this.sendCommand("tune set speed 0");
         } else if (value === "low") {
-          await this.sendCommand(`tune set mode 1`);
+          await this.sendCommand(`tune set speed 1`);
         } else if (value === "medium") {
-          await this.sendCommand(`tune set mode 2`);
+          await this.sendCommand(`tune set speed 2`);
         } else if (value === "high") {
-          await this.sendCommand(`tune set mode 3`);
+          await this.sendCommand(`tune set speed 3`);
         } else if (value === "night") {
-          await this.sendCommand(`tune set mode 4`);
+          await this.sendCommand(`tune set speed 4`);
         } else return;
       });
 
@@ -62,15 +62,15 @@ module.exports = class BrightDevice extends Homey.Device {
 
       setFanSpeedAction.registerRunListener(async (args, state) => {
         if (args.speed === "auto") {
-          await this.sendCommand("tune set mode 0");
+          await this.sendCommand("tune set speed 0");
         } else if (args.speed === "low") {
-          await this.sendCommand(`tune set mode 1`);
+          await this.sendCommand(`tune set speed 1`);
         } else if (args.speed === "medium") {
-          await this.sendCommand(`tune set mode 2`);
+          await this.sendCommand(`tune set speed 2`);
         } else if (args.speed === "high") {
-          await this.sendCommand(`tune set mode 3`);
+          await this.sendCommand(`tune set speed 3`);
         } else if (args.speed === "night") {
-          await this.sendCommand(`tune set mode 4`);
+          await this.sendCommand(`tune set speed 4`);
         }
         return true;
       });
@@ -174,17 +174,17 @@ module.exports = class BrightDevice extends Homey.Device {
           this.error('Device reported error code:', status.err);
         }
 
-        if (this.hasCapability('fan_speed_bright') && status.mode !== undefined && status.speed !== undefined) {
+        if (this.hasCapability('fan_speed_bright') && status.speed !== undefined && status.speed !== undefined) {
           let fanValue;
-          if (status.mode === 0) {
+          if (status.speed === 0) {
             fanValue = "auto";
-          } else if (status.mode === 1) {
+          } else if (status.speed === 1) {
             fanValue = "low";
-          } else if (status.mode === 2) {
+          } else if (status.speed === 2) {
             fanValue = "medium";
-          } else if (status.mode === 3) {
+          } else if (status.speed === 3) {
             fanValue = "high";
-          } else if (status.mode === 4) {
+          } else if (status.speed === 4) {
             fanValue = "night";
           } else return;
           await this.setCapabilityValue('fan_speed_bright', fanValue).catch(err => {
