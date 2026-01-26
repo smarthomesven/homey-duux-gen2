@@ -213,13 +213,13 @@ module.exports = class EdgeDevice extends Homey.Device {
           });
         }
 
-        if (this.hasCapability('edge_oil_mode') && status.mode !== undefined) {
+        if (this.hasCapability('edge_oil_mode') && status.heatin !== undefined) {
           let modeValue;
-          if (status.mode === 1) {
+          if (status.heatin === 1) {
             modeValue = 'low';
-          } else if (status.mode === 2) {
+          } else if (status.heatin === 2) {
             modeValue = 'high';
-          } else if (status.mode === 3) {
+          } else if (status.heatin === 3) {
             modeValue = 'boost';
           }
           await this.setCapabilityValue('mode_edge_oil', modeValue).catch(err => {
