@@ -62,4 +62,48 @@ module.exports = class DuuxV2App extends Homey.App {
     }
   }
 
+  async codeLogin(data, session, type) {
+    try {
+      const code = data.code;
+      this.homey.settings.set('code', code);
+      const codeVerifier = this.homey.settings.get('verifier');
+      const cloudId = await this.homey.cloud.getHomeyId();
+      const response = await axios.post('https://v5.api.cloudgarden.nl/auth/token', {
+        code: code,
+        codeVerifier: codeVerifier,
+        grantType: 'authorization_code',
+        clientId: '83f34a5fa5faca9023c78980a57a87b41f6972fc4ee45e9c',
+        redirectUri: `https://smarthomesven.github.io/homey-duux-gen2-auth/#/${cloudId}`,
+        makeAccessTokenLongLasting: true
+      });
+      
+      if (response.data && response.data.data.token) {
+        const userResponse = await axios.get('https://v5.api.cloudgarden.nl/user/me', {
+          headers: {
+            'Authorization': `Bearer ${response.data.data.token}`
+          }
+        });
+        
+        this.homey.settings.set('userId', userResponse.data.data.id);
+        this.homey.settings.set('loggedIn', true);
+        this.homey.settings.set('accessToken', response.data.data.token);
+        this.homey.settings.set('codeVerifier', null);
+        this.homey.settings.set('codeChallenge', null);
+        this.homey.settings.set('email', null);
+        this.homey.settings.set('code', null);
+        if (type === 'pair') {
+          await session.showView('list_devices');
+        } else if (type === 'repair') {
+          await session.done();
+        }
+        return true;
+      } else {
+        return false;
+      }
+    } catch (error) {
+      this.error('Login error:', error);
+      return false;
+    }
+  }
+
 };

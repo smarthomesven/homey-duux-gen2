@@ -36,6 +36,8 @@ module.exports = class EdgeDriver extends Homey.Driver {
 
   async onPair(session) {
     this.log('Edge pairing started');
+    this._type = "pair";
+    this._session = session;
 
     session.setHandler('showView', async (viewId) => {
       if (viewId === 'email') {
@@ -55,13 +57,15 @@ module.exports = class EdgeDriver extends Homey.Driver {
         this.homey.settings.set('verifier', codeVerifier);
         this.homey.settings.set('challenge', codeChallenge);
         this.log('Login with email:', data.email);
+
+        const redirectUri = await this.registerWebhook(session);
         
         const response = await axios.post('https://v5.api.cloudgarden.nl/auth/passwordlessLogin/code', {
           email: data.email,
           clientId: '83f34a5fa5faca9023c78980a57a87b41f6972fc4ee45e9c',
           codeChallenge: codeChallenge,
           codeChallengeMethod: 'sha256',
-          redirectUri: 'https://duux-deeplink.vercel.app/login/verify',
+          redirectUri: redirectUri,
           tenantId: 44
         });
         
@@ -77,41 +81,7 @@ module.exports = class EdgeDriver extends Homey.Driver {
     });
 
     session.setHandler('code', async (data) => {
-      try {
-        this.homey.settings.set('code', data.code);
-        const codeVerifier = this.homey.settings.get('verifier');
-        const response = await axios.post('https://v5.api.cloudgarden.nl/auth/token', {
-          code: data.code,
-          codeVerifier: codeVerifier,
-          grantType: 'authorization_code',
-          clientId: '83f34a5fa5faca9023c78980a57a87b41f6972fc4ee45e9c',
-          redirectUri: 'https://duux-deeplink.vercel.app/login/verify',
-          makeAccessTokenLongLasting: true
-        });
-        
-        if (response.data && response.data.data.token) {
-          const userResponse = await axios.get('https://v5.api.cloudgarden.nl/user/me', {
-            headers: {
-              'Authorization': `Bearer ${response.data.data.token}`
-            }
-          });
-          
-          this.homey.settings.set('userId', userResponse.data.data.id);
-          this.homey.settings.set('loggedIn', true);
-          this.homey.settings.set('accessToken', response.data.data.token);
-          this.homey.settings.set('codeVerifier', null);
-          this.homey.settings.set('codeChallenge', null);
-          this.homey.settings.set('email', null);
-          this.homey.settings.set('code', null);
-          await session.showView('list_devices');
-          return true;
-        } else {
-          return false;
-        }
-      } catch (error) {
-        this.error('Login error:', error);
-        return false;
-      }
+      return await this.homey.app.codeLogin(data, session, "pair");
     });
 
     session.setHandler("list_devices", async () => {
@@ -123,8 +93,33 @@ module.exports = class EdgeDriver extends Homey.Driver {
     });
   }
 
+  async registerWebhook(session) {
+    try {
+      const cloudId = await this.homey.cloud.getHomeyId();
+      const id = Homey.env.WEBHOOK_ID;
+      const secret = Homey.env.WEBHOOK_SECRET;
+      const authWebhook = await this.homey.cloud.createWebhook(id, secret, {});
+      authWebhook.on('message', async args => {
+        try {
+        this.log('Got a webhook message!');
+        this.log('headers:', args.headers);
+        this.log('query:', args.query);
+        this.log('body:', args.body);
+        await this.homey.app.codeLogin({ code: args.query.code }, this._session, this._type);
+        } catch (error) {
+          this.error('Error handling webhook message:', error);
+        }
+      });
+      return `https://smarthomesven.github.io/homey-duux-gen2-auth/#/${cloudId}`;
+    } catch (error) {
+      this.error('Error registering webhook:', error);
+    }
+  }
+
   async onRepair(session) {
     this.log('Edge repairing started');
+    this._type = "repair";
+    this._session = session;
     
     session.setHandler('login', async (data) => {
       try {
@@ -134,13 +129,15 @@ module.exports = class EdgeDriver extends Homey.Driver {
         this.homey.settings.set('verifier', codeVerifier);
         this.homey.settings.set('challenge', codeChallenge);
         this.log('Login with email:', data.email);
+
+        const redirectUri = await this.registerWebhook(this._session);
         
         const response = await axios.post('https://v5.api.cloudgarden.nl/auth/passwordlessLogin/code', {
           email: data.email,
           clientId: '83f34a5fa5faca9023c78980a57a87b41f6972fc4ee45e9c',
           codeChallenge: codeChallenge,
           codeChallengeMethod: 'sha256',
-          redirectUri: 'https://duux-deeplink.vercel.app/login/verify',
+          redirectUri: redirectUri,
           tenantId: 44
         });
         
@@ -156,41 +153,7 @@ module.exports = class EdgeDriver extends Homey.Driver {
     });
 
     session.setHandler('code', async (data) => {
-      try {
-        this.homey.settings.set('code', data.code);
-        const codeVerifier = this.homey.settings.get('verifier');
-        const response = await axios.post('https://v5.api.cloudgarden.nl/auth/token', {
-          code: data.code,
-          codeVerifier: codeVerifier,
-          grantType: 'authorization_code',
-          clientId: '83f34a5fa5faca9023c78980a57a87b41f6972fc4ee45e9c',
-          redirectUri: 'https://duux-deeplink.vercel.app/login/verify',
-          makeAccessTokenLongLasting: true
-        });
-        
-        if (response.data && response.data.data.token) {
-          const userResponse = await axios.get('https://v5.api.cloudgarden.nl/user/me', {
-            headers: {
-              'Authorization': `Bearer ${response.data.data.token}`
-            }
-          });
-          
-          this.homey.settings.set('userId', userResponse.data.data.id);
-          this.homey.settings.set('loggedIn', true);
-          this.homey.settings.set('accessToken', response.data.data.token);
-          this.homey.settings.set('codeVerifier', null);
-          this.homey.settings.set('codeChallenge', null);
-          this.homey.settings.set('email', null);
-          this.homey.settings.set('code', null);
-          await session.done();
-          return true;
-        } else {
-          return false;
-        }
-      } catch (error) {
-        this.error('Login error:', error);
-        return false;
-      }
+      return await this.homey.app.codeLogin(data, session, "repair");
     });
   }
 
@@ -206,19 +169,14 @@ module.exports = class EdgeDriver extends Homey.Driver {
         throw new Error('Not logged in');
       }
 
-      // Get all tenants (homes) for the user
       const tenantsResponse = await axios.get('https://v5.api.cloudgarden.nl/tenant/?tenantQueryType=1&issuesOnly=false&sortDescendent=false&skip=0&take=25&returnModel=2', {
         headers: {
           'Authorization': `Bearer ${accessToken}`
         }
       });
 
-      const tenants = tenantsResponse.data.data;
-      
-      // Filter out the parent Duux tenant (id 44)
-      const userTenants = tenants.filter(tenant => tenant.parentTenantId !== null);
-      
-      // Fetch devices from all user tenants
+      const tenants = tenantsResponse.data.data;    
+      const userTenants = tenants.filter(tenant => tenant.parentTenantId !== null); 
       const allDevices = [];
       for (const tenant of userTenants) {
         try {
@@ -228,7 +186,6 @@ module.exports = class EdgeDriver extends Homey.Driver {
             }
           });
           
-          // Add tenant info to each device for reference
           const devicesWithTenant = devicesResponse.data.data.map(device => ({
             ...device,
             tenantId: tenant.id,
