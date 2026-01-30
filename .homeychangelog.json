@@ -148,5 +148,8 @@
   },
   "2.3.3": {
     "en": "Fix Duux North images"
+  },
+  "2.4.0": {
+    "en": "Added support for authorizing via the link in the Duux emails"
   }
 }
