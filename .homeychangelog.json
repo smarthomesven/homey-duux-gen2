@@ -151,5 +151,8 @@
   },
   "2.4.0": {
     "en": "Added support for authorizing via the link in the Duux emails"
+  },
+  "2.4.1": {
+    "en": "Update dependencies"
   }
 }
