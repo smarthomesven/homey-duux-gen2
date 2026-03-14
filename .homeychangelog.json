@@ -166,5 +166,8 @@
   },
   "2.4.5": {
     "en": "Fixed settings page"
+  },
+  "2.5.0": {
+    "en": "Improved polling logic to reduce the load on the network"
   }
 }
