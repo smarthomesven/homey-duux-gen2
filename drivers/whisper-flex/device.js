@@ -2,6 +2,24 @@
 
 const Homey = require('homey');
 const axios = require('axios');
+const https = require('https');
+const CacheableLookup = require('cacheable-lookup');
+const cacheable = new CacheableLookup({
+  maxTtl: 300,
+});
+const httpsAgent = new https.Agent({
+  keepAlive: true,
+  keepAliveMsecs: 10000,
+  maxSockets: 10,
+  maxFreeSockets: 4,
+  timeout: 30000,
+});
+cacheable.install(httpsAgent);
+const apiClient = axios.create({
+  baseURL: 'https://v5.api.cloudgarden.nl',
+  httpsAgent,
+  timeout: 10000,
+});
 
 module.exports = class WhisperFlexDevice extends Homey.Device {
 
@@ -12,7 +30,6 @@ module.exports = class WhisperFlexDevice extends Homey.Device {
     try {
       this.log('Whisper Flex device has been initialized');
       
-      // Register capability listeners
       this.registerCapabilityListener("onoff", async (value) => {
         let command;
         if (value === true) {
@@ -164,8 +181,8 @@ module.exports = class WhisperFlexDevice extends Homey.Device {
         return;
       }
 
-      const response = await axios.get(
-        `https://v5.api.cloudgarden.nl/data/${mac}/status`,
+      const response = await apiClient.get(
+        `/data/${mac}/status`,
         {
           headers: {
             'Authorization': `Bearer ${accessToken}`
@@ -255,8 +272,8 @@ module.exports = class WhisperFlexDevice extends Homey.Device {
         this.error('Missing accessToken or MAC address');
       }
 
-      await axios.post(
-        `https://v5.api.cloudgarden.nl/sensor/${mac}/commands`,
+      await apiClient.post(
+        `/sensor/${mac}/commands`,
         {
           command: command
         },

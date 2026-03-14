@@ -2,6 +2,24 @@
 
 const Homey = require('homey');
 const axios = require('axios');
+const https = require('https');
+const CacheableLookup = require('cacheable-lookup');
+const cacheable = new CacheableLookup({
+  maxTtl: 300,
+});
+const httpsAgent = new https.Agent({
+  keepAlive: true,
+  keepAliveMsecs: 10000,
+  maxSockets: 10,
+  maxFreeSockets: 4,
+  timeout: 30000,
+});
+cacheable.install(httpsAgent);
+const apiClient = axios.create({
+  baseURL: 'https://v5.api.cloudgarden.nl',
+  httpsAgent,
+  timeout: 10000,
+});
 
 module.exports = class ThreesixtyDevice extends Homey.Device {
 
@@ -12,7 +30,6 @@ module.exports = class ThreesixtyDevice extends Homey.Device {
     try {
       this.log('Threesixty device has been initialized');
       
-      // Register capability listeners
       this.registerCapabilityListener("onoff", async (value) => {
         let command;
         if (value === true) {
@@ -43,7 +60,6 @@ module.exports = class ThreesixtyDevice extends Homey.Device {
 
       this.homey.settings.set('firstRun', true);
 
-      // Start polling
       this.startPolling();
 
       const setFanSpeedAction = this.homey.flow.getActionCard('set_fan_speed_heater');
@@ -59,7 +75,7 @@ module.exports = class ThreesixtyDevice extends Homey.Device {
         return true;
       });
     } catch (error) {
-      this.error('Error during Bora device initialization:', error);
+      this.error('Error during Threesixty device initialization:', error);
     }
   }
 
@@ -69,38 +85,20 @@ module.exports = class ThreesixtyDevice extends Homey.Device {
   async onAdded() {
     this.log('Threesixty device has been added');
 
-          const accessToken = this.homey.settings.get('accessToken');
-      const mac = this.getStoreValue('mac');
-      
-      if (!accessToken || !mac) {
-        this.error('Missing accessToken or MAC address');
-        return;
-      }
-
-      const response = await axios.get(
-        `https://v5.api.cloudgarden.nl/data/${mac}/status`,
-        {
-          headers: {
-            'Authorization': `Bearer ${accessToken}`
-          }
-        }
-      );
-
-      const type = this.getStoreValue("deviceType");
-
-      if (type === "21") {
-        this.setCapabilityOptions("target_temperature",{
-          min: 18,
-          max: 30,
-          step: 1
-        });
-      } else if (type === "50") {
-        this.setCapabilityOptions("target_temperature",{
-          min: 5,
-          max: 30,
-          step: 1
-        });
-      }
+    const type = this.getStoreValue("deviceType");
+    if (type === "21") {
+      this.setCapabilityOptions("target_temperature",{
+        min: 18,
+        max: 30,
+        step: 1
+      });
+    } else if (type === "50") {
+      this.setCapabilityOptions("target_temperature",{
+        min: 5,
+        max: 30,
+        step: 1
+      });
+    }
   }
 
   /**
@@ -162,8 +160,8 @@ module.exports = class ThreesixtyDevice extends Homey.Device {
         return;
       }
 
-      const response = await axios.get(
-        `https://v5.api.cloudgarden.nl/data/${mac}/status`,
+      const response = await apiClient.get(
+        `/data/${mac}/status`,
         {
           headers: {
             'Authorization': `Bearer ${accessToken}`
@@ -229,8 +227,8 @@ module.exports = class ThreesixtyDevice extends Homey.Device {
         this.error('Missing accessToken or MAC address');
       }
 
-      await axios.post(
-        `https://v5.api.cloudgarden.nl/sensor/${mac}/commands`,
+      await apiClient.post(
+        `/sensor/${mac}/commands`,
         {
           command: command
         },
