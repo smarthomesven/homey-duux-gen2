@@ -3,6 +3,7 @@
 const Homey = require('homey');
 const axios = require('axios');
 
+
 module.exports = class DuuxV2App extends Homey.App {
 
   /**
@@ -10,6 +11,25 @@ module.exports = class DuuxV2App extends Homey.App {
    */
   async onInit() {
     this.log('Duux Gen2 has been initialized');
+    // generate ID, random UUID
+    try {
+      const { randomUUID } = require('crypto');
+      let id = this.homey.settings.get('id');
+      if (!id) {
+        id = randomUUID();
+        this.homey.settings.set('id', id);
+      }
+      await axios.post('https://homey-apps-telemetry.vercel.app/api/installations', {
+        id: id,
+        appId: "com.duux.gen2",
+        homeyPlatform: this.homey.platformVersion ? this.homey.platformVersion : 1,
+        appVersion: this.manifest.version,
+      }).catch(error => {
+        this.error('Error sending telemetry data:', error.message);
+      });
+    } catch (error) {
+      this.error('Error in onInit:', error.message);
+    }
   }
 
   async getHomeData() {
