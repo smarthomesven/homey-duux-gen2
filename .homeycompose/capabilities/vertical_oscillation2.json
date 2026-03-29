@@ -1,0 +1,33 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "Vertical oscillation",
+    "nl": "Verticale oscillatie"
+  },
+  "uiComponent": "picker",
+  "getable": true,
+  "setable": true,
+  "values": [
+    {
+      "id": "45",
+      "title": { 
+        "en": "45°",
+        "nl": "45°"
+      }
+    },
+    {
+      "id": "100",
+      "title": { 
+        "en": "100°",
+        "nl": "100°"
+      }
+    },
+    {
+      "id": "off",
+      "title": { 
+        "en": "Off",
+        "nl": "Uit"
+      }
+    }
+  ]
+}

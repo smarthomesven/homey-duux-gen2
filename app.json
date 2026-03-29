@@ -665,6 +665,104 @@
         ]
       },
       {
+        "id": "whisper_mode_2_changed",
+        "title": {
+          "en": "Mode changed",
+          "nl": "Modus veranderd"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=whisper-flex-2"
+          }
+        ]
+      },
+      {
+        "id": "horizontal_oscillation2_changed",
+        "title": {
+          "en": "Horizontal oscillation changed",
+          "nl": "Horizontale oscillatie veranderd"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=whisper-flex-2"
+          }
+        ]
+      },
+      {
+        "id": "vertical_oscillation2_changed",
+        "title": {
+          "en": "Vertical oscillation changed",
+          "nl": "Verticale oscillatie veranderd"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=whisper-flex-2"
+          }
+        ]
+      },
+      {
+        "id": "whipser_child_lock_enabled",
+        "title": {
+          "en": "Child lock enabled",
+          "nl": "Kinderslot ingeschakeld"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=whisper-flex-2"
+          }
+        ]
+      },
+      {
+        "id": "whipser_child_lock_disabled",
+        "title": {
+          "en": "Child lock disabled",
+          "nl": "Kinderslot uitgeschakeld"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=whisper-flex-2"
+          }
+        ]
+      },
+      {
+        "id": "whipser_night_mode_enabled",
+        "title": {
+          "en": "Night mode enabled",
+          "nl": "Nachtmodus ingeschakeld"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=whisper-flex-2"
+          }
+        ]
+      },
+      {
+        "id": "whipser_night_mode_disabled",
+        "title": {
+          "en": "Night mode disabled",
+          "nl": "Nachtmodus uitgeschakeld"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=whisper-flex-2"
+          }
+        ]
+      },
+      {
         "id": "whisper_ultimate_mode_changed",
         "title": {
           "en": "Mode changed",
@@ -943,6 +1041,34 @@
             "type": "device",
             "name": "device",
             "filter": "driver_id=whisper-flex"
+          }
+        ]
+      },
+      {
+        "id": "whisper_night_mode_condition",
+        "title": {
+          "en": "Night mode is !{{enabled|disabled}}",
+          "nl": "Nachtmodus is !{{ingeschakeld|uitgeschakeld}}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=whisper-flex-2"
+          }
+        ]
+      },
+      {
+        "id": "whisper_child_lock_condition",
+        "title": {
+          "en": "Child lock is !{{enabled|disabled}}",
+          "nl": "Kinderslot is !{{ingeschakeld|uitgeschakeld}}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=whisper-flex-2"
           }
         ]
       },
@@ -2080,6 +2206,197 @@
         ]
       },
       {
+        "id": "set_whisper_flex_2_mode",
+        "title": {
+          "en": "Set mode",
+          "nl": "Modus instellen"
+        },
+        "titleFormatted": {
+          "en": "Set mode to [[mode]]",
+          "nl": "Modus instellen op [[mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=whisper-flex-2"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "normal",
+                "label": {
+                  "en": "Normal",
+                  "nl": "Normaal"
+                }
+              },
+              {
+                "id": "nature",
+                "label": {
+                  "en": "Nature",
+                  "nl": "Naturel"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "enable_night_mode_whisper",
+        "title": {
+          "en": "Enable night mode",
+          "nl": "Nachtmodus inschakelen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=whisper-flex-2"
+          }
+        ]
+      },
+      {
+        "id": "disable_night_mode_whisper",
+        "title": {
+          "en": "Disable night mode",
+          "nl": "Nachtmodus uitschakelen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=whisper-flex-2"
+          }
+        ]
+      },
+      {
+        "id": "enable_child_lock_flex2_whisper",
+        "title": {
+          "en": "Enable child lock",
+          "nl": "Kinderslot inschakelen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=whisper-flex-2"
+          }
+        ]
+      },
+      {
+        "id": "disable_child_lock_whisper",
+        "title": {
+          "en": "Disable child lock",
+          "nl": "Kinderslot uitschakelen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=whisper-flex-2"
+          }
+        ]
+      },
+      {
+        "id": "set_vertical_oscillation",
+        "title": {
+          "en": "Set vertical oscillation",
+          "nl": "Verticale oscillatie instellen"
+        },
+        "titleFormatted": {
+          "en": "Set vertical oscillation to [[mode]]",
+          "nl": "Verticale oscillatie instellen op [[mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=whisper-flex-2"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "45",
+                "label": {
+                  "en": "45°",
+                  "nl": "45°"
+                }
+              },
+              {
+                "id": "100",
+                "label": {
+                  "en": "100°",
+                  "nl": "100°"
+                }
+              },
+              {
+                "id": "off",
+                "label": {
+                  "en": "Off",
+                  "nl": "Uit"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "set_horizontal_oscillation",
+        "title": {
+          "en": "Set horizontal oscillation",
+          "nl": "Horizontale oscillatie instellen"
+        },
+        "titleFormatted": {
+          "en": "Set horizontal oscillation to [[mode]]",
+          "nl": "Horizontale oscillatie instellen op [[mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=whisper-flex-2"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "30",
+                "label": {
+                  "en": "30°",
+                  "nl": "30°"
+                }
+              },
+              {
+                "id": "60",
+                "label": {
+                  "en": "60°",
+                  "nl": "60°"
+                }
+              },
+              {
+                "id": "90",
+                "label": {
+                  "en": "90°",
+                  "nl": "90°"
+                }
+              },
+              {
+                "id": "off",
+                "label": {
+                  "en": "Off",
+                  "nl": "Uit"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
         "id": "set_whisper_flex_mode_ultimate",
         "title": {
           "en": "Set mode",
@@ -2881,6 +3198,79 @@
     },
     {
       "name": {
+        "en": "Whisper Flex 2",
+        "nl": "Whisper Flex 2"
+      },
+      "class": "fan",
+      "capabilities": [
+        "onoff",
+        "fan_speed",
+        "whisper_mode_2",
+        "horizontal_oscillation2",
+        "vertical_oscillation2",
+        "measure_battery",
+        "night_mode",
+        "child_lock"
+      ],
+      "energy": {
+        "batteries": [
+          "INTERNAL"
+        ]
+      },
+      "capabilitiesOptions": {
+        "fan_speed": {
+          "min": 0.01,
+          "max": 0.3,
+          "step": 0.01,
+          "units": "",
+          "decimals": 0
+        }
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "cloud"
+      ],
+      "images": {
+        "small": "/drivers/whisper-flex-2/assets/images/small.png",
+        "large": "/drivers/whisper-flex-2/assets/images/large.png",
+        "xlarge": "/drivers/whisper-flex-2/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "email"
+        },
+        {
+          "id": "code"
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          },
+          "options": {
+            "singular": false
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "repair": [
+        {
+          "id": "email"
+        },
+        {
+          "id": "code"
+        }
+      ],
+      "id": "whisper-flex-2"
+    },
+    {
+      "name": {
         "en": "Whisper Flex Ultimate"
       },
       "class": "fan",
@@ -3206,6 +3596,46 @@
       "uiQuickAction": false,
       "icon": "/assets/horizontal_oscillation.svg"
     },
+    "horizontal_oscillation2": {
+      "type": "enum",
+      "title": {
+        "en": "Horizontal oscillation",
+        "nl": "Horizontale oscillatie"
+      },
+      "uiComponent": "picker",
+      "getable": true,
+      "setable": true,
+      "values": [
+        {
+          "id": "30",
+          "title": {
+            "en": "30°",
+            "nl": "30°"
+          }
+        },
+        {
+          "id": "45",
+          "title": {
+            "en": "45°",
+            "nl": "45°"
+          }
+        },
+        {
+          "id": "90",
+          "title": {
+            "en": "90°",
+            "nl": "90°"
+          }
+        },
+        {
+          "id": "off",
+          "title": {
+            "en": "Off",
+            "nl": "Uit"
+          }
+        }
+      ]
+    },
     "ionizer": {
       "type": "boolean",
       "title": {
@@ -3365,6 +3795,39 @@
         }
       ]
     },
+    "vertical_oscillation2": {
+      "type": "enum",
+      "title": {
+        "en": "Vertical oscillation",
+        "nl": "Verticale oscillatie"
+      },
+      "uiComponent": "picker",
+      "getable": true,
+      "setable": true,
+      "values": [
+        {
+          "id": "45",
+          "title": {
+            "en": "45°",
+            "nl": "45°"
+          }
+        },
+        {
+          "id": "100",
+          "title": {
+            "en": "100°",
+            "nl": "100°"
+          }
+        },
+        {
+          "id": "off",
+          "title": {
+            "en": "Off",
+            "nl": "Uit"
+          }
+        }
+      ]
+    },
     "whisper_mode": {
       "type": "enum",
       "title": {
@@ -3394,6 +3857,32 @@
           "title": {
             "en": "Night",
             "nl": "Nacht"
+          }
+        }
+      ]
+    },
+    "whisper_mode_2": {
+      "type": "enum",
+      "title": {
+        "en": "Mode",
+        "nl": "Modus"
+      },
+      "uiComponent": "picker",
+      "getable": true,
+      "setable": true,
+      "values": [
+        {
+          "id": "normal",
+          "title": {
+            "en": "Normal",
+            "nl": "Normaal"
+          }
+        },
+        {
+          "id": "nature",
+          "title": {
+            "en": "Nature",
+            "nl": "Natuurlijke wind"
           }
         }
       ]
