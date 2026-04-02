@@ -73,11 +73,11 @@ module.exports = class WhisperFlexDevice extends Homey.Device {
       this.registerCapabilityListener("vertical_oscillation2", async (value) => {
         let command;
         if (value === "45") {
-          command = "tune set horosc 1";
+          command = "tune set verosc 1";
         } else if (value === "100") {
-          command = "tune set horosc 2";
+          command = "tune set verosc 2";
         } else if (value === "off") {
-          command = "tune set horosc 0"
+          command = "tune set verosc 0"
         } else return;
         await this.sendCommand(command);
       });
