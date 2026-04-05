@@ -181,5 +181,8 @@
   },
   "2.6.2": {
     "en": "Fix oscillation on Whisper Flex 2"
+  },
+  "2.7.0": {
+    "en": "Added Bright2 support"
   }
 }
