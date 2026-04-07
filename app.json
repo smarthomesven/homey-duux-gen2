@@ -2895,7 +2895,8 @@
         "onoff",
         "fan_speed_bright",
         "measure_pm25",
-        "ionizer"
+        "ionizer",
+        "measure_hepa_filter"
       ],
       "platforms": [
         "local"

@@ -29,6 +29,11 @@ module.exports = class BrightDevice extends Homey.Device {
   async onInit() {
     try {
       this.log('Bright device has been initialized');
+
+      // migraties
+      if (!this.hasCapability("measure_hepa_filter")) {
+        await this.addCapability("measure_hepa_filter");
+      }
       
       this.registerCapabilityListener("onoff", async (value) => {
         let command;
@@ -231,6 +236,12 @@ module.exports = class BrightDevice extends Homey.Device {
         if (this.hasCapability('measure_pm25') && status.ppm !== undefined) {
           await this.setCapabilityValue('measure_pm25', status.ppm).catch(err => {
             this.error('Error setting measure_pm25 capability:', err);
+          });
+        }
+
+        if (this.hasCapability('measure_hepa_filter') && status.filter !== undefined) {
+          await this.setCapabilityValue('measure_hepa_filter', status.filter).catch(err => {
+            this.error('Error setting HEPA filter capability:', err);
           });
         }
 
