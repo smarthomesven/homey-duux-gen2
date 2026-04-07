@@ -2952,7 +2952,8 @@
         "measure_pm25",
         "ionizer",
         "night_mode",
-        "fan_speed_bright2"
+        "fan_speed_bright2",
+        "measure_hepa_filter"
       ],
       "platforms": [
         "local"
