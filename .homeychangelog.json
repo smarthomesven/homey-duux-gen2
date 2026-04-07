@@ -184,5 +184,8 @@
   },
   "2.7.0": {
     "en": "Added Bright2 support"
+  },
+  "2.7.1": {
+    "en": "Added filter percentage to Bright2"
   }
 }
