@@ -187,5 +187,8 @@
   },
   "2.7.1": {
     "en": "Added filter percentage to Bright2"
+  },
+  "2.7.2": {
+    "en": "Added HEPA filter percentage to the Duux Bright"
   }
 }
