@@ -933,6 +933,82 @@
         ]
       },
       {
+        "id": "mode_condition",
+        "title": {
+          "en": "The mode !{{is|isn't}} ...",
+          "nl": "De modus !{{is|is niet}} ..."
+        },
+        "titleFormatted": {
+          "en": "The mode !{{is|isn't}} [[mode]]",
+          "nl": "De modus !{{is|is niet}} [[mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=bora&capabilities=mode"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "label": {
+                  "en": "Auto",
+                  "nl": "Auto"
+                }
+              },
+              {
+                "id": "continuous",
+                "label": {
+                  "en": "Continuous",
+                  "nl": "Continu"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "fan_speed_condition",
+        "title": {
+          "en": "Fan speed !{{is|isn't}} ...",
+          "nl": "Ventilatorsnelheid !{{is|is niet}} ..."
+        },
+        "titleFormatted": {
+          "en": "Fan speed !{{is|isn't}} [[speed]]",
+          "nl": "Ventilatorsnelheid !{{is|is niet}} [[speed]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=bora&capabilities=fanmode"
+          },
+          {
+            "name": "speed",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "one",
+                "label": {
+                  "en": "I",
+                  "nl": "I"
+                }
+              },
+              {
+                "id": "two",
+                "label": {
+                  "en": "II",
+                  "nl": "II"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
         "id": "ionizer_condition",
         "title": {
           "en": "Ionizer is !{{enabled|disabled}}",

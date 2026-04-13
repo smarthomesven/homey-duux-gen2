@@ -79,6 +79,74 @@
         "nl": "De watertank !{{is|is niet}} vol"
       },
       "$filter": "capabilities=alarm_tank_full"
+    },
+    {
+      "id": "mode_condition",
+      "title": {
+        "en": "The mode !{{is|isn't}} ...",
+        "nl": "De modus !{{is|is niet}} ..."
+      },
+      "titleFormatted": {
+        "en": "The mode !{{is|isn't}} [[mode]]",
+        "nl": "De modus !{{is|is niet}} [[mode]]"
+      },
+      "args": [
+        {
+          "name": "mode",
+          "type": "dropdown",
+          "values": [
+            {
+              "id": "auto",
+              "label": {
+                "en": "Auto",
+                "nl": "Auto"
+              }
+            },
+            {
+              "id": "continuous",
+              "label": {
+                "en": "Continuous",
+                "nl": "Continu"
+              }
+            }
+          ]
+        }
+      ],
+      "$filter": "capabilities=mode"
+    },
+    {
+      "id": "fan_speed_condition",
+      "title": {
+        "en": "Fan speed !{{is|isn't}} ...",
+        "nl": "Ventilatorsnelheid !{{is|is niet}} ..."
+      },
+      "titleFormatted": {
+        "en": "Fan speed !{{is|isn't}} [[speed]]",
+        "nl": "Ventilatorsnelheid !{{is|is niet}} [[speed]]"
+      },
+      "args": [
+        {
+          "name": "speed",
+          "type": "dropdown",
+          "values": [
+            {
+              "id": "one",
+              "label": {
+                "en": "I",
+                "nl": "I"
+              }
+            },
+            {
+              "id": "two",
+              "label": {
+                "en": "II",
+                "nl": "II"
+              }
+            }
+          ]
+        }
+      ],
+      "$filter": "capabilities=fanmode"
     }
   ],
   "actions": [

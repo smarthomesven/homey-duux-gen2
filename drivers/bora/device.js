@@ -110,10 +110,22 @@ module.exports = class BoraDevice extends Homey.Device {
       const setModeAction = this.homey.flow.getActionCard('set_mode');
       const setFanSpeedAction = this.homey.flow.getActionCard('set_fan_speed');
       const tankFullCondition = this.homey.flow.getConditionCard('tank_full_condition');
+      const modeCondition = this.homey.flow.getConditionCard('mode_condition');
+      const fanCondition = this.homey.flow.getConditionCard('fan_speed_condition');
 
       tankFullCondition.registerRunListener(async (args, state) => {
         const isTankFull = this.getCapabilityValue('alarm_tank_full');
         return isTankFull;
+      });
+
+      modeCondition.registerRunListener(async (args, state) => {
+        const isMode = this.getCapabilityValue('mode') === args.mode;
+        return isMode;
+      });
+
+      fanCondition.registerRunListener(async (args, state) => {
+        const isSpeed = this.getCapabilityValue('fanmode') === args.speed;
+        return isSpeed;
       });
 
       setModeAction.registerRunListener(async (args, state) => {
