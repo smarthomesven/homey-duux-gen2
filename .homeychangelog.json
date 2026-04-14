@@ -196,5 +196,8 @@
   },
   "2.7.4": {
     "en": "Added extra condition cards to the Bora for convenience"
+  },
+  "2.7.5": {
+    "en": "Fix images for the Whisper Flex"
   }
 }
