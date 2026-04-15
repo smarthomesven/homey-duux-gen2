@@ -202,5 +202,8 @@
   },
   "2.7.6": {
     "en": "Added extra condition Flow cards to the Bright for convenience"
+  },
+  "2.7.7": {
+    "en": "Fix horizontal oscillation Flowcard for Whisper Flex"
   }
 }
