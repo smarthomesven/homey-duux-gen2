@@ -1,6 +1,6 @@
 {
   "id": "com.duux.gen2",
-  "version": "2.7.7",
+  "version": "2.7.8",
   "compatibility": ">=12.4.0",
   "sdk": 3,
   "platforms": [
