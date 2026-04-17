@@ -61,19 +61,6 @@ module.exports = class ThreesixtyDevice extends Homey.Device {
       this.homey.settings.set('firstRun', true);
 
       this.startPolling();
-
-      const setFanSpeedAction = this.homey.flow.getActionCard('set_fan_speed_heater');
-
-      setFanSpeedAction.registerRunListener(async (args, state) => {
-        if (args.speed === 'three') {
-          await this.sendCommand("tune set mode 0");
-        } else if (args.speed === 'two') {
-          await this.sendCommand("tune set mode 1");
-        } else if (args.speed === 'one') {
-          await this.sendCommand("tune set mode 2");
-        } else return false;
-        return true;
-      });
     } catch (error) {
       this.error('Error during Threesixty device initialization:', error);
     }

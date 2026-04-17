@@ -11,6 +11,22 @@ module.exports = class ThreesixtyDriver extends Homey.Driver {
    */
   async onInit() {
     this.log('Threesixty driver has been initialized');
+    const setFanSpeedAction = this.homey.flow.getActionCard('set_fan_speed_heater');
+
+    setFanSpeedAction.registerRunListener(async (args, state) => {
+      const device = args.device; // Homey injects the selected device here
+    
+      if (args.speed === 'three') {
+        await device.sendCommand("tune set mode 0");
+      } else if (args.speed === 'two') {
+        await device.sendCommand("tune set mode 1");
+      } else if (args.speed === 'one') {
+        await device.sendCommand("tune set mode 2");
+      } else {
+        return false;
+      }
+      return true;
+    });
   }
 
   async triggerFlow(card_id, device) {
