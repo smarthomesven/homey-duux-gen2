@@ -87,6 +87,7 @@ module.exports = class Bright2Device extends Homey.Device {
       const setFanSpeedAction = this.homey.flow.getActionCard('set_fan_speed_bright2');
       const nightModeCondition = this.homey.flow.getConditionCard('night_mode_condition_bright2');
       const ionizerCondition = this.homey.flow.getConditionCard('ionizer_condition_bright2');
+      const fanSpeedCondition = this.homey.flow.getConditionCard('fan_speed_condition_bright2');
 
       nightModeCondition.registerRunListener(async (args, state) => {
         const isNight = this.getCapabilityValue('night_mode');
@@ -131,6 +132,11 @@ module.exports = class Bright2Device extends Homey.Device {
       disableIonizerAction.registerRunListener(async (args, state) => {
         await this.sendCommand("tune set ion 0");
         return true;
+      });
+
+      fanSpeedCondition.registerRunListener(async (args, state) => {
+        const currentFanSpeed = this.getCapabilityValue('fan_speed_bright2');
+        return currentFanSpeed === args.speed;
       });
     } catch (error) {
       this.error('Error during Bright 2 device initialization:', error);

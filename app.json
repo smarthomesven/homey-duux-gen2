@@ -1110,6 +1110,58 @@
         ]
       },
       {
+        "id": "fan_speed_condition_bright2",
+        "title": {
+          "en": "Fan speed !{{is|isn't}} ...",
+          "nl": "Ventilatorsnelheid !{{is|is niet}} ..."
+        },
+        "titleFormatted": {
+          "en": "Fan speed !{{is|isn't}} [[speed]]",
+          "nl": "Ventilatorsnelheid !{{is|is niet}} [[speed]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=bright2"
+          },
+          {
+            "name": "speed",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "low",
+                "label": {
+                  "en": "Low",
+                  "nl": "Laag"
+                }
+              },
+              {
+                "id": "medium",
+                "label": {
+                  "en": "Medium",
+                  "nl": "Medium"
+                }
+              },
+              {
+                "id": "high",
+                "label": {
+                  "en": "High",
+                  "nl": "Hoog"
+                }
+              },
+              {
+                "id": "auto",
+                "label": {
+                  "en": "Auto",
+                  "nl": "Auto"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
         "id": "eco_mode_condition",
         "title": {
           "en": "Eco mode is !{{enabled|disabled}}",
