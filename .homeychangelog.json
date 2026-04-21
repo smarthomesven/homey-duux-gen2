@@ -208,5 +208,8 @@
   },
   "2.7.8": {
     "en": "Fixed Threesixty Flow cards"
+  },
+  "2.7.9": {
+    "en": "Added condition Flow card for the fan speed of the Bright2 for convenience"
   }
 }
