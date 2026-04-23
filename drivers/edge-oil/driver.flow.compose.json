@@ -50,6 +50,46 @@
         "en": "Night mode is !{{enabled|disabled}}",
         "nl": "Nachtmodus is !{{ingeschakeld|uitgeschakeld}}"
       }
+    },
+    {
+      "id": "mode_condition_edge_oil",
+      "title": {
+        "en": "Mode !{{is|isn't}} ...",
+        "nl": "Modus !{{is|is niet}} ..."
+      },
+      "titleFormatted": {
+        "en": "Mode !{{is|isn't}} [[mode]]",
+        "nl": "Modus !{{is|is niet}} [[mode]]"
+      },
+      "args": [
+        {
+          "name": "mode",
+          "type": "dropdown",
+          "values": [
+            {
+              "id": "low",
+              "label": {
+                "en": "Low",
+                "nl": "Laag"
+              }
+            },
+            {
+              "id": "high",
+              "label": {
+                "en": "High",
+                "nl": "Hoog"
+              }
+            },
+            {
+              "id": "boost",
+              "label": {
+                "en": "Boost",
+                "nl": "Boost"
+              }
+            }
+          ]
+        }
+      ]
     }
   ],
   "actions": [

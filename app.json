@@ -1232,6 +1232,51 @@
         ]
       },
       {
+        "id": "mode_condition_edge_oil",
+        "title": {
+          "en": "Mode !{{is|isn't}} ...",
+          "nl": "Modus !{{is|is niet}} ..."
+        },
+        "titleFormatted": {
+          "en": "Mode !{{is|isn't}} [[mode]]",
+          "nl": "Modus !{{is|is niet}} [[mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=edge-oil"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "low",
+                "label": {
+                  "en": "Low",
+                  "nl": "Laag"
+                }
+              },
+              {
+                "id": "high",
+                "label": {
+                  "en": "High",
+                  "nl": "Hoog"
+                }
+              },
+              {
+                "id": "boost",
+                "label": {
+                  "en": "Boost",
+                  "nl": "Boost"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
         "id": "night_mode_condition_neo",
         "title": {
           "en": "Night mode is !{{enabled|disabled}}",

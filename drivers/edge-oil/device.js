@@ -89,6 +89,7 @@ module.exports = class EdgeDevice extends Homey.Device {
       const setModeAction = this.homey.flow.getActionCard('set_mode_edge_oil');
       const childLockCondition = this.homey.flow.getConditionCard('child_lock_condition_edge_oil');
       const nightModeCondition = this.homey.flow.getConditionCard('night_mode_condition_edge_oil');
+      const modeCondition = this.homey.flow.getConditionCard('mode_condition_edge_oil');
 
       childLockCondition.registerRunListener(async (args, state) => {
         const isLocked = this.getCapabilityValue('child_lock');
@@ -131,6 +132,10 @@ module.exports = class EdgeDevice extends Homey.Device {
         } else return;
         await this.sendCommand(`tune set heating ${mode}`);
         return true;
+      });
+      modeCondition.registerRunListener(async (args, state) => {
+        const modeValue = this.getCapabilityValue('edge_oil_mode');
+        return modeValue === args.mode;
       });
 
     } catch (error) {
