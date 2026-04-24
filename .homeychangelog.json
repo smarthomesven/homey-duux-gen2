@@ -217,5 +217,8 @@
   },
   "2.7.11": {
     "en": "Added mode condition Flow card to the Edge Oil for convenience"
+  },
+  "2.7.12": {
+    "en": "Fixed horizontal oscillation Flowcard for Whisper Flex"
   }
 }
