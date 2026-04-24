@@ -78,7 +78,7 @@ module.exports = class WhisperFlexDevice extends Homey.Device {
       const enableVerticalOscillationAction = this.homey.flow.getActionCard('enable_vertical_oscillation');
       const disableVerticalOscillationAction = this.homey.flow.getActionCard('disable_vertical_oscillation');
       const setModeAction = this.homey.flow.getActionCard('set_whisper_flex_mode');
-      const horizontalOscillationCondition = this.homey.flow.getConditionCard('vertical_oscillation_condition');
+      const horizontalOscillationCondition = this.homey.flow.getConditionCard('horizontal_oscillation_condition');
 
       horizontalOscillationCondition.registerRunListener(async (args, state) => {
         const isSwing = this.getCapabilityValue('horizontal_oscillation');
