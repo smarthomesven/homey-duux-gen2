@@ -72,49 +72,6 @@ module.exports = class WhisperFlexDevice extends Homey.Device {
 
       // Start polling
       this.startPolling();
-
-      const enableHorizontalOscillationAction = this.homey.flow.getActionCard('enable_horizontal_oscillation');
-      const disableHorizontalOscillationAction = this.homey.flow.getActionCard('disable_horizontal_oscillation');
-      const enableVerticalOscillationAction = this.homey.flow.getActionCard('enable_vertical_oscillation');
-      const disableVerticalOscillationAction = this.homey.flow.getActionCard('disable_vertical_oscillation');
-      const setModeAction = this.homey.flow.getActionCard('set_whisper_flex_mode');
-      const horizontalOscillationCondition = this.homey.flow.getConditionCard('horizontal_oscillation_condition');
-
-      horizontalOscillationCondition.registerRunListener(async (args, state) => {
-        const isSwing = this.getCapabilityValue('horizontal_oscillation');
-        return isSwing;
-      });
-
-      setModeAction.registerRunListener(async (args, state) => {
-        if (args.mode === 'normal') {
-          await this.sendCommand("tune set mode 0");
-        } else if (args.mode === 'nature') {
-          await this.sendCommand("tune set mode 1");
-        } else if (args.mode === 'night') {
-          await this.sendCommand("tune set mode 2");
-        }
-        return true;
-      });
-
-      enableHorizontalOscillationAction.registerRunListener(async (args, state) => {
-        await this.sendCommand("tune set swing 1");
-        return true;
-      });
-
-      disableHorizontalOscillationAction.registerRunListener(async (args, state) => {
-        await this.sendCommand("tune set swing 0");
-        return true;
-      });
-
-      enableVerticalOscillationAction.registerRunListener(async (args, state) => {
-        await this.sendCommand("tune set tilt 1");
-        return true;
-      });
-
-      disableVerticalOscillationAction.registerRunListener(async (args, state) => {
-        await this.sendCommand("tune set tilt 0");
-        return true;
-      });
     } catch (error) {
       this.error('Error during Whisper Flex device initialization:', error);
     }
