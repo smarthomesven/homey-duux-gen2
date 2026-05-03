@@ -223,5 +223,8 @@
   },
   "2.7.13": {
     "en": "Added automatic sending of reports for unknown device types"
+  },
+  "2.7.14": {
+    "en": "Fix Flow cards for Whisper Flex"
   }
 }
