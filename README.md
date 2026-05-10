@@ -67,6 +67,7 @@ The app currently supports the following devices:
   - Fan speed
   - Current pm2.5
   - Ionizer
+  - Filter percentage
  
 - Neo
   - On/off
