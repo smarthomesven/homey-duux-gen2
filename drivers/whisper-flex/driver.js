@@ -17,6 +17,7 @@ module.exports = class WhisperFlexDriver extends Homey.Driver {
     const disableVerticalOscillationAction = this.homey.flow.getActionCard('disable_vertical_oscillation');
     const setModeAction = this.homey.flow.getActionCard('set_whisper_flex_mode');
     const horizontalOscillationCondition = this.homey.flow.getConditionCard('horizontal_oscillation_condition');
+    const modeCondition = this.homey.flow.getConditionCard('mode_condition_whisper_flex');
 
     horizontalOscillationCondition.registerRunListener(async (args, state) => {
       const device = args.device;
@@ -58,6 +59,12 @@ module.exports = class WhisperFlexDriver extends Homey.Driver {
       const device = args.device;
       await device.sendCommand("tune set tilt 0");
       return true;
+    });
+
+    modeCondition.registerRunListener(async (args, state) => {
+      const device = args.device;
+      const mode = device.getCapabilityValue('whisper_mode');
+      return mode === args.mode;
     });
   }
 

@@ -1361,6 +1361,51 @@
         ]
       },
       {
+        "id": "mode_condition_whisper_flex",
+        "title": {
+          "en": "Mode !{{is|isn't}} ...",
+          "nl": "Modus !{{is|is niet}} ..."
+        },
+        "titleFormatted": {
+          "en": "Mode !{{is|isn't}} [[mode]]",
+          "nl": "Modus !{{is|is niet}} [[mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=whisper-flex"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "normal",
+                "label": {
+                  "en": "Normal",
+                  "nl": "Normaal"
+                }
+              },
+              {
+                "id": "nature",
+                "label": {
+                  "en": "Nature",
+                  "nl": "Naturel"
+                }
+              },
+              {
+                "id": "night",
+                "label": {
+                  "en": "Night",
+                  "nl": "Nacht"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
         "id": "whisper_night_mode_condition",
         "title": {
           "en": "Night mode is !{{enabled|disabled}}",
