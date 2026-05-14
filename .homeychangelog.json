@@ -229,5 +229,8 @@
   },
   "2.7.15": {
     "en": "Added condition card for Whisper Flex mode for convenience"
+  },
+  "2.7.16": {
+    "en": "Update dependencies"
   }
 }
