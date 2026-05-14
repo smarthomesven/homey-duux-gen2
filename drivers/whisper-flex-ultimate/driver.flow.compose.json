@@ -29,6 +29,46 @@
         "en": "Horizontal oscillation is !{{enabled|disabled}}",
         "nl": "Horizontale oscillatie is !{{ingeschakeld|uitgeschakeld}}"
       }
+    },
+    {
+      "id": "mode_condition_ultimate",
+      "title": {
+        "en": "Mode !{{is|isn't}} ...",
+        "nl": "Modus !{{is|is niet}} ..."
+      },
+      "titleFormatted": {
+        "en": "Mode !{{is|isn't}} [[mode]]",
+        "nl": "Modus !{{is|is niet}} [[mode]]"
+      },
+      "args": [
+        {
+          "name": "mode",
+          "type": "dropdown",
+          "values": [
+            {
+              "id": "normal",
+              "label": {
+                "en": "Normal",
+                "nl": "Normaal"
+              }
+            },
+            {
+              "id": "nature",
+              "label": {
+                "en": "Nature",
+                "nl": "Naturel"
+              }
+            },
+            {
+              "id": "night",
+              "label": {
+                "en": "Night",
+                "nl": "Nacht"
+              }
+            }
+          ]
+        }
+      ]
     }
   ],
   "actions": [

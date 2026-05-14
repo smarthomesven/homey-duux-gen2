@@ -78,6 +78,7 @@ module.exports = class WhisperFlexUltimateDevice extends Homey.Device {
       const disableVerticalOscillationAction = this.homey.flow.getActionCard('disable_vertical_oscillation_ultimate');
       const setModeAction = this.homey.flow.getActionCard('set_whisper_flex_mode_ultimate');
       const horizontalOscillationCondition = this.homey.flow.getConditionCard('vertical_oscillation_condition_ultimate');
+      const modeCondition = this.homey.flow.getConditionCard('mode_condition_ultimate');
 
       horizontalOscillationCondition.registerRunListener(async (args, state) => {
         const isSwing = this.getCapabilityValue('horizontal_oscillation');
@@ -93,6 +94,11 @@ module.exports = class WhisperFlexUltimateDevice extends Homey.Device {
           await this.sendCommand("tune set mode 2");
         }
         return true;
+      });
+
+      modeCondition.registerRunListener(async (args, state) => {
+        const mode = this.getCapabilityValue('whisper_ultimate_mode');
+        return mode === args.mode;
       });
 
       enableHorizontalOscillationAction.registerRunListener(async (args, state) => {
