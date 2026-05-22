@@ -277,32 +277,26 @@ module.exports = class BoraDevice extends Homey.Device {
       const status = response.data.data;
       
       if (status) {
+        await this.setAvailable();
         const isOn = status.power === 1;
-        if (this.hasCapability('onoff')) {
+        if (this.hasCapability('onoff') && isOn !== this.getCapabilityValue('onoff')) {
           await this.setCapabilityValue('onoff', isOn).catch(err => {
             this.error('Error setting onoff capability:', err);
           });
         }
 
-        if (this.hasCapability('measure_humidity') && status.hum !== undefined) {
+        if (this.hasCapability('measure_humidity') && status.hum !== undefined && status.hum !== this.getCapabilityValue('measure_humidity')) {
           await this.setCapabilityValue('measure_humidity', status.hum).catch(err => {
             this.error('Error setting humidity capability:', err);
           });
         }
 
-        if (this.hasCapability('target_humidity') && status.sp !== undefined) {
+        if (this.hasCapability('target_humidity') && status.sp !== undefined && (status.sp / 100) !== this.getCapabilityValue('target_humidity')) {
           const setpoint = status.sp / 100;
           await this.setCapabilityValue('target_humidity', setpoint).catch(err => {
             this.error('Error setting target humidity capability:', err);
           });
         }
-
-        // Log if device is in error state
-        if (status.err && status.err !== 0) {
-          this.error('Device reported error code:', status.err);
-        }
-
-          await this.setAvailable();
 
         if (this.hasCapability('mode') && status.mode !== undefined) {
           let modeValue;
@@ -311,9 +305,11 @@ module.exports = class BoraDevice extends Homey.Device {
           } else if (status.mode === 1) {
             modeValue = "continuous";
           } else return;
-          await this.setCapabilityValue('mode', modeValue).catch(err => {
-            this.error('Error setting mode capability:', err);
-          });
+          if (modeValue !== this.getCapabilityValue('mode')) {
+            await this.setCapabilityValue('mode', modeValue).catch(err => {
+              this.error('Error setting mode capability:', err);
+            });
+          }
         }
 
         if (this.hasCapability('fanmode') && status.fan !== undefined) {
@@ -323,9 +319,11 @@ module.exports = class BoraDevice extends Homey.Device {
           } else if (status.fan === 1) {
             fanValue = "one";
           } else return;
-          await this.setCapabilityValue('fanmode', fanValue).catch(err => {
-            this.error('Error setting fanmode capability:', err);
-          });
+          if (fanValue !== this.getCapabilityValue('fanmode')) {
+            await this.setCapabilityValue('fanmode', fanValue).catch(err => {
+              this.error('Error setting fanmode capability:', err);
+            });
+          }
         }
 
         const isFirstRun = this.homey.settings.get('firstRun');
@@ -341,10 +339,10 @@ module.exports = class BoraDevice extends Homey.Device {
                 await this.driver.triggerFlow('child_lock_enabled', this);
               }
             }
+            await this.setCapabilityValue('child_lock', isLocked).catch(err => {
+              this.error('Error setting child_lock capability:', err);
+            });
           }
-          await this.setCapabilityValue('child_lock', isLocked).catch(err => {
-            this.error('Error setting child_lock capability:', err);
-          });
         }
 
         const isLaundry = status.laundr === 1;
@@ -357,10 +355,10 @@ module.exports = class BoraDevice extends Homey.Device {
                 await this.driver.triggerFlow('laundry_mode_enabled', this);
               }
             }
+            await this.setCapabilityValue('laundry_mode', isLaundry).catch(err => {
+              this.error('Error setting laundry_mode capability:', err);
+            });
           }
-          await this.setCapabilityValue('laundry_mode', isLaundry).catch(err => {
-            this.error('Error setting laundry_mode capability:', err);
-          });
         }
 
         if (this.hasCapability('alarm_tank_full') && status.err !== undefined) {
@@ -371,10 +369,10 @@ module.exports = class BoraDevice extends Homey.Device {
                 await this.driver.triggerFlow('tank_full', this);
               }
             }
+            await this.setCapabilityValue('alarm_tank_full', isTankFull).catch(err => {
+              this.error('Error setting alarm_tank_full capability:', err);
+            });
           }
-          await this.setCapabilityValue('alarm_tank_full', isTankFull).catch(err => {
-            this.error('Error setting alarm_tank_full capability:', err);
-          });
         }
 
         if (status.err === 8) {
