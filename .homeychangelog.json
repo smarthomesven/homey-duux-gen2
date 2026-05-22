@@ -235,5 +235,8 @@
   },
   "2.7.17": {
     "en": "Added mode condition card for the Whisper Flex Ultimate"
+  },
+  "2.7.18": {
+    "en": "Fix Whisper Flex fan speed"
   }
 }
