@@ -238,5 +238,8 @@
   },
   "2.7.18": {
     "en": "Fix Whisper Flex fan speed"
+  },
+  "2.7.19": {
+    "en": "Translation cleanup"
   }
 }
