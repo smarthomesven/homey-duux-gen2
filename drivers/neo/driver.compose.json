@@ -1,7 +1,6 @@
 {
   "name": {
-    "en": "Neo",
-    "nl": "Neo"
+    "en": "Neo"
   },
   "class": "humidifier",
   "capabilities": [

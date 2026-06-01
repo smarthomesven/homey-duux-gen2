@@ -1,7 +1,6 @@
 {
   "name": {
-    "en": "Beam",
-    "nl": "Beam"
+    "en": "Beam"
   },
   "class": "humidifier",
   "capabilities": [

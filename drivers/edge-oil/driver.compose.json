@@ -1,7 +1,6 @@
 {
   "name": {
-    "en": "Edge Oil",
-    "nl": "Edge Oil"
+    "en": "Edge Oil"
   },
   "class": "heater",
   "capabilities": [

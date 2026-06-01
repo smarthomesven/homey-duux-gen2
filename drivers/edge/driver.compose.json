@@ -1,7 +1,6 @@
 {
   "name": {
-    "en": "Edge",
-    "nl": "Edge"
+    "en": "Edge"
   },
   "class": "heater",
   "capabilities": [

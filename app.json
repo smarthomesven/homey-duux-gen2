@@ -8,8 +8,7 @@
     "local"
   ],
   "name": {
-    "en": "Duux Gen2",
-    "nl": "Duux Gen2"
+    "en": "Duux Gen2"
   },
   "description": {
     "en": "The next generation of Duux",
@@ -3016,8 +3015,7 @@
   "drivers": [
     {
       "name": {
-        "en": "Beam",
-        "nl": "Beam"
+        "en": "Beam"
       },
       "class": "humidifier",
       "capabilities": [
@@ -3081,8 +3079,7 @@
     },
     {
       "name": {
-        "en": "Beam Mini",
-        "nl": "Beam Mini"
+        "en": "Beam Mini"
       },
       "class": "humidifier",
       "capabilities": [
@@ -3144,8 +3141,7 @@
     },
     {
       "name": {
-        "en": "Bora",
-        "nl": "Bora"
+        "en": "Bora"
       },
       "class": "dehumidifier",
       "capabilities": [
@@ -3209,8 +3205,7 @@
     },
     {
       "name": {
-        "en": "Bright",
-        "nl": "Bright"
+        "en": "Bright"
       },
       "class": "airpurifier",
       "capabilities": [
@@ -3265,8 +3260,7 @@
     },
     {
       "name": {
-        "en": "Bright 2",
-        "nl": "Bright 2"
+        "en": "Bright 2"
       },
       "class": "airpurifier",
       "capabilities": [
@@ -3323,8 +3317,7 @@
     },
     {
       "name": {
-        "en": "Edge",
-        "nl": "Edge"
+        "en": "Edge"
       },
       "class": "heater",
       "capabilities": [
@@ -3387,8 +3380,7 @@
     },
     {
       "name": {
-        "en": "Edge Oil",
-        "nl": "Edge Oil"
+        "en": "Edge Oil"
       },
       "class": "heater",
       "capabilities": [
@@ -3451,8 +3443,7 @@
     },
     {
       "name": {
-        "en": "Neo",
-        "nl": "Neo"
+        "en": "Neo"
       },
       "class": "humidifier",
       "capabilities": [
@@ -3515,8 +3506,7 @@
     },
     {
       "name": {
-        "en": "North 12k-18k",
-        "nl": "North 12k-18k"
+        "en": "North 12k-18k"
       },
       "class": "airconditioning",
       "capabilities": [
@@ -3580,8 +3570,7 @@
     },
     {
       "name": {
-        "en": "North 9k",
-        "nl": "North 9k"
+        "en": "North 9k"
       },
       "class": "airconditioning",
       "capabilities": [
@@ -3645,8 +3634,7 @@
     },
     {
       "name": {
-        "en": "Threesixty",
-        "nl": "Threesixty"
+        "en": "Threesixty"
       },
       "class": "heater",
       "capabilities": [
@@ -3707,8 +3695,7 @@
     },
     {
       "name": {
-        "en": "Whisper Flex",
-        "nl": "Whisper Flex"
+        "en": "Whisper Flex"
       },
       "class": "fan",
       "capabilities": [
@@ -3771,8 +3758,7 @@
     },
     {
       "name": {
-        "en": "Whisper Flex 2",
-        "nl": "Whisper Flex 2"
+        "en": "Whisper Flex 2"
       },
       "class": "fan",
       "capabilities": [
