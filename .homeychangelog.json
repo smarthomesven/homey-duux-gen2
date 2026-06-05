@@ -241,5 +241,8 @@
   },
   "2.7.19": {
     "en": "Translation cleanup"
+  },
+  "2.7.20": {
+    "en": "Update dependencies"
   }
 }
