@@ -46,7 +46,8 @@ module.exports = class DuuxV2App extends Homey.App {
       "50",
       "26",
       "58",
-      "27"
+      "27",
+      "59"
     ];
     try {
       const accessToken = this.homey.settings.get('accessToken');

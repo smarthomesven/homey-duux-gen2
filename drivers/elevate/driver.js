@@ -280,7 +280,7 @@ module.exports = class ElevateDriver extends Homey.Driver {
       }
 
       const availableDevices = allDevices
-        .filter(device => device.type === "26")
+        .filter(device => device.type === "59")
         .map(device => ({
           name: device.displayName,
           data: {
