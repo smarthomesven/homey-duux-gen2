@@ -247,5 +247,8 @@
   },
   "2.7.21": {
     "en": "Update dependencies"
+  },
+  "2.8.0": {
+    "en": "Added Duux Elevate"
   }
 }
