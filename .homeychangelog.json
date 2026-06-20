@@ -250,5 +250,8 @@
   },
   "2.8.0": {
     "en": "Added Duux Elevate"
+  },
+  "2.8.1": {
+    "en": "Fix type detection"
   }
 }
