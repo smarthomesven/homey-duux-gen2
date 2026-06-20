@@ -4,7 +4,7 @@ const Homey = require('homey');
 const axios = require('axios');
 const crypto = require('crypto');
 
-module.exports = class WhisperFlexDriver extends Homey.Driver {
+module.exports = class ElevateDriver extends Homey.Driver {
 
   /**
    * onInit is called when the driver is initialized.
@@ -89,7 +89,7 @@ module.exports = class WhisperFlexDriver extends Homey.Driver {
 
     modeCondition.registerRunListener(async (args, state) => {
       const device = args.device;
-      const mode = device.getCapabilityValue('whisper_mode');
+      const mode = device.getCapabilityValue('elevate_mode');
       return mode === args.mode;
     });
   }
@@ -116,7 +116,7 @@ module.exports = class WhisperFlexDriver extends Homey.Driver {
   }
 
   async onPair(session) {
-    this.log('Whisper Flex pairing started');
+    this.log('Elevate pairing started');
     this._type = "pair";
     this._session = session;
 
@@ -198,7 +198,7 @@ module.exports = class WhisperFlexDriver extends Homey.Driver {
   }
 
   async onRepair(session) {
-    this.log('Whisper Flex repairing started');
+    this.log('Elevate repairing started');
     this._type = "repair";
     this._session = session;
     
