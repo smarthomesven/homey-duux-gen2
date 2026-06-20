@@ -1,0 +1,186 @@
+{
+  "triggers": [
+    {
+      "id": "elevate_mode_changed",
+      "title": {
+        "en": "Mode changed",
+        "nl": "Modus veranderd"
+      }
+    },
+    {
+      "id": "horizontal_oscillation_enabled_elevate",
+      "title": {
+        "en": "Horizontal oscillation enabled",
+        "nl": "Horizontale oscillatie ingeschakeld"
+      }
+    },
+    {
+      "id": "horizontal_oscillation_disabled_elevate",
+      "title": {
+        "en": "Horizontal oscillation disabled",
+        "nl": "Horizontale oscillatie uitgeschakeld"
+      }
+    },
+    {
+      "id": "night_mode_enabled_elevate",
+      "title": {
+        "en": "Night mode enabled",
+        "nl": "Nachtmodus ingeschakeld"
+      }
+    },
+    {
+      "id": "night_mode_disabled_elevate",
+      "title": {
+        "en": "Night mode disabled",
+        "nl": "Nachtmodus uitgeschakeld"
+      }
+    },
+    {
+      "id": "ionizer_enabled_elevate",
+      "title": {
+        "en": "Ionizer enabled",
+        "nl": "Ionisator ingeschakeld"
+      }
+    },
+    {
+      "id": "ionizer_disabled_elevate",
+      "title": {
+        "en": "Ionizer disabled",
+        "nl": "Ionisator uitgeschakeld"
+      }
+    }
+  ],
+  "conditions": [
+    {
+      "id": "horizontal_oscillation_condition_elevate",
+      "title": {
+        "en": "Horizontal oscillation is !{{enabled|disabled}}",
+        "nl": "Horizontale oscillatie is !{{ingeschakeld|uitgeschakeld}}"
+      }
+    },
+    {
+      "id": "night_mode_condition_elevate",
+      "title": {
+        "en": "Night mode is !{{enabled|disabled}}",
+        "nl": "Nachtmodus is !{{ingeschakeld|uitgeschakeld}}"
+      }
+    },
+    {
+      "id": "ionizer_condition_elevate",
+      "title": {
+        "en": "Ionizer is !{{enabled|disabled}}",
+        "nl": "Ionisator is !{{ingeschakeld|uitgeschakeld}}"
+      }
+    },
+    {
+      "id": "mode_condition_elevate",
+      "title": {
+        "en": "Mode !{{is|isn't}} ...",
+        "nl": "Modus !{{is|is niet}} ..."
+      },
+      "titleFormatted": {
+        "en": "Mode !{{is|isn't}} [[mode]]",
+        "nl": "Modus !{{is|is niet}} [[mode]]"
+      },
+      "args": [
+        {
+          "name": "mode",
+          "type": "dropdown",
+          "values": [
+            {
+              "id": "normal",
+              "label": {
+                "en": "Normal",
+                "nl": "Normaal"
+              }
+            },
+            {
+              "id": "nature",
+              "label": {
+                "en": "Nature",
+                "nl": "Naturel"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "id": "set_elevate_mode",
+      "title": {
+        "en": "Set mode",
+        "nl": "Modus instellen"
+      },
+      "titleFormatted": {
+        "en": "Set mode to [[mode]]",
+        "nl": "Modus instellen op [[mode]]"
+      },
+      "args": [
+        {
+          "name": "mode",
+          "type": "dropdown",
+          "values": [
+            {
+              "id": "normal",
+              "label": {
+                "en": "Normal",
+                "nl": "Normaal"
+              }
+            },
+            {
+              "id": "nature",
+              "label": {
+                "en": "Nature",
+                "nl": "Naturel"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "enable_horizontal_oscillation_elevate",
+      "title": {
+        "en": "Enable horizontal oscillation",
+        "nl": "Horizontale oscillatie inschakelen"
+      }
+    },
+    {
+      "id": "disable_horizontal_oscillation_elevate",
+      "title": {
+        "en": "Disable horizontal oscillation",
+        "nl": "Horizontale oscillatie uitschakelen"
+      }
+    },
+    {
+      "id": "enable_night_mode_elevate",
+      "title": {
+        "en": "Enable night mode",
+        "nl": "Nachtmodus inschakelen"
+      }
+    },
+    {
+      "id": "disable_night_mode_elevate",
+      "title": {
+        "en": "Disable night mode",
+        "nl": "Nachtmodus uitschakelen"
+      }
+    },
+    {
+      "id": "enable_ionizer_elevate",
+      "title": {
+        "en": "Enable ionizer",
+        "nl": "Ionisator inschakelen"
+      }
+    },
+    {
+      "id": "disable_ionizer_elevate",
+      "title": {
+        "en": "Disable ionizer",
+        "nl": "Ionisator uitschakelen"
+      }
+    }
+  ]
+}

@@ -468,6 +468,104 @@
         ]
       },
       {
+        "id": "elevate_mode_changed",
+        "title": {
+          "en": "Mode changed",
+          "nl": "Modus veranderd"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=elevate"
+          }
+        ]
+      },
+      {
+        "id": "horizontal_oscillation_enabled_elevate",
+        "title": {
+          "en": "Horizontal oscillation enabled",
+          "nl": "Horizontale oscillatie ingeschakeld"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=elevate"
+          }
+        ]
+      },
+      {
+        "id": "horizontal_oscillation_disabled_elevate",
+        "title": {
+          "en": "Horizontal oscillation disabled",
+          "nl": "Horizontale oscillatie uitgeschakeld"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=elevate"
+          }
+        ]
+      },
+      {
+        "id": "night_mode_enabled_elevate",
+        "title": {
+          "en": "Night mode enabled",
+          "nl": "Nachtmodus ingeschakeld"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=elevate"
+          }
+        ]
+      },
+      {
+        "id": "night_mode_disabled_elevate",
+        "title": {
+          "en": "Night mode disabled",
+          "nl": "Nachtmodus uitgeschakeld"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=elevate"
+          }
+        ]
+      },
+      {
+        "id": "ionizer_enabled_elevate",
+        "title": {
+          "en": "Ionizer enabled",
+          "nl": "Ionisator ingeschakeld"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=elevate"
+          }
+        ]
+      },
+      {
+        "id": "ionizer_disabled_elevate",
+        "title": {
+          "en": "Ionizer disabled",
+          "nl": "Ionisator uitgeschakeld"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=elevate"
+          }
+        ]
+      },
+      {
         "id": "night_mode_enabled_neo",
         "title": {
           "en": "Night mode enabled",
@@ -1269,6 +1367,86 @@
                 "label": {
                   "en": "Boost",
                   "nl": "Boost"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "horizontal_oscillation_condition_elevate",
+        "title": {
+          "en": "Horizontal oscillation is !{{enabled|disabled}}",
+          "nl": "Horizontale oscillatie is !{{ingeschakeld|uitgeschakeld}}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=elevate"
+          }
+        ]
+      },
+      {
+        "id": "night_mode_condition_elevate",
+        "title": {
+          "en": "Night mode is !{{enabled|disabled}}",
+          "nl": "Nachtmodus is !{{ingeschakeld|uitgeschakeld}}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=elevate"
+          }
+        ]
+      },
+      {
+        "id": "ionizer_condition_elevate",
+        "title": {
+          "en": "Ionizer is !{{enabled|disabled}}",
+          "nl": "Ionisator is !{{ingeschakeld|uitgeschakeld}}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=elevate"
+          }
+        ]
+      },
+      {
+        "id": "mode_condition_elevate",
+        "title": {
+          "en": "Mode !{{is|isn't}} ...",
+          "nl": "Modus !{{is|is niet}} ..."
+        },
+        "titleFormatted": {
+          "en": "Mode !{{is|isn't}} [[mode]]",
+          "nl": "Modus !{{is|is niet}} [[mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=elevate"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "normal",
+                "label": {
+                  "en": "Normal",
+                  "nl": "Normaal"
+                }
+              },
+              {
+                "id": "nature",
+                "label": {
+                  "en": "Nature",
+                  "nl": "Naturel"
                 }
               }
             ]
@@ -2190,6 +2368,128 @@
                 }
               }
             ]
+          }
+        ]
+      },
+      {
+        "id": "set_elevate_mode",
+        "title": {
+          "en": "Set mode",
+          "nl": "Modus instellen"
+        },
+        "titleFormatted": {
+          "en": "Set mode to [[mode]]",
+          "nl": "Modus instellen op [[mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=elevate"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "normal",
+                "label": {
+                  "en": "Normal",
+                  "nl": "Normaal"
+                }
+              },
+              {
+                "id": "nature",
+                "label": {
+                  "en": "Nature",
+                  "nl": "Naturel"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "enable_horizontal_oscillation_elevate",
+        "title": {
+          "en": "Enable horizontal oscillation",
+          "nl": "Horizontale oscillatie inschakelen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=elevate"
+          }
+        ]
+      },
+      {
+        "id": "disable_horizontal_oscillation_elevate",
+        "title": {
+          "en": "Disable horizontal oscillation",
+          "nl": "Horizontale oscillatie uitschakelen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=elevate"
+          }
+        ]
+      },
+      {
+        "id": "enable_night_mode_elevate",
+        "title": {
+          "en": "Enable night mode",
+          "nl": "Nachtmodus inschakelen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=elevate"
+          }
+        ]
+      },
+      {
+        "id": "disable_night_mode_elevate",
+        "title": {
+          "en": "Disable night mode",
+          "nl": "Nachtmodus uitschakelen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=elevate"
+          }
+        ]
+      },
+      {
+        "id": "enable_ionizer_elevate",
+        "title": {
+          "en": "Enable ionizer",
+          "nl": "Ionisator inschakelen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=elevate"
+          }
+        ]
+      },
+      {
+        "id": "disable_ionizer_elevate",
+        "title": {
+          "en": "Disable ionizer",
+          "nl": "Ionisator uitschakelen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=elevate"
           }
         ]
       },
@@ -3443,6 +3743,71 @@
     },
     {
       "name": {
+        "en": "Elevate"
+      },
+      "class": "fan",
+      "capabilities": [
+        "fan_speed",
+        "onoff",
+        "elevate_mode",
+        "horizontal_oscillation",
+        "night_mode",
+        "ionizer"
+      ],
+      "capabilitiesOptions": {
+        "fan_speed": {
+          "min": 1,
+          "max": 26,
+          "step": 1,
+          "units": "",
+          "decimals": 0
+        }
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "cloud"
+      ],
+      "images": {
+        "small": "/drivers/elevate/assets/images/small.png",
+        "large": "/drivers/elevate/assets/images/large.png",
+        "xlarge": "/drivers/elevate/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "email"
+        },
+        {
+          "id": "code"
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          },
+          "options": {
+            "singular": false
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "repair": [
+        {
+          "id": "email"
+        },
+        {
+          "id": "code"
+        }
+      ],
+      "id": "elevate"
+    },
+    {
+      "name": {
         "en": "Neo"
       },
       "class": "humidifier",
@@ -3960,6 +4325,32 @@
           "title": {
             "en": "Boost",
             "nl": "Boost"
+          }
+        }
+      ]
+    },
+    "elevate_mode": {
+      "type": "enum",
+      "title": {
+        "en": "Mode",
+        "nl": "Modus"
+      },
+      "uiComponent": "picker",
+      "getable": true,
+      "setable": true,
+      "values": [
+        {
+          "id": "normal",
+          "title": {
+            "en": "Normal",
+            "nl": "Normaal"
+          }
+        },
+        {
+          "id": "nature",
+          "title": {
+            "en": "Nature",
+            "nl": "Naturel"
           }
         }
       ]
