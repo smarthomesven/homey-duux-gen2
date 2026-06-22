@@ -279,10 +279,11 @@ module.exports = class WhisperFlexDevice extends Homey.Device {
           const battery = status.batlvl;
           if (battery === 0) {
             await this.removeCapability('measure_battery');
+          } else {
+            await this.setCapabilityValue('measure_battery', battery).catch(err => {
+              this.error('Error setting measure_battery capability:', err);
+            });
           }
-          await this.setCapabilityValue('measure_battery', battery).catch(err => {
-            this.error('Error setting measure_battery capability:', err);
-          });
         }
 
         // Log if device is in error state
