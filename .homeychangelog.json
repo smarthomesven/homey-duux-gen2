@@ -253,5 +253,8 @@
   },
   "2.8.1": {
     "en": "Fix type detection"
+  },
+  "2.8.2": {
+    "en": "Fix Whisper Flex 2 battery capability, update dependencies, fix Whisper Flex 2 battery reporting, fix horizontal oscillation condition for Whisper Flex Ultimate"
   }
 }
