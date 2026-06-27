@@ -280,7 +280,7 @@ module.exports = class WhisperFlexDevice extends Homey.Device {
           if (battery === 0) {
             await this.removeCapability('measure_battery');
           } else {
-            await this.setCapabilityValue('measure_battery', battery).catch(err => {
+            await this.setCapabilityValue('measure_battery', battery*10).catch(err => {
               this.error('Error setting measure_battery capability:', err);
             });
           }

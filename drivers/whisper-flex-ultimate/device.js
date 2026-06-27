@@ -77,7 +77,7 @@ module.exports = class WhisperFlexUltimateDevice extends Homey.Device {
       const enableVerticalOscillationAction = this.homey.flow.getActionCard('enable_vertical_oscillation_ultimate');
       const disableVerticalOscillationAction = this.homey.flow.getActionCard('disable_vertical_oscillation_ultimate');
       const setModeAction = this.homey.flow.getActionCard('set_whisper_flex_mode_ultimate');
-      const horizontalOscillationCondition = this.homey.flow.getConditionCard('vertical_oscillation_condition_ultimate');
+      const horizontalOscillationCondition = this.homey.flow.getConditionCard('horizontal_oscillation_condition_ultimate');
       const modeCondition = this.homey.flow.getConditionCard('mode_condition_ultimate');
 
       horizontalOscillationCondition.registerRunListener(async (args, state) => {
