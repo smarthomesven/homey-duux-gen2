@@ -256,5 +256,8 @@
   },
   "2.8.2": {
     "en": "Fix Whisper Flex 2 battery capability, update dependencies, fix Whisper Flex 2 battery reporting, fix horizontal oscillation condition for Whisper Flex Ultimate"
+  },
+  "2.8.3": {
+    "en": "Fixes for Whisper Flex Ultimate and battery capability fix for Whisper Flex 2"
   }
 }
