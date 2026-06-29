@@ -21,14 +21,14 @@ const apiClient = axios.create({
   timeout: 10000,
 });
 
-module.exports = class WhisperFlexDevice extends Homey.Device {
+module.exports = class WhisperFlex2Device extends Homey.Device {
 
   /**
    * onInit is called when the device is initialized.
    */
   async onInit() {
     try {
-      this.log('Whisper Flex device has been initialized');
+      this.log('Whisper Flex 2 device has been initialized');
       
       this.registerCapabilityListener("onoff", async (value) => {
         let command;
@@ -282,6 +282,14 @@ module.exports = class WhisperFlexDevice extends Homey.Device {
           } else {
             await this.setCapabilityValue('measure_battery', battery*10).catch(err => {
               this.error('Error setting measure_battery capability:', err);
+            });
+          }
+        }
+
+        if (!this.hasCapability('measure_battery') && status.batlvl !== undefined && status.batlvl !== 0) {
+          if (status.batlvl > 0) {
+            await this.addCapability('measure_battery').catch(err => {
+              this.error('Error adding measure_battery capability:', err);
             });
           }
         }

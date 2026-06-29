@@ -6,7 +6,7 @@
   "capabilities": [
     "onoff",
     "whisper_ultimate_mode",
-    "horizontal_oscillation",
+    "horizontal_oscillation_ultimate",
     "fan_speed"
   ],
   "capabilitiesOptions": {

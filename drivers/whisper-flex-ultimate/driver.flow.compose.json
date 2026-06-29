@@ -12,13 +12,22 @@
       "title": {
         "en": "Horizontal oscillation enabled",
         "nl": "Horizontale oscillatie ingeschakeld"
-      }
+      },
+      "deprecated": true
     },
     {
       "id": "horizontal_oscillation_disabled_ultimate",
       "title": {
         "en": "Horizontal oscillation disabled",
         "nl": "Horizontale oscillatie uitgeschakeld"
+      },
+      "deprecated": true
+    },
+    {
+      "id": "horizontal_oscillation_ultimate_changed",
+      "title": {
+        "en": "Horizontal oscillation changed",
+        "nl": "Horizontale oscillatie veranderd"
       }
     }
   ],
@@ -28,7 +37,8 @@
       "title": {
         "en": "Horizontal oscillation is !{{enabled|disabled}}",
         "nl": "Horizontale oscillatie is !{{ingeschakeld|uitgeschakeld}}"
-      }
+      },
+      "deprecated": true
     },
     {
       "id": "mode_condition_ultimate",
@@ -64,6 +74,53 @@
               "label": {
                 "en": "Night",
                 "nl": "Nacht"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "horosc_condition_ultimate",
+      "title": {
+        "en": "Horizontal oscillation !{{is|isn't}} ...",
+        "nl": "Horizontale oscillatie !{{is|is niet}} ..."
+      },
+      "titleFormatted": {
+        "en": "Horizontal oscillation !{{is|isn't}} [[mode]]",
+        "nl": "Horizontale oscillatie !{{is|is niet}} [[mode]]"
+      },
+      "args": [
+        {
+          "name": "mode",
+          "type": "dropdown",
+          "values": [
+            {
+              "id": "30",
+              "label": {
+                "en": "30°",
+                "nl": "30°"
+              }
+            },
+            {
+              "id": "60",
+              "label": {
+                "en": "60°",
+                "nl": "60°"
+              }
+            },
+            {
+              "id": "90",
+              "label": {
+                "en": "90°",
+                "nl": "90°"
+              }
+            },
+            {
+              "id": "off",
+              "title": {
+                "en": "Off",
+                "nl": "Uit"
               }
             }
           ]
@@ -113,32 +170,123 @@
       ]
     },
     {
+      "id": "set_horosc_ultimate",
+      "title": {
+        "en": "Set horizontal oscillation",
+        "nl": "Horizontale oscillatie instellen"
+      },
+      "titleFormatted": {
+        "en": "Set horizontal oscillation to [[mode]]",
+        "nl": "Horizontale oscillatie instellen op [[mode]]"
+      },
+      "args": [
+        {
+          "name": "mode",
+          "type": "dropdown",
+          "values": [
+            {
+              "id": "30",
+              "label": {
+                "en": "30°",
+                "nl": "30°"
+              }
+            },
+            {
+              "id": "60",
+              "label": {
+                "en": "60°",
+                "nl": "60°"
+              }
+            },
+            {
+              "id": "90",
+              "label": {
+                "en": "90°",
+                "nl": "90°"
+              }
+            },
+            {
+              "id": "off",
+              "title": {
+                "en": "Off",
+                "nl": "Uit"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "set_verosc_ultimate",
+      "title": {
+        "en": "Set vertical oscillation",
+        "nl": "Verticale oscillatie instellen"
+      },
+      "titleFormatted": {
+        "en": "Set vertical oscillation to [[mode]]",
+        "nl": "Verticale oscillatie instellen op [[mode]]"
+      },
+      "args": [
+        {
+          "name": "mode",
+          "type": "dropdown",
+          "values": [
+            {
+              "id": "90",
+              "title": {
+                "en": "90°",
+                "nl": "90°"
+              }
+            },
+            {
+              "id": "105",
+              "title": {
+                "en": "105°",
+                "nl": "105°"
+              }
+            },
+            {
+              "id": "off",
+              "title": {
+                "en": "Off",
+                "nl": "Uit"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "enable_horizontal_oscillation_ultimate",
       "title": {
         "en": "Enable horizontal oscillation",
         "nl": "Horizontale oscillatie inschakelen"
-      }
+      },
+      "deprecated": true
     },
     {
       "id": "disable_horizontal_oscillation_ultimate",
       "title": {
         "en": "Disable horizontal oscillation",
         "nl": "Horizontale oscillatie uitschakelen"
-      }
+      },
+      "deprecated": true
     },
     {
       "id": "enable_vertical_oscillation_ultimate",
       "title": {
         "en": "Enable vertical oscillation",
         "nl": "Verticale oscillatie inschakelen"
-      }
+      },
+      "deprecated": true
     },
     {
       "id": "disable_vertical_oscillation_ultimate",
       "title": {
         "en": "Disable vertical oscillation",
         "nl": "Verticale oscillatie uitschakelen"
-      }
+      },
+      "deprecated": true
     }
   ]
 }

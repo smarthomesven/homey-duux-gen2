@@ -57,19 +57,45 @@ module.exports = class WhisperFlexUltimateDevice extends Homey.Device {
         await this.sendCommand(command);
       });
 
-      this.registerCapabilityListener("horizontal_oscillation", async (value) => {
-        let command;
-        if (value === true) {
-          command = "tune set swing 1";
-        } else if (value === false) {
-          command = "tune set swing 0";
-        } else return;
-        await this.sendCommand(command);
-      });
+      // migrations
 
-      this.homey.settings.set('firstRun', true);
+      if (this.hasCapability('horizontal_oscillation')) {
+        await this.removeCapability('horizontal_oscillation');
+      }
 
-      // Start polling
+      if (!this.hasCapability('horizontal_oscillation_ultimate')) {
+        await this.addCapability('horizontal_oscillation_ultimate');
+      }
+      // end migrations
+
+      if (this.hasCapability('horizontal_oscillation')) {
+        this.registerCapabilityListener("horizontal_oscillation", async (value) => {
+          let command;
+          if (value === true) {
+            command = "tune set swing 1";
+          } else if (value === false) {
+            command = "tune set swing 0";
+          } else return;
+          await this.sendCommand(command);
+        });
+      }
+
+      if (this.hasCapability('horizontal_oscillation_ultimate')) {
+        this.registerCapabilityListener("horizontal_oscillation_ultimate", async (value) => {
+          let command;
+          if (value === "30") {
+            command = "tune set swing 1";
+          } else if (value === "60") {
+            command = "tune set swing 2";
+          } else if (value === "90") {
+            command = "tune set swing 3";
+          } else if (value === "off") {
+            command = "tune set swing 0";
+          } else return;
+          await this.sendCommand(command);
+        });
+      }
+
       this.startPolling();
 
       const enableHorizontalOscillationAction = this.homey.flow.getActionCard('enable_horizontal_oscillation_ultimate');
@@ -79,6 +105,9 @@ module.exports = class WhisperFlexUltimateDevice extends Homey.Device {
       const setModeAction = this.homey.flow.getActionCard('set_whisper_flex_mode_ultimate');
       const horizontalOscillationCondition = this.homey.flow.getConditionCard('horizontal_oscillation_condition_ultimate');
       const modeCondition = this.homey.flow.getConditionCard('mode_condition_ultimate');
+      const horizontalOscillationCondition2 = this.homey.flow.getConditionCard('horosc_condition_ultimate');
+      const setHorizontalOscillationAction = this.homey.flow.getActionCard('set_horosc_ultimate');
+      const setVerticalOscillationAction = this.homey.flow.getActionCard('set_verosc_ultimate');
 
       horizontalOscillationCondition.registerRunListener(async (args, state) => {
         const isSwing = this.getCapabilityValue('horizontal_oscillation');
@@ -96,9 +125,38 @@ module.exports = class WhisperFlexUltimateDevice extends Homey.Device {
         return true;
       });
 
+      setHorizontalOscillationAction.registerRunListener(async (args, state) => {
+        if (args.mode === '30') {
+          await this.sendCommand("tune set swing 1");
+        } else if (args.mode === '60') {
+          await this.sendCommand("tune set swing 2");
+        } else if (args.mode === '90') {
+          await this.sendCommand("tune set swing 3");
+        } else if (args.mode === 'off') {
+          await this.sendCommand("tune set swing 0");
+        }
+        return true;
+      });
+
+      setVerticalOscillationAction.registerRunListener(async (args, state) => {
+        if (args.mode === "105") {
+          await this.sendCommand("tune set tilt 2");
+        } else if (args.mode === "90") {
+          await this.sendCommand("tune set tilt 1");
+        } else if (args.mode === "off") {
+          await this.sendCommand("tune set tilt 0");
+        }
+        return true;
+      });
+
       modeCondition.registerRunListener(async (args, state) => {
         const mode = this.getCapabilityValue('whisper_ultimate_mode');
         return mode === args.mode;
+      });
+
+      horizontalOscillationCondition2.registerRunListener(async (args, state) => {
+        const swing = this.getCapabilityValue('horizontal_oscillation_ultimate');
+        return swing === args.mode;
       });
 
       enableHorizontalOscillationAction.registerRunListener(async (args, state) => {
@@ -129,7 +187,7 @@ module.exports = class WhisperFlexUltimateDevice extends Homey.Device {
    * onAdded is called when the user adds the device, called just after pairing.
    */
   async onAdded() {
-    this.log('Whisper Flex device has been added');
+    this.log('Whisper Flex Ultimate device has been added');
   }
 
   /**
@@ -141,7 +199,7 @@ module.exports = class WhisperFlexUltimateDevice extends Homey.Device {
    * @returns {Promise<string|void>} return a custom message that will be displayed
    */
   async onSettings({ oldSettings, newSettings, changedKeys }) {
-    this.log('Whisper Flex device settings where changed');
+    this.log('Whisper Flex Ultimate device settings where changed');
   }
 
   /**
@@ -150,14 +208,14 @@ module.exports = class WhisperFlexUltimateDevice extends Homey.Device {
    * @param {string} name The new name
    */
   async onRenamed(name) {
-    this.log('Whisper Flex device was renamed');
+    this.log('Whisper Flex Ultimate device was renamed');
   }
 
   /**
    * onDeleted is called when the user deleted the device.
    */
   async onDeleted() {
-    this.log('Whisper Flex device has been deleted');
+    this.log('Whisper Flex Ultimate device has been deleted');
     this.stopPolling();
   }
 
@@ -234,27 +292,20 @@ module.exports = class WhisperFlexUltimateDevice extends Homey.Device {
           });
         }
 
-        const isFirstRun = this.homey.settings.get('firstRun');
-
-        const isHorizontalOscillation = status.swing === 1;
-        this.setStoreValue('horizontal_oscillation', isHorizontalOscillation);
-        if (this.hasCapability('horizontal_oscillation')) {
-          if (isHorizontalOscillation !== this.getCapabilityValue('horizontal_oscillation')) {
-            if (isFirstRun !== true) {
-              if (this.getCapabilityValue('horizontal_oscillation') === true) {
-                await this.driver.triggerFlow('horizontal_oscillation_disabled_ultimate', this);
-              } else if (this.getCapabilityValue('horizontal_oscillation') === false) {
-                await this.driver.triggerFlow('horizontal_oscillation_disabled_ultimate', this);
-              }
-            }
-          }
-          await this.setCapabilityValue('horizontal_oscillation', isHorizontalOscillation).catch(err => {
-            this.error('Error setting horizontal_oscillation capability:', err);
+        if (this.hasCapability('horizontal_oscillation_ultimate') && status.swing !== undefined) {
+          let swingValue;
+          if (status.swing === 0) {
+            swingValue = "off";
+          } else if (status.swing === 1) {
+            swingValue = "30";
+          } else if (status.swing === 2) {
+            swingValue = "60";
+          } else if (status.swing === 3) {
+            swingValue = "90";
+          } else return;
+          await this.setCapabilityValue('horizontal_oscillation_ultimate', swingValue).catch(err => {
+            this.error('Error setting horizontal oscillation capability:', err);
           });
-        }
-
-        if (isFirstRun === true) {
-          this.homey.settings.set('firstRun', false);
         }
       }
     } catch (error) {

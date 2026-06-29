@@ -935,6 +935,7 @@
           "en": "Horizontal oscillation enabled",
           "nl": "Horizontale oscillatie ingeschakeld"
         },
+        "deprecated": true,
         "args": [
           {
             "type": "device",
@@ -948,6 +949,21 @@
         "title": {
           "en": "Horizontal oscillation disabled",
           "nl": "Horizontale oscillatie uitgeschakeld"
+        },
+        "deprecated": true,
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=whisper-flex-ultimate"
+          }
+        ]
+      },
+      {
+        "id": "horizontal_oscillation_ultimate_changed",
+        "title": {
+          "en": "Horizontal oscillation changed",
+          "nl": "Horizontale oscillatie veranderd"
         },
         "args": [
           {
@@ -1616,6 +1632,7 @@
           "en": "Horizontal oscillation is !{{enabled|disabled}}",
           "nl": "Horizontale oscillatie is !{{ingeschakeld|uitgeschakeld}}"
         },
+        "deprecated": true,
         "args": [
           {
             "type": "device",
@@ -1663,6 +1680,58 @@
                 "label": {
                   "en": "Night",
                   "nl": "Nacht"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "horosc_condition_ultimate",
+        "title": {
+          "en": "Horizontal oscillation !{{is|isn't}} ...",
+          "nl": "Horizontale oscillatie !{{is|is niet}} ..."
+        },
+        "titleFormatted": {
+          "en": "Horizontal oscillation !{{is|isn't}} [[mode]]",
+          "nl": "Horizontale oscillatie !{{is|is niet}} [[mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=whisper-flex-ultimate"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "30",
+                "label": {
+                  "en": "30°",
+                  "nl": "30°"
+                }
+              },
+              {
+                "id": "60",
+                "label": {
+                  "en": "60°",
+                  "nl": "60°"
+                }
+              },
+              {
+                "id": "90",
+                "label": {
+                  "en": "90°",
+                  "nl": "90°"
+                }
+              },
+              {
+                "id": "off",
+                "title": {
+                  "en": "Off",
+                  "nl": "Uit"
                 }
               }
             ]
@@ -3255,11 +3324,109 @@
         ]
       },
       {
+        "id": "set_horosc_ultimate",
+        "title": {
+          "en": "Set horizontal oscillation",
+          "nl": "Horizontale oscillatie instellen"
+        },
+        "titleFormatted": {
+          "en": "Set horizontal oscillation to [[mode]]",
+          "nl": "Horizontale oscillatie instellen op [[mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=whisper-flex-ultimate"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "30",
+                "label": {
+                  "en": "30°",
+                  "nl": "30°"
+                }
+              },
+              {
+                "id": "60",
+                "label": {
+                  "en": "60°",
+                  "nl": "60°"
+                }
+              },
+              {
+                "id": "90",
+                "label": {
+                  "en": "90°",
+                  "nl": "90°"
+                }
+              },
+              {
+                "id": "off",
+                "title": {
+                  "en": "Off",
+                  "nl": "Uit"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "set_verosc_ultimate",
+        "title": {
+          "en": "Set vertical oscillation",
+          "nl": "Verticale oscillatie instellen"
+        },
+        "titleFormatted": {
+          "en": "Set vertical oscillation to [[mode]]",
+          "nl": "Verticale oscillatie instellen op [[mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=whisper-flex-ultimate"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "90",
+                "title": {
+                  "en": "90°",
+                  "nl": "90°"
+                }
+              },
+              {
+                "id": "105",
+                "title": {
+                  "en": "105°",
+                  "nl": "105°"
+                }
+              },
+              {
+                "id": "off",
+                "title": {
+                  "en": "Off",
+                  "nl": "Uit"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
         "id": "enable_horizontal_oscillation_ultimate",
         "title": {
           "en": "Enable horizontal oscillation",
           "nl": "Horizontale oscillatie inschakelen"
         },
+        "deprecated": true,
         "args": [
           {
             "type": "device",
@@ -3274,6 +3441,7 @@
           "en": "Disable horizontal oscillation",
           "nl": "Horizontale oscillatie uitschakelen"
         },
+        "deprecated": true,
         "args": [
           {
             "type": "device",
@@ -3288,6 +3456,7 @@
           "en": "Enable vertical oscillation",
           "nl": "Verticale oscillatie inschakelen"
         },
+        "deprecated": true,
         "args": [
           {
             "type": "device",
@@ -3302,6 +3471,7 @@
           "en": "Disable vertical oscillation",
           "nl": "Verticale oscillatie uitschakelen"
         },
+        "deprecated": true,
         "args": [
           {
             "type": "device",
@@ -4201,7 +4371,7 @@
       "capabilities": [
         "onoff",
         "whisper_ultimate_mode",
-        "horizontal_oscillation",
+        "horizontal_oscillation_ultimate",
         "fan_speed"
       ],
       "capabilitiesOptions": {
@@ -4585,6 +4755,46 @@
       "uiComponent": "button",
       "uiQuickAction": false,
       "icon": "/assets/horizontal_oscillation.svg"
+    },
+    "horizontal_oscillation_ultimate": {
+      "type": "enum",
+      "title": {
+        "en": "Horizontal oscillation",
+        "nl": "Horizontale oscillatie"
+      },
+      "uiComponent": "picker",
+      "getable": true,
+      "setable": true,
+      "values": [
+        {
+          "id": "30",
+          "title": {
+            "en": "30°",
+            "nl": "30°"
+          }
+        },
+        {
+          "id": "60",
+          "title": {
+            "en": "60°",
+            "nl": "60°"
+          }
+        },
+        {
+          "id": "90",
+          "title": {
+            "en": "90°",
+            "nl": "90°"
+          }
+        },
+        {
+          "id": "off",
+          "title": {
+            "en": "Off",
+            "nl": "Uit"
+          }
+        }
+      ]
     },
     "horizontal_oscillation2": {
       "type": "enum",
