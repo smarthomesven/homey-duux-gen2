@@ -259,5 +259,8 @@
   },
   "2.8.3": {
     "en": "Fixes for Whisper Flex Ultimate and battery capability fix for Whisper Flex 2"
+  },
+  "2.8.4": {
+    "en": "Remove DNS cache for Elevate"
   }
 }
