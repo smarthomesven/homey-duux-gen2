@@ -262,5 +262,8 @@
   },
   "2.8.4": {
     "en": "Remove DNS cache for Elevate"
+  },
+  "2.8.5": {
+    "en": "Fix horizontal oscillation for Elevate"
   }
 }
