@@ -3,10 +3,6 @@
 const Homey = require('homey');
 const axios = require('axios');
 const https = require('https');
-const CacheableLookup = require('cacheable-lookup');
-const cacheable = new CacheableLookup({
-  maxTtl: 300,
-});
 const httpsAgent = new https.Agent({
   keepAlive: true,
   keepAliveMsecs: 10000,
@@ -14,11 +10,10 @@ const httpsAgent = new https.Agent({
   maxFreeSockets: 4,
   timeout: 30000,
 });
-cacheable.install(httpsAgent);
 const apiClient = axios.create({
   baseURL: 'https://v5.api.cloudgarden.nl',
   httpsAgent,
-  timeout: 10000,
+  timeout: 20000,
 });
 
 module.exports = class ElevateDevice extends Homey.Device {
@@ -136,7 +131,7 @@ module.exports = class ElevateDevice extends Homey.Device {
     this.pollDeviceStatus();
     this.pollInterval = this.homey.setInterval(() => {
       this.pollDeviceStatus();
-    }, 15000);
+    }, 17000);
   }
 
   stopPolling() {
