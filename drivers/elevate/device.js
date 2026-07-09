@@ -54,9 +54,9 @@ module.exports = class ElevateDevice extends Homey.Device {
       this.registerCapabilityListener("horizontal_oscillation", async (value) => {
         let command;
         if (value === true) {
-          command = "tune set swing 1";
+          command = "tune set horosc 1";
         } else if (value === false) {
-          command = "tune set swing 0";
+          command = "tune set horosc 0";
         } else return;
         await this.sendCommand(command);
       });
@@ -199,7 +199,7 @@ module.exports = class ElevateDevice extends Homey.Device {
 
         const isFirstRun = this.getStoreValue('firstRun');
 
-        const isHorizontalOscillation = status.swing === 1;
+        const isHorizontalOscillation = status.horosc === 1;
         this.setStoreValue('horizontal_oscillation', isHorizontalOscillation);
         if (this.hasCapability('horizontal_oscillation')) {
           if (isHorizontalOscillation !== this.getCapabilityValue('horizontal_oscillation')) {

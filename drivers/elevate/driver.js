@@ -41,13 +41,13 @@ module.exports = class ElevateDriver extends Homey.Driver {
 
     enableHorizontalOscillationAction.registerRunListener(async (args, state) => {
       const device = args.device;
-      await device.sendCommand("tune set swing 1");
+      await device.sendCommand("tune set horosc 1");
       return true;
     });
 
     disableHorizontalOscillationAction.registerRunListener(async (args, state) => {
       const device = args.device;
-      await device.sendCommand("tune set swing 0");
+      await device.sendCommand("tune set horosc 0");
       return true;
     });
 
