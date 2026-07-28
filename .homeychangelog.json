@@ -265,5 +265,8 @@
   },
   "2.8.5": {
     "en": "Fix horizontal oscillation for Elevate"
+  },
+  "2.8.6": {
+    "en": "Added icon for Elevate"
   }
 }
