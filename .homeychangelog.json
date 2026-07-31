@@ -268,5 +268,8 @@
   },
   "2.8.6": {
     "en": "Added icon for Elevate"
+  },
+  "2.8.7": {
+    "en": "Update dependencies"
   }
 }
