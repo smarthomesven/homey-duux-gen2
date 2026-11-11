@@ -289,5 +289,8 @@
   },
   "2.10.3": {
     "en": "Fixed crash issue"
+  },
+  "2.10.4": {
+    "en": "Update dependencies"
   }
 }
